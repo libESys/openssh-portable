@@ -70,7 +70,7 @@
 #include "sk-api.h"
 
 /* argv0 */
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 /* Default files to add */
 static char *default_files[] = {
@@ -661,8 +661,8 @@ usage(void)
 int
 main(int argc, char **argv)
 {
-	extern char *optarg;
-	extern int optind;
+    LIBOPENSSH_API extern char *optarg;
+    LIBOPENSSH_API extern int optind;
 	int agent_fd;
 	char *pkcs11provider = NULL, *skprovider = NULL;
 	int r, i, ch, deleting = 0, ret = 0, key_only = 0, do_download = 0;

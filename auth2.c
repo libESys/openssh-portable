@@ -77,7 +77,7 @@ extern Authmethod method_hostbased;
 extern Authmethod method_gssapi;
 #endif
 
-Authmethod *authmethods[] = {
+static Authmethod *authmethods[] = {
 	&method_none,
 	&method_pubkey,
 #ifdef GSSAPI

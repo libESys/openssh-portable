@@ -38,6 +38,8 @@
 #ifndef CHANNEL_H
 #define CHANNEL_H
 
+#include "libopenssh_defs.h"
+
 /* Definitions for channel types. */
 #define SSH_CHANNEL_X11_LISTENER	1	/* Listening for inet X11 conn. */
 #define SSH_CHANNEL_PORT_LISTENER	2	/* Listening on a port. */
@@ -240,116 +242,116 @@ struct Channel {
 	sshbuf_len(c->extended) > 0))
 
 /* Add channel management structures to SSH transport instance */
-void channel_init_channels(struct ssh *ssh);
+LIBOPENSSH_API void channel_init_channels(struct ssh *ssh);
 
 /* channel management */
 
-Channel	*channel_by_id(struct ssh *, int);
-Channel	*channel_by_remote_id(struct ssh *, u_int);
-Channel	*channel_lookup(struct ssh *, int);
-Channel *channel_new(struct ssh *, char *, int, int, int, int,
+LIBOPENSSH_API Channel	*channel_by_id(struct ssh *, int);
+LIBOPENSSH_API Channel	*channel_by_remote_id(struct ssh *, u_int);
+LIBOPENSSH_API Channel	*channel_lookup(struct ssh *, int);
+LIBOPENSSH_API Channel *channel_new(struct ssh *, char *, int, int, int, int,
 	    u_int, u_int, int, char *, int);
-void	 channel_set_fds(struct ssh *, int, int, int, int, int,
+LIBOPENSSH_API void	 channel_set_fds(struct ssh *, int, int, int, int, int,
 	    int, int, u_int);
-void	 channel_free(struct ssh *, Channel *);
-void	 channel_free_all(struct ssh *);
-void	 channel_stop_listening(struct ssh *);
+LIBOPENSSH_API void	 channel_free(struct ssh *, Channel *);
+LIBOPENSSH_API void	 channel_free_all(struct ssh *);
+LIBOPENSSH_API void	 channel_stop_listening(struct ssh *);
 
-void	 channel_send_open(struct ssh *, int);
-void	 channel_request_start(struct ssh *, int, char *, int);
-void	 channel_register_cleanup(struct ssh *, int,
+LIBOPENSSH_API void	 channel_send_open(struct ssh *, int);
+LIBOPENSSH_API void	 channel_request_start(struct ssh *, int, char *, int);
+LIBOPENSSH_API void	 channel_register_cleanup(struct ssh *, int,
 	    channel_callback_fn *, int);
-void	 channel_register_open_confirm(struct ssh *, int,
+LIBOPENSSH_API void	 channel_register_open_confirm(struct ssh *, int,
 	    channel_open_fn *, void *);
-void	 channel_register_filter(struct ssh *, int, channel_infilter_fn *,
+LIBOPENSSH_API void	 channel_register_filter(struct ssh *, int, channel_infilter_fn *,
 	    channel_outfilter_fn *, channel_filter_cleanup_fn *, void *);
-void	 channel_register_status_confirm(struct ssh *, int,
+LIBOPENSSH_API void	 channel_register_status_confirm(struct ssh *, int,
 	    channel_confirm_cb *, channel_confirm_abandon_cb *, void *);
-void	 channel_cancel_cleanup(struct ssh *, int);
-int	 channel_close_fd(struct ssh *, int *);
-void	 channel_send_window_changes(struct ssh *);
+LIBOPENSSH_API void	 channel_cancel_cleanup(struct ssh *, int);
+LIBOPENSSH_API int	 channel_close_fd(struct ssh *, int *);
+LIBOPENSSH_API void	 channel_send_window_changes(struct ssh *);
 
 /* mux proxy support */
 
-int	 channel_proxy_downstream(struct ssh *, Channel *mc);
-int	 channel_proxy_upstream(Channel *, int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_proxy_downstream(struct ssh *, Channel *mc);
+LIBOPENSSH_API int	 channel_proxy_upstream(Channel *, int, u_int32_t, struct ssh *);
 
 /* protocol handler */
 
-int	 channel_input_data(int, u_int32_t, struct ssh *);
-int	 channel_input_extended_data(int, u_int32_t, struct ssh *);
-int	 channel_input_ieof(int, u_int32_t, struct ssh *);
-int	 channel_input_oclose(int, u_int32_t, struct ssh *);
-int	 channel_input_open_confirmation(int, u_int32_t, struct ssh *);
-int	 channel_input_open_failure(int, u_int32_t, struct ssh *);
-int	 channel_input_port_open(int, u_int32_t, struct ssh *);
-int	 channel_input_window_adjust(int, u_int32_t, struct ssh *);
-int	 channel_input_status_confirm(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_data(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_extended_data(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_ieof(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_oclose(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_open_confirmation(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_open_failure(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_port_open(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_window_adjust(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 channel_input_status_confirm(int, u_int32_t, struct ssh *);
 
 /* file descriptor handling (read/write) */
 
-void	 channel_prepare_select(struct ssh *, fd_set **, fd_set **, int *,
+LIBOPENSSH_API void	 channel_prepare_select(struct ssh *, fd_set **, fd_set **, int *,
 	    u_int*, time_t*);
-void     channel_after_select(struct ssh *, fd_set *, fd_set *);
-void     channel_output_poll(struct ssh *);
+LIBOPENSSH_API void     channel_after_select(struct ssh *, fd_set *, fd_set *);
+LIBOPENSSH_API void     channel_output_poll(struct ssh *);
 
-int      channel_not_very_much_buffered_data(struct ssh *);
-void     channel_close_all(struct ssh *);
-int      channel_still_open(struct ssh *);
-const char *channel_format_extended_usage(const Channel *);
-char	*channel_open_message(struct ssh *);
-int	 channel_find_open(struct ssh *);
+LIBOPENSSH_API int      channel_not_very_much_buffered_data(struct ssh *);
+LIBOPENSSH_API void     channel_close_all(struct ssh *);
+LIBOPENSSH_API int      channel_still_open(struct ssh *);
+LIBOPENSSH_API const char *channel_format_extended_usage(const Channel *);
+LIBOPENSSH_API char	*channel_open_message(struct ssh *);
+LIBOPENSSH_API int	 channel_find_open(struct ssh *);
 
 /* tcp forwarding */
 struct Forward;
 struct ForwardOptions;
-void	 channel_set_af(struct ssh *, int af);
-void     channel_permit_all(struct ssh *, int);
-void	 channel_add_permission(struct ssh *, int, int, char *, int);
-void	 channel_clear_permission(struct ssh *, int, int);
-void	 channel_disable_admin(struct ssh *, int);
-void	 channel_update_permission(struct ssh *, int, int);
-Channel	*channel_connect_to_port(struct ssh *, const char *, u_short,
+LIBOPENSSH_API void	 channel_set_af(struct ssh *, int af);
+LIBOPENSSH_API void     channel_permit_all(struct ssh *, int);
+LIBOPENSSH_API void	 channel_add_permission(struct ssh *, int, int, char *, int);
+LIBOPENSSH_API void	 channel_clear_permission(struct ssh *, int, int);
+LIBOPENSSH_API void	 channel_disable_admin(struct ssh *, int);
+LIBOPENSSH_API void	 channel_update_permission(struct ssh *, int, int);
+LIBOPENSSH_API Channel	*channel_connect_to_port(struct ssh *, const char *, u_short,
 	    char *, char *, int *, const char **);
-Channel *channel_connect_to_path(struct ssh *, const char *, char *, char *);
-Channel	*channel_connect_stdio_fwd(struct ssh *, const char*,
+LIBOPENSSH_API Channel *channel_connect_to_path(struct ssh *, const char *, char *, char *);
+LIBOPENSSH_API Channel	*channel_connect_stdio_fwd(struct ssh *, const char*,
 	    u_short, int, int);
-Channel	*channel_connect_by_listen_address(struct ssh *, const char *,
+LIBOPENSSH_API Channel	*channel_connect_by_listen_address(struct ssh *, const char *,
 	    u_short, char *, char *);
-Channel	*channel_connect_by_listen_path(struct ssh *, const char *,
+LIBOPENSSH_API Channel	*channel_connect_by_listen_path(struct ssh *, const char *,
 	    char *, char *);
-int	 channel_request_remote_forwarding(struct ssh *, struct Forward *);
-int	 channel_setup_local_fwd_listener(struct ssh *, struct Forward *,
+LIBOPENSSH_API int	 channel_request_remote_forwarding(struct ssh *, struct Forward *);
+LIBOPENSSH_API int	 channel_setup_local_fwd_listener(struct ssh *, struct Forward *,
 	    struct ForwardOptions *);
-int	 channel_request_rforward_cancel(struct ssh *, struct Forward *);
-int	 channel_setup_remote_fwd_listener(struct ssh *, struct Forward *,
+LIBOPENSSH_API int	 channel_request_rforward_cancel(struct ssh *, struct Forward *);
+LIBOPENSSH_API int	 channel_setup_remote_fwd_listener(struct ssh *, struct Forward *,
 	    int *, struct ForwardOptions *);
-int	 channel_cancel_rport_listener(struct ssh *, struct Forward *);
-int	 channel_cancel_lport_listener(struct ssh *, struct Forward *,
+LIBOPENSSH_API int	 channel_cancel_rport_listener(struct ssh *, struct Forward *);
+LIBOPENSSH_API int	 channel_cancel_lport_listener(struct ssh *, struct Forward *,
 	    int, struct ForwardOptions *);
-int	 permitopen_port(const char *);
+LIBOPENSSH_API int	 permitopen_port(const char *);
 
 /* x11 forwarding */
 
-void	 channel_set_x11_refuse_time(struct ssh *, u_int);
-int	 x11_connect_display(struct ssh *);
-int	 x11_create_display_inet(struct ssh *, int, int, int, u_int *, int **);
-void	 x11_request_forwarding_with_spoofing(struct ssh *, int,
+LIBOPENSSH_API void	 channel_set_x11_refuse_time(struct ssh *, u_int);
+LIBOPENSSH_API int	 x11_connect_display(struct ssh *);
+LIBOPENSSH_API int	 x11_create_display_inet(struct ssh *, int, int, int, u_int *, int **);
+LIBOPENSSH_API void	 x11_request_forwarding_with_spoofing(struct ssh *, int,
 	    const char *, const char *, const char *, int);
 
 /* channel close */
 
-int	 chan_is_dead(struct ssh *, Channel *, int);
-void	 chan_mark_dead(struct ssh *, Channel *);
+LIBOPENSSH_API int	 chan_is_dead(struct ssh *, Channel *, int);
+LIBOPENSSH_API void	 chan_mark_dead(struct ssh *, Channel *);
 
 /* channel events */
 
-void	 chan_rcvd_oclose(struct ssh *, Channel *);
-void	 chan_rcvd_eow(struct ssh *, Channel *);
-void	 chan_read_failed(struct ssh *, Channel *);
-void	 chan_ibuf_empty(struct ssh *, Channel *);
-void	 chan_rcvd_ieof(struct ssh *, Channel *);
-void	 chan_write_failed(struct ssh *, Channel *);
-void	 chan_obuf_empty(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_rcvd_oclose(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_rcvd_eow(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_read_failed(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_ibuf_empty(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_rcvd_ieof(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_write_failed(struct ssh *, Channel *);
+LIBOPENSSH_API void	 chan_obuf_empty(struct ssh *, Channel *);
 
 #endif

@@ -158,7 +158,7 @@ parse_prime(int linenum, char *line, struct dhgroup *dhg)
 	return 0;
 }
 
-DH *
+LIBOPENSSH_API DH *
 choose_dh(int min, int wantbits, int max)
 {
 	FILE *f;

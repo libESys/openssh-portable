@@ -27,6 +27,9 @@
 #define _BSD_WAITPID_H
 
 #ifndef HAVE_WAITPID
+
+#include "libopenssh_defs.h"
+
 /* Clean out any potential issues */
 #undef WIFEXITED
 #undef WIFSTOPPED
@@ -43,7 +46,7 @@
 #define WCOREDUMP(w)	((_W_INT(w)) & WCOREFLAG)
 
 /* Prototype */
-pid_t waitpid(int, int *, int);
+LIBOPENSSH_API pid_t waitpid(int, int *, int);
 
 #endif /* !HAVE_WAITPID */
 #endif /* _BSD_WAITPID_H */

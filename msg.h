@@ -25,8 +25,10 @@
 #ifndef SSH_MSG_H
 #define SSH_MSG_H
 
+#include "libopenssh_defs.h"
+
 struct sshbuf;
-int	 ssh_msg_send(int, u_char, struct sshbuf *);
-int	 ssh_msg_recv(int, struct sshbuf *);
+LIBOPENSSH_API int	 ssh_msg_send(int, u_char, struct sshbuf *);
+LIBOPENSSH_API int	 ssh_msg_recv(int, struct sshbuf *);
 
 #endif

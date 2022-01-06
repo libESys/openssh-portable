@@ -84,7 +84,7 @@ int timeout = 5;
 int maxfd;
 #define MAXCON (maxfd - 10)
 
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 fd_set *read_wait;
 size_t read_wait_nfdset;
 int ncon;
@@ -633,7 +633,7 @@ do_host(char *host)
 	}
 }
 
-void
+/*void
 sshfatal(const char *file, const char *func, int line, int showfunc,
     LogLevel level, const char *suffix, const char *fmt, ...)
 {
@@ -643,7 +643,7 @@ sshfatal(const char *file, const char *func, int line, int showfunc,
 	sshlogv(file, func, line, showfunc, level, suffix, fmt, args);
 	va_end(args);
 	cleanup_exit(255);
-}
+}*/
 
 static void
 usage(void)

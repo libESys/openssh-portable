@@ -40,6 +40,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
 #include <sys/types.h>
@@ -113,7 +115,7 @@
 #include "ssh-pkcs11.h"
 #endif
 
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 /* Saves a copy of argv for setproctitle emulation */
 #ifndef HAVE_SETPROCTITLE
@@ -121,6 +123,9 @@ static char **saved_av;
 #endif
 
 /* Flag indicating whether debug mode is on.  May be set on the command line. */
+#ifdef LIBOPENSSH_EXPORTS
+static
+#endif
 int debug_flag = 0;
 
 /* Flag indicating whether a tty should be requested */
@@ -189,11 +194,11 @@ int subsystem_flag = 0;
 static int forward_confirms_pending = -1;
 
 /* mux.c */
-extern int muxserver_sock;
-extern u_int muxclient_command;
+LIBOPENSSH_API extern int muxserver_sock;
+LIBOPENSSH_API extern u_int muxclient_command;
 
 /* Prints a help message to the user.  This function never returns. */
-
+#ifndef LIBOPENSSH_EXPORTS
 static void
 usage(void)
 {
@@ -651,8 +656,8 @@ main(int ac, char **av)
 	char cname[NI_MAXHOST], thishost[NI_MAXHOST];
 	struct stat st;
 	struct passwd *pw;
-	extern int optind, optreset;
-	extern char *optarg;
+    LIBOPENSSH_API extern int optind, optreset;
+    LIBOPENSSH_API extern char *optarg;
 	struct Forward fwd;
 	struct addrinfo *addrs = NULL;
 	size_t n, len;
@@ -2387,3 +2392,4 @@ main_sigchld_handler(int sig)
 		;
 	errno = save_errno;
 }
+#endif

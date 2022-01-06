@@ -26,6 +26,8 @@
 #ifndef SSHKEY_H
 #define SSHKEY_H
 
+#include "libopenssh_defs.h"
+
 #include <sys/types.h>
 
 #ifdef WITH_OPENSSL
@@ -164,155 +166,155 @@ struct sshkey_sig_details {
 	uint8_t sk_flags;	/* U2F signature flags; see ssh-sk.h */
 };
 
-struct sshkey	*sshkey_new(int);
-void		 sshkey_free(struct sshkey *);
-int		 sshkey_equal_public(const struct sshkey *,
+LIBOPENSSH_API struct sshkey	*sshkey_new(int);
+LIBOPENSSH_API void		 sshkey_free(struct sshkey *);
+LIBOPENSSH_API int		 sshkey_equal_public(const struct sshkey *,
     const struct sshkey *);
-int		 sshkey_equal(const struct sshkey *, const struct sshkey *);
-char		*sshkey_fingerprint(const struct sshkey *,
+LIBOPENSSH_API int		 sshkey_equal(const struct sshkey *, const struct sshkey *);
+LIBOPENSSH_API char		*sshkey_fingerprint(const struct sshkey *,
     int, enum sshkey_fp_rep);
-int		 sshkey_fingerprint_raw(const struct sshkey *k,
+LIBOPENSSH_API int		 sshkey_fingerprint_raw(const struct sshkey *k,
     int, u_char **retp, size_t *lenp);
-const char	*sshkey_type(const struct sshkey *);
-const char	*sshkey_cert_type(const struct sshkey *);
-int		 sshkey_format_text(const struct sshkey *, struct sshbuf *);
-int		 sshkey_write(const struct sshkey *, FILE *);
-int		 sshkey_read(struct sshkey *, char **);
-u_int		 sshkey_size(const struct sshkey *);
+LIBOPENSSH_API const char	*sshkey_type(const struct sshkey *);
+LIBOPENSSH_API const char	*sshkey_cert_type(const struct sshkey *);
+LIBOPENSSH_API int		 sshkey_format_text(const struct sshkey *, struct sshbuf *);
+LIBOPENSSH_API int		 sshkey_write(const struct sshkey *, FILE *);
+LIBOPENSSH_API int		 sshkey_read(struct sshkey *, char **);
+LIBOPENSSH_API u_int		 sshkey_size(const struct sshkey *);
 
-int		 sshkey_generate(int type, u_int bits, struct sshkey **keyp);
-int		 sshkey_from_private(const struct sshkey *, struct sshkey **);
+LIBOPENSSH_API int		 sshkey_generate(int type, u_int bits, struct sshkey **keyp);
+LIBOPENSSH_API int		 sshkey_from_private(const struct sshkey *, struct sshkey **);
 
-int		 sshkey_is_shielded(struct sshkey *);
-int		 sshkey_shield_private(struct sshkey *);
-int		 sshkey_unshield_private(struct sshkey *);
+LIBOPENSSH_API int		 sshkey_is_shielded(struct sshkey *);
+LIBOPENSSH_API int		 sshkey_shield_private(struct sshkey *);
+LIBOPENSSH_API int		 sshkey_unshield_private(struct sshkey *);
 
-int	 sshkey_type_from_name(const char *);
-int	 sshkey_is_cert(const struct sshkey *);
-int	 sshkey_is_sk(const struct sshkey *);
-int	 sshkey_type_is_cert(int);
-int	 sshkey_type_plain(int);
-int	 sshkey_to_certified(struct sshkey *);
-int	 sshkey_drop_cert(struct sshkey *);
-int	 sshkey_cert_copy(const struct sshkey *, struct sshkey *);
-int	 sshkey_cert_check_authority(const struct sshkey *, int, int, int,
+LIBOPENSSH_API int	 sshkey_type_from_name(const char *);
+LIBOPENSSH_API int	 sshkey_is_cert(const struct sshkey *);
+LIBOPENSSH_API int	 sshkey_is_sk(const struct sshkey *);
+LIBOPENSSH_API int	 sshkey_type_is_cert(int);
+LIBOPENSSH_API int	 sshkey_type_plain(int);
+LIBOPENSSH_API int	 sshkey_to_certified(struct sshkey *);
+LIBOPENSSH_API int	 sshkey_drop_cert(struct sshkey *);
+LIBOPENSSH_API int	 sshkey_cert_copy(const struct sshkey *, struct sshkey *);
+LIBOPENSSH_API int	 sshkey_cert_check_authority(const struct sshkey *, int, int, int,
     const char *, const char **);
-int	 sshkey_cert_check_host(const struct sshkey *, const char *,
+LIBOPENSSH_API int	 sshkey_cert_check_host(const struct sshkey *, const char *,
     int , const char *, const char **);
-size_t	 sshkey_format_cert_validity(const struct sshkey_cert *,
+LIBOPENSSH_API size_t	 sshkey_format_cert_validity(const struct sshkey_cert *,
     char *, size_t) __attribute__((__bounded__(__string__, 2, 3)));
-int	 sshkey_check_cert_sigtype(const struct sshkey *, const char *);
+LIBOPENSSH_API int	 sshkey_check_cert_sigtype(const struct sshkey *, const char *);
 
-int	 sshkey_certify(struct sshkey *, struct sshkey *,
+LIBOPENSSH_API int	 sshkey_certify(struct sshkey *, struct sshkey *,
     const char *, const char *, const char *);
 /* Variant allowing use of a custom signature function (e.g. for ssh-agent) */
 typedef int sshkey_certify_signer(struct sshkey *, u_char **, size_t *,
     const u_char *, size_t, const char *, const char *, const char *,
     u_int, void *);
-int	 sshkey_certify_custom(struct sshkey *, struct sshkey *, const char *,
+LIBOPENSSH_API int	 sshkey_certify_custom(struct sshkey *, struct sshkey *, const char *,
     const char *, const char *, sshkey_certify_signer *, void *);
 
-int		 sshkey_ecdsa_nid_from_name(const char *);
-int		 sshkey_curve_name_to_nid(const char *);
-const char *	 sshkey_curve_nid_to_name(int);
-u_int		 sshkey_curve_nid_to_bits(int);
-int		 sshkey_ecdsa_bits_to_nid(int);
-int		 sshkey_ecdsa_key_to_nid(EC_KEY *);
-int		 sshkey_ec_nid_to_hash_alg(int nid);
-int		 sshkey_ec_validate_public(const EC_GROUP *, const EC_POINT *);
-int		 sshkey_ec_validate_private(const EC_KEY *);
-const char	*sshkey_ssh_name(const struct sshkey *);
-const char	*sshkey_ssh_name_plain(const struct sshkey *);
-int		 sshkey_names_valid2(const char *, int);
-char		*sshkey_alg_list(int, int, int, char);
+LIBOPENSSH_API int		 sshkey_ecdsa_nid_from_name(const char *);
+LIBOPENSSH_API int		 sshkey_curve_name_to_nid(const char *);
+LIBOPENSSH_API const char *	 sshkey_curve_nid_to_name(int);
+LIBOPENSSH_API u_int		 sshkey_curve_nid_to_bits(int);
+LIBOPENSSH_API int		 sshkey_ecdsa_bits_to_nid(int);
+LIBOPENSSH_API int		 sshkey_ecdsa_key_to_nid(EC_KEY *);
+LIBOPENSSH_API int		 sshkey_ec_nid_to_hash_alg(int nid);
+LIBOPENSSH_API int		 sshkey_ec_validate_public(const EC_GROUP *, const EC_POINT *);
+LIBOPENSSH_API int		 sshkey_ec_validate_private(const EC_KEY *);
+LIBOPENSSH_API const char	*sshkey_ssh_name(const struct sshkey *);
+LIBOPENSSH_API const char	*sshkey_ssh_name_plain(const struct sshkey *);
+LIBOPENSSH_API int		 sshkey_names_valid2(const char *, int);
+LIBOPENSSH_API char		*sshkey_alg_list(int, int, int, char);
 
-int	 sshkey_from_blob(const u_char *, size_t, struct sshkey **);
-int	 sshkey_fromb(struct sshbuf *, struct sshkey **);
-int	 sshkey_froms(struct sshbuf *, struct sshkey **);
-int	 sshkey_to_blob(const struct sshkey *, u_char **, size_t *);
-int	 sshkey_to_base64(const struct sshkey *, char **);
-int	 sshkey_putb(const struct sshkey *, struct sshbuf *);
-int	 sshkey_puts(const struct sshkey *, struct sshbuf *);
-int	 sshkey_puts_opts(const struct sshkey *, struct sshbuf *,
+LIBOPENSSH_API int	 sshkey_from_blob(const u_char *, size_t, struct sshkey **);
+LIBOPENSSH_API int	 sshkey_fromb(struct sshbuf *, struct sshkey **);
+LIBOPENSSH_API int	 sshkey_froms(struct sshbuf *, struct sshkey **);
+LIBOPENSSH_API int	 sshkey_to_blob(const struct sshkey *, u_char **, size_t *);
+LIBOPENSSH_API int	 sshkey_to_base64(const struct sshkey *, char **);
+LIBOPENSSH_API int	 sshkey_putb(const struct sshkey *, struct sshbuf *);
+LIBOPENSSH_API int	 sshkey_puts(const struct sshkey *, struct sshbuf *);
+LIBOPENSSH_API int	 sshkey_puts_opts(const struct sshkey *, struct sshbuf *,
     enum sshkey_serialize_rep);
-int	 sshkey_plain_to_blob(const struct sshkey *, u_char **, size_t *);
-int	 sshkey_putb_plain(const struct sshkey *, struct sshbuf *);
+LIBOPENSSH_API int	 sshkey_plain_to_blob(const struct sshkey *, u_char **, size_t *);
+LIBOPENSSH_API int	 sshkey_putb_plain(const struct sshkey *, struct sshbuf *);
 
-int	 sshkey_sign(struct sshkey *, u_char **, size_t *,
+LIBOPENSSH_API int	 sshkey_sign(struct sshkey *, u_char **, size_t *,
     const u_char *, size_t, const char *, const char *, const char *, u_int);
-int	 sshkey_verify(const struct sshkey *, const u_char *, size_t,
+LIBOPENSSH_API int	 sshkey_verify(const struct sshkey *, const u_char *, size_t,
     const u_char *, size_t, const char *, u_int, struct sshkey_sig_details **);
-int	 sshkey_check_sigtype(const u_char *, size_t, const char *);
-const char *sshkey_sigalg_by_name(const char *);
-int	 sshkey_get_sigtype(const u_char *, size_t, char **);
+LIBOPENSSH_API int	 sshkey_check_sigtype(const u_char *, size_t, const char *);
+LIBOPENSSH_API const char *sshkey_sigalg_by_name(const char *);
+LIBOPENSSH_API int	 sshkey_get_sigtype(const u_char *, size_t, char **);
 
 /* for debug */
-void	sshkey_dump_ec_point(const EC_GROUP *, const EC_POINT *);
-void	sshkey_dump_ec_key(const EC_KEY *);
+LIBOPENSSH_API void	sshkey_dump_ec_point(const EC_GROUP *, const EC_POINT *);
+LIBOPENSSH_API void	sshkey_dump_ec_key(const EC_KEY *);
 
 /* private key parsing and serialisation */
-int	sshkey_private_serialize(struct sshkey *key, struct sshbuf *buf);
-int	sshkey_private_serialize_opt(struct sshkey *key, struct sshbuf *buf,
+LIBOPENSSH_API int	sshkey_private_serialize(struct sshkey *key, struct sshbuf *buf);
+LIBOPENSSH_API int	sshkey_private_serialize_opt(struct sshkey *key, struct sshbuf *buf,
     enum sshkey_serialize_rep);
-int	sshkey_private_deserialize(struct sshbuf *buf,  struct sshkey **keyp);
+LIBOPENSSH_API int	sshkey_private_deserialize(struct sshbuf *buf,  struct sshkey **keyp);
 
 /* private key file format parsing and serialisation */
-int	sshkey_private_to_fileblob(struct sshkey *key, struct sshbuf *blob,
+LIBOPENSSH_API int	sshkey_private_to_fileblob(struct sshkey *key, struct sshbuf *blob,
     const char *passphrase, const char *comment,
     int format, const char *openssh_format_cipher, int openssh_format_rounds);
-int	sshkey_parse_private_fileblob(struct sshbuf *buffer,
+LIBOPENSSH_API int	sshkey_parse_private_fileblob(struct sshbuf *buffer,
     const char *passphrase, struct sshkey **keyp, char **commentp);
-int	sshkey_parse_private_fileblob_type(struct sshbuf *blob, int type,
+LIBOPENSSH_API int	sshkey_parse_private_fileblob_type(struct sshbuf *blob, int type,
     const char *passphrase, struct sshkey **keyp, char **commentp);
-int	sshkey_parse_pubkey_from_private_fileblob_type(struct sshbuf *blob,
+LIBOPENSSH_API int	sshkey_parse_pubkey_from_private_fileblob_type(struct sshbuf *blob,
     int type, struct sshkey **pubkeyp);
 
 /* XXX should be internal, but used by ssh-keygen */
-int ssh_rsa_complete_crt_parameters(struct sshkey *, const BIGNUM *);
+LIBOPENSSH_API int ssh_rsa_complete_crt_parameters(struct sshkey *, const BIGNUM *);
 
 /* stateful keys (e.g. XMSS) */
-int	 sshkey_set_filename(struct sshkey *, const char *);
-int	 sshkey_enable_maxsign(struct sshkey *, u_int32_t);
-u_int32_t sshkey_signatures_left(const struct sshkey *);
-int	 sshkey_forward_state(const struct sshkey *, u_int32_t, int);
-int	 sshkey_private_serialize_maxsign(struct sshkey *key,
+LIBOPENSSH_API int	 sshkey_set_filename(struct sshkey *, const char *);
+LIBOPENSSH_API int	 sshkey_enable_maxsign(struct sshkey *, u_int32_t);
+LIBOPENSSH_API u_int32_t sshkey_signatures_left(const struct sshkey *);
+LIBOPENSSH_API int	 sshkey_forward_state(const struct sshkey *, u_int32_t, int);
+LIBOPENSSH_API int	 sshkey_private_serialize_maxsign(struct sshkey *key,
     struct sshbuf *buf, u_int32_t maxsign, int);
 
-void	 sshkey_sig_details_free(struct sshkey_sig_details *);
+LIBOPENSSH_API void	 sshkey_sig_details_free(struct sshkey_sig_details *);
 
 #ifdef SSHKEY_INTERNAL
-int ssh_rsa_sign(const struct sshkey *key,
+LIBOPENSSH_API int ssh_rsa_sign(const struct sshkey *key,
     u_char **sigp, size_t *lenp, const u_char *data, size_t datalen,
     const char *ident);
-int ssh_rsa_verify(const struct sshkey *key,
+LIBOPENSSH_API int ssh_rsa_verify(const struct sshkey *key,
     const u_char *sig, size_t siglen, const u_char *data, size_t datalen,
     const char *alg);
-int ssh_dss_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
+LIBOPENSSH_API int ssh_dss_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
     const u_char *data, size_t datalen, u_int compat);
-int ssh_dss_verify(const struct sshkey *key,
+LIBOPENSSH_API int ssh_dss_verify(const struct sshkey *key,
     const u_char *signature, size_t signaturelen,
     const u_char *data, size_t datalen, u_int compat);
-int ssh_ecdsa_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
+LIBOPENSSH_API int ssh_ecdsa_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
     const u_char *data, size_t datalen, u_int compat);
-int ssh_ecdsa_verify(const struct sshkey *key,
+LIBOPENSSH_API int ssh_ecdsa_verify(const struct sshkey *key,
     const u_char *signature, size_t signaturelen,
     const u_char *data, size_t datalen, u_int compat);
-int ssh_ecdsa_sk_verify(const struct sshkey *key,
-    const u_char *signature, size_t signaturelen,
-    const u_char *data, size_t datalen, u_int compat,
-    struct sshkey_sig_details **detailsp);
-int ssh_ed25519_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
-    const u_char *data, size_t datalen, u_int compat);
-int ssh_ed25519_verify(const struct sshkey *key,
-    const u_char *signature, size_t signaturelen,
-    const u_char *data, size_t datalen, u_int compat);
-int ssh_ed25519_sk_verify(const struct sshkey *key,
+LIBOPENSSH_API int ssh_ecdsa_sk_verify(const struct sshkey *key,
     const u_char *signature, size_t signaturelen,
     const u_char *data, size_t datalen, u_int compat,
     struct sshkey_sig_details **detailsp);
-int ssh_xmss_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
+LIBOPENSSH_API int ssh_ed25519_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
     const u_char *data, size_t datalen, u_int compat);
-int ssh_xmss_verify(const struct sshkey *key,
+LIBOPENSSH_API int ssh_ed25519_verify(const struct sshkey *key,
+    const u_char *signature, size_t signaturelen,
+    const u_char *data, size_t datalen, u_int compat);
+LIBOPENSSH_API int ssh_ed25519_sk_verify(const struct sshkey *key,
+    const u_char *signature, size_t signaturelen,
+    const u_char *data, size_t datalen, u_int compat,
+    struct sshkey_sig_details **detailsp);
+LIBOPENSSH_API int ssh_xmss_sign(const struct sshkey *key, u_char **sigp, size_t *lenp,
+    const u_char *data, size_t datalen, u_int compat);
+LIBOPENSSH_API int ssh_xmss_verify(const struct sshkey *key,
     const u_char *signature, size_t signaturelen,
     const u_char *data, size_t datalen, u_int compat);
 #endif

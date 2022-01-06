@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(OpenSSH-Src-Path)addr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)addrmatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)atomicio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)authfd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)authfile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)bitmap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)canohost.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)chacha.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)channels.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-aes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-aesctr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-chachapoly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cipher-chachapoly-libcrypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-ctr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cleanup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)compat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)digest-libc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)digest-openssl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ed25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)entropy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)fatal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)fe25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ge25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)gss-genr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hmac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hostfile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexc25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexdh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexecdh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgexc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgexs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexsntrup761x25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)krl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)mac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)match.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)moduli.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)monitor_fdpass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)nchan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)packet.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform-misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform-pledge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform-tracing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)poly1305.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)progressmeter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)readpass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)rijndael.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sandbox-pledge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sc25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)smult_curve25519_ref.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sntrup761.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\spawn-ext.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-getput-basic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-getput-crypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-dss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ecdsa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ecdsa-sk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ed25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ed25519-sk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssherr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshkey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-pkcs11.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-rsa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-sk.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)contrib\win32\win32compat\ttymodes_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)umac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)verify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)contrib\win32\win32compat\w32-sshfileperm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)xmalloc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\xcrypt.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\arc4random.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\base64.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\basename.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bcrypt_pbkdf.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bindresvport.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\blowfish.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-asprintf.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-closefrom.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-cygwin_util.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-getline.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-getpagesize.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-getpeereid.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-misc.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-nextstep.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-openpty.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-poll.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-setres_id.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-snprintf.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-statvfs.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\bsd-waitpid.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\daemon.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\dirname.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\explicit_bzero.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\fake-rfc2553.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\fmt_scaled.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\getcwd.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\getgrouplist.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\getopt_long.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\getrrsetbyname-ldns.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\glob.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\inet_aton.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\inet_ntoa.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\inet_ntop.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\kludge-fd_set.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\libressl-api-compat.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\md5.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\memmem.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\mktemp.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\openssl-compat.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\port-irix.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\port-linux.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\port-net.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\port-solaris.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\port-uw.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\readpassphrase.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\reallocarray.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\recallocarray.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\rresvport.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\setenv.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\setproctitle.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\sha1.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\sha2.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strcasestr.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strlcat.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strlcpy.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strmode.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strndup.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strptime.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strsep.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strtoll.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strtonum.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strtoul.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\strtoull.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\timingsafe_bcmp.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\openbsd-compat\vis.c">
+      <Filter>Source Files\openbsd_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\ansiprsr.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\console.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\fileio.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\gss-sspi.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\no-ops.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\pwd.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\signal.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\signal_sigalrm.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\signal_sigchld.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\signal_wait.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\socketio.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\spawn.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\termio.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\tncon.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\tnnet.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\utf.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\w32api_proxies.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\w32fd.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\w32log.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_dirent.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_pty.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_usertoken_utils.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\misc_posix_compat.c">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32-utf8.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ssh-sk-client.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sshTelemetry.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sk-usbhid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sshd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\monitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\monitor_wrap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth-options.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\servconf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\gss-serv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_sshpty.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-pubkey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-kbdint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-chall.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-gss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-hostbased.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-none.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth2-passwd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\session.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\srclimit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_groupaccess.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth-rhosts.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\auth-passwd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sshlogin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\loginrec.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\serverloop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\w32-doexec.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\clientloop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ssh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sshconnect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\readconf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\sshconnect2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32compat\win32_sshtty.c">
+      <Filter>Source Files\win32compat</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(OpenSSH-Src-Path)addrmatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)atomicio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)authfd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)authfile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)bitmap.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)canohost.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)chacha.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)channels.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-aes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-aesctr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-chachapoly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher-ctr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cipher.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)cleanup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)compat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)digest-libc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dispatch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)dns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ed25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)entropy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)fatal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)fe25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ge25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)gss-genr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hmac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)hostfile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexc25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexdh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexecdh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgex.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)kexgexc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)krl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)mac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)monitor_fdpass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)nchan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)packet.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)poly1305.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sc25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)smult_curve25519_ref.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-dss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ecdsa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-ed25519.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-pkcs11.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh-rsa.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-getput-basic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-getput-crypto.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf-misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshbuf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssherr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sshkey.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)ssh_api.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)umac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform-pledge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform-tracing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)platform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)sandbox-pledge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)contrib\win32\win32compat\ttymodes_windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)digest-openssl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(OpenSSH-Src-Path)contrib\win32\win32compat\w32-sshfileperm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\atomicio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\audit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\auth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\authfd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\authfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\auth-options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\auth-pam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\auth-sia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\canohost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\chacha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\channels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cipher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cipher-aesctr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cipher-chachapoly.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\clientloop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\compat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\crypto_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\digest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dispatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\dns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\entropy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\fe25519.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ge25519.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\groupaccess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\hmac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\hostfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\includes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\krl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\loginrec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\mac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\match.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\md5crypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\monitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\monitor_fdpass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\monitor_wrap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\msg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\myproposal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pal_doexec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pathnames.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\pkcs11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\poly1305.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\progressmeter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\readconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\rijndael.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sc25519.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\servconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\serverloop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\session.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sftp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sftp-client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sftp-common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sk-api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\srclimit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh_api.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshbuf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshconnect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssherr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh-gss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshkey.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshkey-xmss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshlogin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh-pkcs11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshpty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh-sandbox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\sshsig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ssh-sk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ttymodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\uidswap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\umac.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\utf8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmalloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmss_commons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmss_fast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmss_hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmss_hash_address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\xmss_wots.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OpenSSH-Src-Path)sshfileperm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\console.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\debug.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\misc_internal.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\signal_internal.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\tnnet.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win32compat\w32fd.h">
+      <Filter>Source Files\posix_compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libopenssh_defs.h">
+      <Filter>Header Files\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="autolink.h">
+      <Filter>Header Files\win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ad309ce1-1262-4c2b-9111-abe4ed2bd6b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{8bebf2b1-33a9-4908-a0f4-5c0092ae6882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\openbsd_compat">
+      <UniqueIdentifier>{d9b6144e-f870-4dae-83a1-1ce17a7c5208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\posix_compat">
+      <UniqueIdentifier>{a60cfd1c-515f-4378-876e-be6183386f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\win32compat">
+      <UniqueIdentifier>{20be9c8e-8e34-475e-a292-7ecd11ff0402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\win32">
+      <UniqueIdentifier>{7a321c74-b2dd-47d6-b266-52108f7813da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

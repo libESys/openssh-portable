@@ -64,7 +64,7 @@ PSecurityFunctionTableW SecFunctions = NULL;
  * a Kerberos transaction using an SPN in the format host@user@realm format. 
  */
 #define GSS_C_NT_HOSTBASED_SERVICE_STR "\x2A\x86\x48\x86\xF7\x12\x01\x02\x02"
-gss_OID GSS_C_NT_HOSTBASED_SERVICE = &(gss_OID_desc)
+LIBOPENSSH_API gss_OID GSS_C_NT_HOSTBASED_SERVICE = &(gss_OID_desc)
 { 
 	sizeof(GSS_C_NT_HOSTBASED_SERVICE_STR) - 1,
 	(void *) GSS_C_NT_HOSTBASED_SERVICE_STR 
@@ -1082,7 +1082,7 @@ ssh_gssapi_krb5_userok(ssh_gssapi_client *client, char *name)
 	return 1;
 }
 
-ssh_gssapi_mech gssapi_kerberos_mech = {
+LIBOPENSSH_API ssh_gssapi_mech gssapi_kerberos_mech = {
 	"toWM5Slw5Ew8Mqkay+al2g==",
 	"Kerberos",
 	{sizeof(GSS_C_NT_HOSTBASED_SERVICE_STR) - 1, GSS_C_NT_HOSTBASED_SERVICE_STR},

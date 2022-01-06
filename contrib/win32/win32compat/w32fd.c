@@ -72,15 +72,15 @@ void fd_decode_state(char*);
 #define POSIX_CHROOTW L"c28fc6f98a2c44abbbd89d6a3037d0d9_POSIX_CHROOT"
 
 /* __progname */
-char* __progname = "";
+LIBOPENSSH_API char* __progname = "";
 
 /* __progdir */
-char* __progdir = "";
-wchar_t* __wprogdir = L"";
+LIBOPENSSH_API char* __progdir = "";
+LIBOPENSSH_API wchar_t* __wprogdir = L"";
 
 /* __progdata */
-char* __progdata = "";
-wchar_t* __wprogdata = L"";
+LIBOPENSSH_API char* __progdata = "";
+LIBOPENSSH_API wchar_t* __wprogdata = L"";
 
 /* initializes mapping table*/
 static int
@@ -1029,7 +1029,7 @@ w32_fsync(int fd)
 	return FlushFileBuffers(w32_fd_to_handle(fd));
 }
 
-int fork() 
+LIBOPENSSH_API int fork()
 { 
 	verbose("fork is not supported"); 
 	return -1;

@@ -15,6 +15,8 @@
 #ifndef _MISC_H
 #define _MISC_H
 
+#include "libopenssh_defs.h"
+
 #include <sys/time.h>
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -32,8 +34,8 @@ struct Forward {
 	int	  handle;		/* Handle for dynamic listen ports */
 };
 
-int forward_equals(const struct Forward *, const struct Forward *);
-int daemonized(void);
+LIBOPENSSH_API int forward_equals(const struct Forward *, const struct Forward *);
+LIBOPENSSH_API int daemonized(void);
 
 /* Common server and client forwarding options. */
 struct ForwardOptions {
@@ -44,61 +46,61 @@ struct ForwardOptions {
 
 /* misc.c */
 
-char	*chop(char *);
-void	skip_space(char **);
-char	*strdelim(char **);
-char	*strdelimw(char **);
-int	 set_nonblock(int);
-int	 unset_nonblock(int);
-void	 set_nodelay(int);
-int	 set_reuseaddr(int);
-char	*get_rdomain(int);
-int	 set_rdomain(int, const char *);
-int	 get_sock_af(int);
-void	 set_sock_tos(int, int);
-int	 waitrfd(int, int *);
-int	 timeout_connect(int, const struct sockaddr *, socklen_t, int *);
-int	 a2port(const char *);
-int	 a2tun(const char *, int *);
-char	*put_host_port(const char *, u_short);
-char	*hpdelim2(char **, char *);
-char	*hpdelim(char **);
-char	*cleanhostname(char *);
-char	*colon(char *);
-int	 parse_user_host_path(const char *, char **, char **, char **);
-int	 parse_user_host_port(const char *, char **, char **, int *);
-int	 parse_uri(const char *, const char *, char **, char **, int *, char **);
-int	 convtime(const char *);
-const char *fmt_timeframe(time_t t);
-char	*tilde_expand_filename(const char *, uid_t);
+LIBOPENSSH_API char	*chop(char *);
+LIBOPENSSH_API void	skip_space(char **);
+LIBOPENSSH_API char	*strdelim(char **);
+LIBOPENSSH_API char	*strdelimw(char **);
+LIBOPENSSH_API int	 set_nonblock(int);
+LIBOPENSSH_API int	 unset_nonblock(int);
+LIBOPENSSH_API void	 set_nodelay(int);
+LIBOPENSSH_API int	 set_reuseaddr(int);
+LIBOPENSSH_API char	*get_rdomain(int);
+LIBOPENSSH_API int	 set_rdomain(int, const char *);
+LIBOPENSSH_API int	 get_sock_af(int);
+LIBOPENSSH_API void	 set_sock_tos(int, int);
+LIBOPENSSH_API int	 waitrfd(int, int *);
+LIBOPENSSH_API int	 timeout_connect(int, const struct sockaddr *, socklen_t, int *);
+LIBOPENSSH_API int	 a2port(const char *);
+LIBOPENSSH_API int	 a2tun(const char *, int *);
+LIBOPENSSH_API char	*put_host_port(const char *, u_short);
+LIBOPENSSH_API char	*hpdelim2(char **, char *);
+LIBOPENSSH_API char	*hpdelim(char **);
+LIBOPENSSH_API char	*cleanhostname(char *);
+LIBOPENSSH_API char	*colon(char *);
+LIBOPENSSH_API int	 parse_user_host_path(const char *, char **, char **, char **);
+LIBOPENSSH_API int	 parse_user_host_port(const char *, char **, char **, int *);
+LIBOPENSSH_API int	 parse_uri(const char *, const char *, char **, char **, int *, char **);
+LIBOPENSSH_API int	 convtime(const char *);
+LIBOPENSSH_API const char *fmt_timeframe(time_t t);
+LIBOPENSSH_API char	*tilde_expand_filename(const char *, uid_t);
 
-char	*dollar_expand(int *, const char *string, ...);
-char	*percent_expand(const char *, ...) __attribute__((__sentinel__));
-char	*percent_dollar_expand(const char *, ...) __attribute__((__sentinel__));
-char	*tohex(const void *, size_t);
-void	 xextendf(char **s, const char *sep, const char *fmt, ...)
+LIBOPENSSH_API char	*dollar_expand(int *, const char *string, ...);
+LIBOPENSSH_API char	*percent_expand(const char *, ...) __attribute__((__sentinel__));
+LIBOPENSSH_API char	*percent_dollar_expand(const char *, ...) __attribute__((__sentinel__));
+LIBOPENSSH_API char	*tohex(const void *, size_t);
+LIBOPENSSH_API void	 xextendf(char **s, const char *sep, const char *fmt, ...)
     __attribute__((__format__ (printf, 3, 4))) __attribute__((__nonnull__ (3)));
-void	 sanitise_stdfd(void);
-void	 ms_subtract_diff(struct timeval *, int *);
-void	 ms_to_timeval(struct timeval *, int);
-void	 monotime_ts(struct timespec *);
-void	 monotime_tv(struct timeval *);
-time_t	 monotime(void);
-double	 monotime_double(void);
-void	 lowercase(char *s);
-int	 unix_listener(const char *, int, int);
-int	 valid_domain(char *, int, const char **);
-int	 valid_env_name(const char *);
-const char *atoi_err(const char *, int *);
-int	 parse_absolute_time(const char *, uint64_t *);
-void	 format_absolute_time(uint64_t, char *, size_t);
-int	 path_absolute(const char *);
-int	 stdfd_devnull(int, int, int);
+LIBOPENSSH_API void	 sanitise_stdfd(void);
+LIBOPENSSH_API void	 ms_subtract_diff(struct timeval *, int *);
+LIBOPENSSH_API void	 ms_to_timeval(struct timeval *, int);
+LIBOPENSSH_API void	 monotime_ts(struct timespec *);
+LIBOPENSSH_API void	 monotime_tv(struct timeval *);
+LIBOPENSSH_API time_t	 monotime(void);
+LIBOPENSSH_API double	 monotime_double(void);
+LIBOPENSSH_API void	 lowercase(char *s);
+LIBOPENSSH_API int	 unix_listener(const char *, int, int);
+LIBOPENSSH_API int	 valid_domain(char *, int, const char **);
+LIBOPENSSH_API int	 valid_env_name(const char *);
+LIBOPENSSH_API const char *atoi_err(const char *, int *);
+LIBOPENSSH_API int	 parse_absolute_time(const char *, uint64_t *);
+LIBOPENSSH_API void	 format_absolute_time(uint64_t, char *, size_t);
+LIBOPENSSH_API int	 path_absolute(const char *);
+LIBOPENSSH_API int	 stdfd_devnull(int, int, int);
 
-void	 sock_set_v6only(int);
+LIBOPENSSH_API void	 sock_set_v6only(int);
 
-struct passwd *pwcopy(struct passwd *);
-const char *ssh_gai_strerror(int);
+LIBOPENSSH_API struct passwd *pwcopy(struct passwd *);
+LIBOPENSSH_API const char *ssh_gai_strerror(int);
 
 typedef void privdrop_fn(struct passwd *);
 typedef void privrestore_fn(void);
@@ -107,7 +109,7 @@ typedef void privrestore_fn(void);
 #define	SSH_SUBPROCESS_STDERR_DISCARD	(1<<2)  /* Discard stderr */
 #define	SSH_SUBPROCESS_UNSAFE_PATH	(1<<3)	/* Don't check for safe cmd */
 #define	SSH_SUBPROCESS_PRESERVE_ENV	(1<<4)	/* Keep parent environment */
-pid_t subprocess(const char *, const char *, int, char **, FILE **, u_int,
+LIBOPENSSH_API pid_t subprocess(const char *, const char *, int, char **, FILE **, u_int,
     struct passwd *, privdrop_fn *, privrestore_fn *);
 
 typedef struct arglist arglist;
@@ -116,13 +118,13 @@ struct arglist {
 	u_int   num;
 	u_int   nalloc;
 };
-void	 addargs(arglist *, char *, ...)
+LIBOPENSSH_API void	 addargs(arglist *, char *, ...)
 	    __attribute__((format(printf, 2, 3)));
-void	 replacearg(arglist *, u_int, char *, ...)
+LIBOPENSSH_API void	 replacearg(arglist *, u_int, char *, ...)
 	    __attribute__((format(printf, 3, 4)));
-void	 freeargs(arglist *);
+LIBOPENSSH_API void	 freeargs(arglist *);
 
-int	 tun_open(int, int, char **);
+LIBOPENSSH_API int	 tun_open(int, int, char **);
 
 /* Common definitions for ssh tunnel device forwarding */
 #define SSH_TUNMODE_NO		0x00
@@ -139,23 +141,23 @@ int	 tun_open(int, int, char **);
 #define PORT_STREAMLOCAL	-2
 
 /* Functions to extract or store big-endian words of various sizes */
-u_int64_t	get_u64(const void *)
+LIBOPENSSH_API u_int64_t	get_u64(const void *)
     __attribute__((__bounded__( __minbytes__, 1, 8)));
-u_int32_t	get_u32(const void *)
+LIBOPENSSH_API u_int32_t	get_u32(const void *)
     __attribute__((__bounded__( __minbytes__, 1, 4)));
-u_int16_t	get_u16(const void *)
+LIBOPENSSH_API u_int16_t	get_u16(const void *)
     __attribute__((__bounded__( __minbytes__, 1, 2)));
-void		put_u64(void *, u_int64_t)
+LIBOPENSSH_API void		put_u64(void *, u_int64_t)
     __attribute__((__bounded__( __minbytes__, 1, 8)));
-void		put_u32(void *, u_int32_t)
+LIBOPENSSH_API void		put_u32(void *, u_int32_t)
     __attribute__((__bounded__( __minbytes__, 1, 4)));
-void		put_u16(void *, u_int16_t)
+LIBOPENSSH_API void		put_u16(void *, u_int16_t)
     __attribute__((__bounded__( __minbytes__, 1, 2)));
 
 /* Little-endian store/load, used by umac.c */
-u_int32_t	get_u32_le(const void *)
+LIBOPENSSH_API u_int32_t	get_u32_le(const void *)
     __attribute__((__bounded__(__minbytes__, 1, 4)));
-void		put_u32_le(void *, u_int32_t)
+LIBOPENSSH_API void		put_u32_le(void *, u_int32_t)
     __attribute__((__bounded__(__minbytes__, 1, 4)));
 
 struct bwlimit {
@@ -166,35 +168,35 @@ struct bwlimit {
 	struct timeval bwstart, bwend;
 };
 
-void bandwidth_limit_init(struct bwlimit *, u_int64_t, size_t);
-void bandwidth_limit(struct bwlimit *, size_t);
+LIBOPENSSH_API void bandwidth_limit_init(struct bwlimit *, u_int64_t, size_t);
+LIBOPENSSH_API void bandwidth_limit(struct bwlimit *, size_t);
 
-int parse_ipqos(const char *);
-const char *iptos2str(int);
-void mktemp_proto(char *, size_t);
+LIBOPENSSH_API int parse_ipqos(const char *);
+LIBOPENSSH_API const char *iptos2str(int);
+LIBOPENSSH_API void mktemp_proto(char *, size_t);
 
-void	 child_set_env(char ***envp, u_int *envsizep, const char *name,
+LIBOPENSSH_API void	 child_set_env(char ***envp, u_int *envsizep, const char *name,
 	    const char *value);
 
-int	 argv_split(const char *, int *, char ***);
-char	*argv_assemble(int, char **argv);
-int	 exited_cleanly(pid_t, const char *, const char *, int);
+LIBOPENSSH_API int	 argv_split(const char *, int *, char ***);
+LIBOPENSSH_API char	*argv_assemble(int, char **argv);
+LIBOPENSSH_API int	 exited_cleanly(pid_t, const char *, const char *, int);
 
 struct stat;
-int	 safe_path(const char *, struct stat *, const char *, uid_t,
+LIBOPENSSH_API int	 safe_path(const char *, struct stat *, const char *, uid_t,
 	    char *, size_t);
-int	 safe_path_fd(int, const char *, struct passwd *,
+LIBOPENSSH_API int	 safe_path_fd(int, const char *, struct passwd *,
 	    char *err, size_t errlen);
 
 /* authorized_key-style options parsing helpers */
-int	opt_flag(const char *opt, int allow_negate, const char **optsp);
-char	*opt_dequote(const char **sp, const char **errstrp);
-int	opt_match(const char **opts, const char *term);
+LIBOPENSSH_API int	opt_flag(const char *opt, int allow_negate, const char **optsp);
+LIBOPENSSH_API char	*opt_dequote(const char **sp, const char **errstrp);
+LIBOPENSSH_API int	opt_match(const char **opts, const char *term);
 
 /* readconf/servconf option lists */
-void	opt_array_append(const char *file, const int line,
+LIBOPENSSH_API void	opt_array_append(const char *file, const int line,
 	    const char *directive, char ***array, u_int *lp, const char *s);
-void	opt_array_append2(const char *file, const int line,
+LIBOPENSSH_API void	opt_array_append2(const char *file, const int line,
 	    const char *directive, char ***array, int **iarray, u_int *lp,
 	    const char *s, int i);
 
@@ -207,11 +209,11 @@ void	opt_array_append2(const char *file, const int line,
 
 struct notifier_ctx;
 
-char	*read_passphrase(const char *, int);
-int	 ask_permission(const char *, ...) __attribute__((format(printf, 1, 2)));
-struct notifier_ctx *notify_start(int, const char *, ...)
+LIBOPENSSH_API char	*read_passphrase(const char *, int);
+LIBOPENSSH_API int	 ask_permission(const char *, ...) __attribute__((format(printf, 1, 2)));
+LIBOPENSSH_API struct notifier_ctx *notify_start(int, const char *, ...)
 	__attribute__((format(printf, 2, 3)));
-void	notify_complete(struct notifier_ctx *, const char *, ...)
+LIBOPENSSH_API void	notify_complete(struct notifier_ctx *, const char *, ...)
 	__attribute__((format(printf, 2, 3)));
 
 #define MINIMUM(a, b)	(((a) < (b)) ? (a) : (b))
@@ -219,6 +221,6 @@ void	notify_complete(struct notifier_ctx *, const char *, ...)
 #define ROUNDUP(x, y)   ((((x)+((y)-1))/(y))*(y))
 
 typedef void (*sshsig_t)(int);
-sshsig_t ssh_signal(int, sshsig_t);
+LIBOPENSSH_API sshsig_t ssh_signal(int, sshsig_t);
 
 #endif /* _MISC_H */

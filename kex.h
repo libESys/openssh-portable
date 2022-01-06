@@ -26,6 +26,8 @@
 #ifndef KEX_H
 #define KEX_H
 
+#include "libopenssh_defs.h"
+
 #include "mac.h"
 #include "crypto_api.h"
 
@@ -171,83 +173,83 @@ struct kex {
 	struct sshbuf *client_pub;
 };
 
-int	 kex_names_valid(const char *);
-char	*kex_alg_list(char);
-char	*kex_names_cat(const char *, const char *);
-int	 kex_assemble_names(char **, const char *, const char *);
+LIBOPENSSH_API int	 kex_names_valid(const char *);
+LIBOPENSSH_API char	*kex_alg_list(char);
+LIBOPENSSH_API char	*kex_names_cat(const char *, const char *);
+LIBOPENSSH_API int	 kex_assemble_names(char **, const char *, const char *);
 
-int	 kex_exchange_identification(struct ssh *, int, const char *);
+LIBOPENSSH_API int	 kex_exchange_identification(struct ssh *, int, const char *);
 
 struct kex *kex_new(void);
-int	 kex_ready(struct ssh *, char *[PROPOSAL_MAX]);
-int	 kex_setup(struct ssh *, char *[PROPOSAL_MAX]);
-void	 kex_free_newkeys(struct newkeys *);
-void	 kex_free(struct kex *);
+LIBOPENSSH_API int	 kex_ready(struct ssh *, char *[PROPOSAL_MAX]);
+LIBOPENSSH_API int	 kex_setup(struct ssh *, char *[PROPOSAL_MAX]);
+LIBOPENSSH_API void	 kex_free_newkeys(struct newkeys *);
+LIBOPENSSH_API void	 kex_free(struct kex *);
 
-int	 kex_buf2prop(struct sshbuf *, int *, char ***);
-int	 kex_prop2buf(struct sshbuf *, char *proposal[PROPOSAL_MAX]);
-void	 kex_prop_free(char **);
-int	 kex_load_hostkey(struct ssh *, struct sshkey **, struct sshkey **);
-int	 kex_verify_host_key(struct ssh *, struct sshkey *);
+LIBOPENSSH_API int	 kex_buf2prop(struct sshbuf *, int *, char ***);
+LIBOPENSSH_API int	 kex_prop2buf(struct sshbuf *, char *proposal[PROPOSAL_MAX]);
+LIBOPENSSH_API void	 kex_prop_free(char **);
+LIBOPENSSH_API int	 kex_load_hostkey(struct ssh *, struct sshkey **, struct sshkey **);
+LIBOPENSSH_API int	 kex_verify_host_key(struct ssh *, struct sshkey *);
 
-int	 kex_send_kexinit(struct ssh *);
-int	 kex_input_kexinit(int, u_int32_t, struct ssh *);
-int	 kex_input_ext_info(int, u_int32_t, struct ssh *);
-int	 kex_protocol_error(int, u_int32_t, struct ssh *);
-int	 kex_derive_keys(struct ssh *, u_char *, u_int, const struct sshbuf *);
-int	 kex_send_newkeys(struct ssh *);
-int	 kex_start_rekex(struct ssh *);
+LIBOPENSSH_API int	 kex_send_kexinit(struct ssh *);
+LIBOPENSSH_API int	 kex_input_kexinit(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 kex_input_ext_info(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 kex_protocol_error(int, u_int32_t, struct ssh *);
+LIBOPENSSH_API int	 kex_derive_keys(struct ssh *, u_char *, u_int, const struct sshbuf *);
+LIBOPENSSH_API int	 kex_send_newkeys(struct ssh *);
+LIBOPENSSH_API int	 kex_start_rekex(struct ssh *);
 
-int	 kexgex_client(struct ssh *);
-int	 kexgex_server(struct ssh *);
-int	 kex_gen_client(struct ssh *);
-int	 kex_gen_server(struct ssh *);
+LIBOPENSSH_API int	 kexgex_client(struct ssh *);
+LIBOPENSSH_API int	 kexgex_server(struct ssh *);
+LIBOPENSSH_API int	 kex_gen_client(struct ssh *);
+LIBOPENSSH_API int	 kex_gen_server(struct ssh *);
 
-int	 kex_dh_keypair(struct kex *);
-int	 kex_dh_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
+LIBOPENSSH_API int	 kex_dh_keypair(struct kex *);
+LIBOPENSSH_API int	 kex_dh_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
     struct sshbuf **);
-int	 kex_dh_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
+LIBOPENSSH_API int	 kex_dh_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
 
-int	 kex_ecdh_keypair(struct kex *);
-int	 kex_ecdh_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
+LIBOPENSSH_API int	 kex_ecdh_keypair(struct kex *);
+LIBOPENSSH_API int	 kex_ecdh_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
     struct sshbuf **);
-int	 kex_ecdh_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
+LIBOPENSSH_API int	 kex_ecdh_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
 
-int	 kex_c25519_keypair(struct kex *);
-int	 kex_c25519_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
+LIBOPENSSH_API int	 kex_c25519_keypair(struct kex *);
+LIBOPENSSH_API int	 kex_c25519_enc(struct kex *, const struct sshbuf *, struct sshbuf **,
     struct sshbuf **);
-int	 kex_c25519_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
+LIBOPENSSH_API int	 kex_c25519_dec(struct kex *, const struct sshbuf *, struct sshbuf **);
 
-int	 kex_kem_sntrup761x25519_keypair(struct kex *);
-int	 kex_kem_sntrup761x25519_enc(struct kex *, const struct sshbuf *,
+LIBOPENSSH_API int	 kex_kem_sntrup761x25519_keypair(struct kex *);
+LIBOPENSSH_API int	 kex_kem_sntrup761x25519_enc(struct kex *, const struct sshbuf *,
     struct sshbuf **, struct sshbuf **);
-int	 kex_kem_sntrup761x25519_dec(struct kex *, const struct sshbuf *,
+LIBOPENSSH_API int	 kex_kem_sntrup761x25519_dec(struct kex *, const struct sshbuf *,
     struct sshbuf **);
 
-int	 kex_dh_keygen(struct kex *);
-int	 kex_dh_compute_key(struct kex *, BIGNUM *, struct sshbuf *);
+LIBOPENSSH_API int	 kex_dh_keygen(struct kex *);
+LIBOPENSSH_API int	 kex_dh_compute_key(struct kex *, BIGNUM *, struct sshbuf *);
 
-int	 kexgex_hash(int, const struct sshbuf *, const struct sshbuf *,
+LIBOPENSSH_API int	 kexgex_hash(int, const struct sshbuf *, const struct sshbuf *,
     const struct sshbuf *, const struct sshbuf *, const struct sshbuf *,
     int, int, int,
     const BIGNUM *, const BIGNUM *, const BIGNUM *,
     const BIGNUM *, const u_char *, size_t,
     u_char *, size_t *);
 
-void	kexc25519_keygen(u_char key[CURVE25519_SIZE], u_char pub[CURVE25519_SIZE])
+LIBOPENSSH_API void	kexc25519_keygen(u_char key[CURVE25519_SIZE], u_char pub[CURVE25519_SIZE])
 	__attribute__((__bounded__(__minbytes__, 1, CURVE25519_SIZE)))
 	__attribute__((__bounded__(__minbytes__, 2, CURVE25519_SIZE)));
-int	kexc25519_shared_key(const u_char key[CURVE25519_SIZE],
+LIBOPENSSH_API int	kexc25519_shared_key(const u_char key[CURVE25519_SIZE],
     const u_char pub[CURVE25519_SIZE], struct sshbuf *out)
 	__attribute__((__bounded__(__minbytes__, 1, CURVE25519_SIZE)))
 	__attribute__((__bounded__(__minbytes__, 2, CURVE25519_SIZE)));
-int	kexc25519_shared_key_ext(const u_char key[CURVE25519_SIZE],
+LIBOPENSSH_API int	kexc25519_shared_key_ext(const u_char key[CURVE25519_SIZE],
     const u_char pub[CURVE25519_SIZE], struct sshbuf *out, int)
 	__attribute__((__bounded__(__minbytes__, 1, CURVE25519_SIZE)))
 	__attribute__((__bounded__(__minbytes__, 2, CURVE25519_SIZE)));
 
 #if defined(DEBUG_KEX) || defined(DEBUG_KEXDH) || defined(DEBUG_KEXECDH)
-void	dump_digest(const char *, const u_char *, int);
+LIBOPENSSH_API void	dump_digest(const char *, const u_char *, int);
 #endif
 
 #if !defined(WITH_OPENSSL) || !defined(OPENSSL_HAS_ECC)

@@ -16,6 +16,8 @@
 #ifndef AUTHFD_H
 #define AUTHFD_H
 
+#include "libopenssh_defs.h"
+
 /* List of identities returned by ssh_fetch_identitylist() */
 struct ssh_identitylist {
 	size_t nkeys;
@@ -23,23 +25,23 @@ struct ssh_identitylist {
 	char **comments;
 };
 
-int	ssh_get_authentication_socket(int *fdp);
-int	ssh_get_authentication_socket_path(const char *authsocket, int *fdp);
-void	ssh_close_authentication_socket(int sock);
+LIBOPENSSH_API int	ssh_get_authentication_socket(int *fdp);
+LIBOPENSSH_API int	ssh_get_authentication_socket_path(const char *authsocket, int *fdp);
+LIBOPENSSH_API void	ssh_close_authentication_socket(int sock);
 
-int	ssh_lock_agent(int sock, int lock, const char *password);
-int	ssh_fetch_identitylist(int sock, struct ssh_identitylist **idlp);
-void	ssh_free_identitylist(struct ssh_identitylist *idl);
-int	ssh_add_identity_constrained(int sock, struct sshkey *key,
+LIBOPENSSH_API int	ssh_lock_agent(int sock, int lock, const char *password);
+LIBOPENSSH_API int	ssh_fetch_identitylist(int sock, struct ssh_identitylist **idlp);
+LIBOPENSSH_API void	ssh_free_identitylist(struct ssh_identitylist *idl);
+LIBOPENSSH_API int	ssh_add_identity_constrained(int sock, struct sshkey *key,
 	    const char *comment, u_int life, u_int confirm, u_int maxsign,
 	    const char *provider);
-int	ssh_agent_has_key(int sock, const struct sshkey *key);
-int	ssh_remove_identity(int sock, const struct sshkey *key);
-int	ssh_update_card(int sock, int add, const char *reader_id,
+LIBOPENSSH_API int	ssh_agent_has_key(int sock, const struct sshkey *key);
+LIBOPENSSH_API int	ssh_remove_identity(int sock, const struct sshkey *key);
+LIBOPENSSH_API int	ssh_update_card(int sock, int add, const char *reader_id,
 	    const char *pin, u_int life, u_int confirm);
-int	ssh_remove_all_identities(int sock, int version);
+LIBOPENSSH_API int	ssh_remove_all_identities(int sock, int version);
 
-int	ssh_agent_sign(int sock, const struct sshkey *key,
+LIBOPENSSH_API int	ssh_agent_sign(int sock, const struct sshkey *key,
 	    u_char **sigp, size_t *lenp,
 	    const u_char *data, size_t datalen, const char *alg, u_int compat);
 

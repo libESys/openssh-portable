@@ -36,6 +36,8 @@
 #include <stddef.h>
 #include "w32fd.h"
 #include "inc\utf.h"
+#include "inc\unistd.h"
+#include "inc\sys\socket.h"
 #include "misc_internal.h"
 #include "debug.h"
 
@@ -965,6 +967,10 @@ socketio_on_select(struct w32_io* pio, BOOL rd)
 		}
 	}
 }
+
+#ifdef gethostname
+#undef gethostname
+#endif
 
 int
 w32_gethostname(char *name_utf8, size_t len)

@@ -380,7 +380,7 @@ cleanup:
 	return ret;
 }
 
-char *
+LIBOPENSSH_API char *
 group_from_gid(gid_t gid, int nogroup)
 {
 	return "-";

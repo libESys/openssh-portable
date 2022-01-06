@@ -45,6 +45,8 @@
 #ifndef _COMPAT_GLOB_H_
 #define	_COMPAT_GLOB_H_
 
+#include "libopenssh_defs.h"
+
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -98,8 +100,8 @@ typedef struct {
 #define	GLOB_KEEPSTAT	0x4000	/* Retain stat data for paths in gl_statv. */
 #define GLOB_ABEND	GLOB_ABORTED /* backward compatibility */
 
-int	glob(const char *, int, int (*)(const char *, int), glob_t *);
-void	globfree(glob_t *);
+LIBOPENSSH_API int	glob(const char *, int, int (*)(const char *, int), glob_t *);
+LIBOPENSSH_API void	globfree(glob_t *);
 
 #endif /* !_GLOB_H_ */
 

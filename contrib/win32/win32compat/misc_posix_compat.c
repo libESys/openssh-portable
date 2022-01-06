@@ -1808,7 +1808,7 @@ build_exec_command(const char * command)
 * the double quotes and backslash is escaped if needed
 * this decoration is done only when additional arguments are passed in argv
 */
-char *
+LIBOPENSSH_API char *
 build_commandline_string(const char* cmd, char *const argv[], BOOLEAN prepend_module_path)
 {
 	char *cmdline, *t, *tmp = NULL, *path = NULL, *ret = NULL;
@@ -1983,7 +1983,7 @@ cleanup:
 	return ret;
 }
 
-BOOL
+LIBOPENSSH_API BOOL
 is_bash_test_env()
 {
 	char *envValue = NULL;
@@ -2000,7 +2000,7 @@ is_bash_test_env()
 	return retVal;
 }
 
-int
+LIBOPENSSH_API int
 bash_to_win_path(const char *in, char *out, const size_t out_len)
 {
 	int retVal = 0;
@@ -2017,15 +2017,15 @@ bash_to_win_path(const char *in, char *out, const size_t out_len)
 	return retVal;
 }
 
-int
+/*int
 getpeereid(int s, uid_t *euid, gid_t *egid)
 {
 	verbose("%s is not supported", __func__);
 	errno = ENOTSUP;
 	return -1;
-}
+}*/
 
-int
+LIBOPENSSH_API int
 getrrsetbyname(const char *hostname, unsigned int rdclass,
 	unsigned int rdtype, unsigned int flags,
 	struct rrsetinfo **res)
@@ -2035,7 +2035,7 @@ getrrsetbyname(const char *hostname, unsigned int rdclass,
 	return -1;
 }
 
-int 
+LIBOPENSSH_API int 
 fnmatch(const char *pattern, const char *string, int flags)
 {
 	int r = -1;

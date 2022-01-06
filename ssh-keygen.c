@@ -167,7 +167,7 @@ static char *openssh_format_cipher = NULL;
 static int rounds = 0;
 
 /* argv0 */
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 static char hostname[NI_MAXHOST];
 

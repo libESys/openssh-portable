@@ -41,6 +41,8 @@
 #ifndef __PRAGMA_CONSOLE_h
 #define __PRAGMA_CONSOLE_h
 
+#include "libopenssh_defs.h"
+
 #define ANSI_ATTR_RESET			0
 #define ANSI_BRIGHT			1
 #define ANSI_DIM			2
@@ -93,60 +95,60 @@
 
 typedef void *  SCREEN_HANDLE;
 
-void ConEnterRawMode();
-void ConUnInitWithRestore();
-void ConExitRawMode();
+LIBOPENSSH_API void ConEnterRawMode();
+LIBOPENSSH_API void ConUnInitWithRestore();
+LIBOPENSSH_API void ConExitRawMode();
 
-BOOL ConSetScreenRect(int xSize, int ySize);
-BOOL ConSetScreenSize(int X, int Y);
-BOOL ConRestoreScreen();
-void ConSaveScreen();
-void ConSetAttribute(int *iParam, int iParamCount);
-int ConScreenSizeX();
-int ConSetScreenX();
-int ConScreenSizeY();
-int ConVisibleWindowWidth();
-int ConVisibleWindowHeight();
-int ConSetScreenY();
-void ConFillToEndOfLine();
-int ConWriteString(char* pszString, int cbString);
-BOOL ConWriteChar(CHAR ch);
-int ConWriteConsole(char *pData, int NumChars);
-PCHAR ConDisplayData(char* pData, int NumLines);
-PCHAR ConWriteLine(char* pData);
-int Con_printf(const char *Format, ...);
-void ConClearScrollRegion();
-void ConClearScreen();
-void ConClearEOScreen();
-void ConClearBOScreen();
-void ConClearLine();
-void ConClearEOLine();
-void ConClearNFromCursorRight(int n);
-void ConClearNFromCursorLeft(int n);
-void ConScrollUpEntireBuffer();
-void ConScrollDownEntireBuffer();
-void ConScrollUp(int topline,int botline);
-void ConScrollDown(int topline,int botline);
-void ConClearBOLine();
-BOOL ConChangeCursor(CONSOLE_CURSOR_INFO *pCursorInfo);
-void ConSetCursorPosition(int x, int y);
-int ConGetCursorX();
-int ConGetCursorY();
-int ConGetBufferHeight();
-BOOL ConDisplayCursor(BOOL bVisible);
-void ConMoveCursorPosition(int x, int y);
-void ConGetRelativeCursorPosition(int *x, int *y);
-BOOL ConRestoreScreenHandle(SCREEN_HANDLE hScreen);
-BOOL ConRestoreScreenColors();
-SCREEN_HANDLE ConSaveScreenHandle(SCREEN_HANDLE);
-void ConDeleteScreenHandle(SCREEN_HANDLE hScreen);
-void ConSaveViewRect_NoPtyHack();
-void ConRestoreViewRect_NoPtyHack();
-void ConDeleteChars(int n);
-void ConSaveWindowsState();
-void ConMoveVisibleWindow(int offset);
-int is_cursor_at_lastline_of_visible_window();
-void ConGetCursorPosition(int *x, int *y);
-void ConMoveCursorTopOfVisibleWindow();
-HANDLE get_console_handle(FILE *, DWORD *);
+LIBOPENSSH_API BOOL ConSetScreenRect(int xSize, int ySize);
+LIBOPENSSH_API BOOL ConSetScreenSize(int X, int Y);
+LIBOPENSSH_API BOOL ConRestoreScreen();
+LIBOPENSSH_API void ConSaveScreen();
+LIBOPENSSH_API void ConSetAttribute(int *iParam, int iParamCount);
+LIBOPENSSH_API int ConScreenSizeX();
+LIBOPENSSH_API int ConSetScreenX();
+LIBOPENSSH_API int ConScreenSizeY();
+LIBOPENSSH_API int ConVisibleWindowWidth();
+LIBOPENSSH_API int ConVisibleWindowHeight();
+LIBOPENSSH_API int ConSetScreenY();
+LIBOPENSSH_API void ConFillToEndOfLine();
+LIBOPENSSH_API int ConWriteString(char* pszString, int cbString);
+LIBOPENSSH_API BOOL ConWriteChar(CHAR ch);
+LIBOPENSSH_API int ConWriteConsole(char *pData, int NumChars);
+LIBOPENSSH_API PCHAR ConDisplayData(char* pData, int NumLines);
+LIBOPENSSH_API PCHAR ConWriteLine(char* pData);
+LIBOPENSSH_API int Con_printf(const char *Format, ...);
+LIBOPENSSH_API void ConClearScrollRegion();
+LIBOPENSSH_API void ConClearScreen();
+LIBOPENSSH_API void ConClearEOScreen();
+LIBOPENSSH_API void ConClearBOScreen();
+LIBOPENSSH_API void ConClearLine();
+LIBOPENSSH_API void ConClearEOLine();
+LIBOPENSSH_API void ConClearNFromCursorRight(int n);
+LIBOPENSSH_API void ConClearNFromCursorLeft(int n);
+LIBOPENSSH_API void ConScrollUpEntireBuffer();
+LIBOPENSSH_API void ConScrollDownEntireBuffer();
+LIBOPENSSH_API void ConScrollUp(int topline,int botline);
+LIBOPENSSH_API void ConScrollDown(int topline,int botline);
+LIBOPENSSH_API void ConClearBOLine();
+LIBOPENSSH_API BOOL ConChangeCursor(CONSOLE_CURSOR_INFO *pCursorInfo);
+LIBOPENSSH_API void ConSetCursorPosition(int x, int y);
+LIBOPENSSH_API int ConGetCursorX();
+LIBOPENSSH_API int ConGetCursorY();
+LIBOPENSSH_API int ConGetBufferHeight();
+LIBOPENSSH_API BOOL ConDisplayCursor(BOOL bVisible);
+LIBOPENSSH_API void ConMoveCursorPosition(int x, int y);
+LIBOPENSSH_API void ConGetRelativeCursorPosition(int *x, int *y);
+LIBOPENSSH_API BOOL ConRestoreScreenHandle(SCREEN_HANDLE hScreen);
+LIBOPENSSH_API BOOL ConRestoreScreenColors();
+LIBOPENSSH_API  SCREEN_HANDLE ConSaveScreenHandle(SCREEN_HANDLE);
+LIBOPENSSH_API void ConDeleteScreenHandle(SCREEN_HANDLE hScreen);
+LIBOPENSSH_API void ConSaveViewRect_NoPtyHack();
+LIBOPENSSH_API void ConRestoreViewRect_NoPtyHack();
+LIBOPENSSH_API void ConDeleteChars(int n);
+LIBOPENSSH_API void ConSaveWindowsState();
+LIBOPENSSH_API void ConMoveVisibleWindow(int offset);
+LIBOPENSSH_API int is_cursor_at_lastline_of_visible_window();
+LIBOPENSSH_API void ConGetCursorPosition(int *x, int *y);
+LIBOPENSSH_API void ConMoveCursorTopOfVisibleWindow();
+LIBOPENSSH_API HANDLE get_console_handle(FILE *, DWORD *);
 #endif

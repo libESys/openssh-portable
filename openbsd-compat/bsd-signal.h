@@ -17,6 +17,8 @@
 #ifndef _BSD_SIGNAL_H
 #define _BSD_SIGNAL_H
 
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
 #include <signal.h>
@@ -30,7 +32,7 @@
 #endif
 
 #if !defined(HAVE_STRSIGNAL)
-char *strsignal(int);
+LIBOPENSSH_API char *strsignal(int);
 #endif
 
 #endif /* _BSD_SIGNAL_H */

@@ -2,7 +2,7 @@
  * Windows version of sshpty* routines in sshpty.c
  */
 
-
+#include "libopenssh_defs.h"
 
 #include <Windows.h>
 #include "..\..\..\sshpty.h"
@@ -19,7 +19,7 @@
  * allocates a control channel for Windows PTY
  * ptyfd can be used to deliver Window size change events
  */
-int
+LIBOPENSSH_API int
 pty_allocate(int *ptyfd, int *ttyfd, char *namebuf, size_t namebuflen)
 {
 	int p[2];
@@ -37,17 +37,17 @@ pty_allocate(int *ptyfd, int *ttyfd, char *namebuf, size_t namebuflen)
 	return 1;
 }
 
-void
+LIBOPENSSH_API void
 pty_release(const char *tty) {
 	/* NO-OP */
 }
 
-void
+LIBOPENSSH_API void
 pty_make_controlling_tty(int *ttyfd, const char *tty) {
 	/* NO-OP */
 }
 
-void
+LIBOPENSSH_API void
 pty_change_window_size(int ptyfd, u_int row, u_int col,
     u_int xpixel, u_int ypixel) 
 {
@@ -61,12 +61,12 @@ pty_change_window_size(int ptyfd, u_int row, u_int col,
 }
 
 
-void
+LIBOPENSSH_API void
 pty_setowner(struct passwd *pw, const char *tty) {
 	/* NO-OP */
 }
 
-void
+LIBOPENSSH_API void
 disconnect_controlling_tty(void) {
 	/* NO-OP */
 }

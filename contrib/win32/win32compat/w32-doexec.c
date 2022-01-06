@@ -24,6 +24,9 @@
 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
 #include <unistd.h>
@@ -238,7 +241,7 @@ cleanup:
 	return ret;
 }
 
-int do_exec_windows(struct ssh *ssh, Session *s, const char *command, int pty) {
+LIBOPENSSH_API int do_exec_windows(struct ssh *ssh, Session *s, const char *command, int pty) {
 	int pipein[2], pipeout[2], pipeerr[2], ret = -1;
 	char *exec_command = NULL, *posix_cmd_input = NULL, *shell = NULL;
 	HANDLE job = NULL, process_handle;
@@ -485,12 +488,12 @@ cleanup:
 	return ret;
 }
 
-int
+LIBOPENSSH_API int
 do_exec_no_pty(struct ssh *ssh, Session *s, const char *command) {
 	return do_exec_windows(ssh, s, command, 0);
 }
 
-int
+LIBOPENSSH_API int
 do_exec_pty(struct ssh *ssh, Session *s, const char *command) {
 	return do_exec_windows(ssh, s, command, 1);
 }

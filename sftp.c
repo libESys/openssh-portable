@@ -117,7 +117,7 @@ struct complete_ctx {
 int remote_glob(struct sftp_conn *, const char *, int,
     int (*)(const char *, int), glob_t *); /* proto for sftp-glob.c */
 
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 /* Separators for interactive commands */
 #define WHITESPACE " \t\r\n"

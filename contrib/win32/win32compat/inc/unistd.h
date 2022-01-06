@@ -4,6 +4,9 @@
 * POSIX header and needed function definitions
 */
 #pragma once
+
+#include "libopenssh_defs.h"
+
 #include <stddef.h>
 #include "sys\types.h"
 #include "fcntl.h"
@@ -15,83 +18,83 @@
 
 #define SFTP_SERVER_LOG_FD STDERR_FILENO+1
 
-int w32_ftruncate(int, off_t);
+LIBOPENSSH_API int w32_ftruncate(int, off_t);
 #define ftruncate(a, b) w32_ftruncate((a), (b))
 
 #define pipe w32_pipe
-int w32_pipe(int *pfds);
+LIBOPENSSH_API int w32_pipe(int *pfds);
 
 #define read w32_read
-int w32_read(int fd, void *dst, size_t max);
+LIBOPENSSH_API int w32_read(int fd, void *dst, size_t max);
 
 #define write w32_write
-int w32_write(int fd, const void *buf, size_t max);
+LIBOPENSSH_API int w32_write(int fd, const void *buf, size_t max);
 
 #define writev w32_writev
-int w32_writev(int fd, const struct iovec *iov, int iovcnt);
+LIBOPENSSH_API int w32_writev(int fd, const struct iovec *iov, int iovcnt);
 
-int w32_isatty(int fd);
+LIBOPENSSH_API int w32_isatty(int fd);
 /* can't do this #define isatty w32_isatty
 * as there is a variable in code named isatty*/
-#define isatty(a)	w32_isatty((a))
+// #define isatty(a)	w32_isatty((a))
 
-int w32_close(int fd);
+LIBOPENSSH_API int w32_close(int fd);
 #define close w32_close
 
-int w32_dup(int oldfd);
+LIBOPENSSH_API int w32_dup(int oldfd);
 #define dup w32_dup
 
-int w32_dup2(int oldfd, int newfd);
+LIBOPENSSH_API int w32_dup2(int oldfd, int newfd);
 #define dup2 w32_dup2
 
 #define sleep(sec) Sleep(1000 * sec)
 
-unsigned int w32_alarm(unsigned int seconds);
+LIBOPENSSH_API unsigned int w32_alarm(unsigned int seconds);
 #define alarm w32_alarm
 
-long w32_lseek(int fd, unsigned __int64 offset, int origin);
+LIBOPENSSH_API long w32_lseek(int fd, unsigned __int64 offset, int origin);
 #define lseek w32_lseek
 
 #define getdtablesize() MAX_FDS
 
-int w32_gethostname(char *, size_t);
+LIBOPENSSH_API int w32_gethostname(char *, size_t);
 #define gethostname w32_gethostname
 
-int w32_fsync(int fd);
+LIBOPENSSH_API int w32_fsync(int fd);
 #define fsync(a) w32_fsync((a))
 
-int w32_symlink(const char *target, const char *linkpath);
+LIBOPENSSH_API int w32_symlink(const char *target, const char *linkpath);
 #define symlink w32_symlink
 
-int w32_chown(const char *pathname, unsigned int owner, unsigned int group);
+LIBOPENSSH_API int w32_chown(const char *pathname, unsigned int owner, unsigned int group);
 #define chown w32_chown
 
-int w32_fchown(int fd, unsigned int owner, unsigned int group);
+LIBOPENSSH_API int w32_fchown(int fd, unsigned int owner, unsigned int group);
 #define fchown w32_fchown
 
-int w32_unlink(const char *path);
+LIBOPENSSH_API int w32_unlink(const char *path);
 #define unlink w32_unlink
 
-int w32_rmdir(const char *pathname);
+LIBOPENSSH_API int w32_rmdir(const char *pathname);
 #define rmdir w32_rmdir
 
-int w32_chdir(const char *dirname);
+LIBOPENSSH_API int w32_chdir(const char *dirname);
 #define chdir w32_chdir
 
-char *w32_getcwd(char *buffer, int maxlen);
+LIBOPENSSH_API char *w32_getcwd(char *buffer, int maxlen);
 #define getcwd w32_getcwd
 
-int w32_readlink(const char *path, char *link, int linklen);
+LIBOPENSSH_API int w32_readlink(const char *path, char *link, int linklen);
 #define readlink w32_readlink
 
-int w32_link(const char *oldpath, const char *newpath);
+LIBOPENSSH_API int w32_link(const char *oldpath, const char *newpath);
 #define link w32_link
 
-int getpeereid(int, uid_t*, gid_t*);
+LIBOPENSSH_API int getpeereid(int, uid_t*, gid_t*);
 
-int daemon(int nochdir, int noclose);
-char *crypt(const char *key, const char *salt);
-int chroot(const char *path);
+LIBOPENSSH_API int daemon(int nochdir, int noclose);
+LIBOPENSSH_API char *crypt(const char *key, const char *salt);
+LIBOPENSSH_API int chroot(const char *path);
 
 /* 
  * readpassphrase.h definitions 
@@ -107,4 +110,4 @@ int chroot(const char *path);
 #define RPP_SEVENBIT    0x10		/* Strip the high bit from input. */
 #define RPP_STDIN       0x20		/* Read from stdin, not /dev/tty */
 
-char * readpassphrase(const char *, char *, size_t, int);
+LIBOPENSSH_API char * readpassphrase(const char *, char *, size_t, int);

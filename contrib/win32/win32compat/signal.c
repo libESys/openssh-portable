@@ -28,6 +28,8 @@
 * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "libopenssh_defs.h"
+
 #include <errno.h>
 #include "w32fd.h"
 #include "signal_internal.h"
@@ -80,7 +82,7 @@ sigtstp_APCProc(_In_ ULONG_PTR dwParam)
 	sigaddset(&pending_signals, W32_SIGTSTP);
 }
 
-BOOL WINAPI
+LIBOPENSSH_API BOOL WINAPI
 native_sig_handler(DWORD dwCtrlType)
 {
 	debug4("Native Ctrl+C handler, CtrlType %d", dwCtrlType);
@@ -163,7 +165,11 @@ w32_sigprocmask(int how, const sigset_t *set, sigset_t *oldset)
 	return 0;
 }
 
-
+#ifdef WIN32
+#ifndef SIGSEGV
+#define SIGSEGV	W32_SIGSEGV
+#endif
+#endif
 
 int
 w32_raise(int sig)

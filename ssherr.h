@@ -18,6 +18,7 @@
 #ifndef _SSHERR_H
 #define _SSHERR_H
 
+#include "libopenssh_defs.h"
 /* XXX are these too granular? not granular enough? I can't decide - djm */
 
 /* Error codes */
@@ -84,6 +85,6 @@
 #define SSH_ERR_DEVICE_NOT_FOUND		-60
 
 /* Translate a numeric error code to a human-readable error string */
-const char *ssh_err(int n);
+LIBOPENSSH_API const char *ssh_err(int n);
 
 #endif /* _SSHERR_H */

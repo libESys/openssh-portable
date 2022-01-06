@@ -18,6 +18,8 @@
 #ifndef _SSHBUF_H
 #define _SSHBUF_H
 
+#include "libopenssh_defs.h"
+
 #include <sys/types.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -54,13 +56,13 @@ struct sshbuf {
  * Create a new sshbuf buffer.
  * Returns pointer to buffer on success, or NULL on allocation failure.
  */
-struct sshbuf *sshbuf_new(void);
+LIBOPENSSH_API struct sshbuf *sshbuf_new(void);
 
 /*
  * Create a new, read-only sshbuf buffer from existing data.
  * Returns pointer to buffer on success, or NULL on allocation failure.
  */
-struct sshbuf *sshbuf_from(const void *blob, size_t len);
+LIBOPENSSH_API struct sshbuf *sshbuf_from(const void *blob, size_t len);
 
 /*
  * Create a new, read-only sshbuf buffer from the contents of an existing
@@ -68,7 +70,7 @@ struct sshbuf *sshbuf_from(const void *blob, size_t len);
  * resultant buffer.
  * Returns pointer to buffer on success, or NULL on allocation failure.
  */
-struct sshbuf *sshbuf_fromb(struct sshbuf *buf);
+LIBOPENSSH_API struct sshbuf *sshbuf_fromb(struct sshbuf *buf);
 
 /*
  * Create a new, read-only sshbuf buffer from the contents of a string in
@@ -77,49 +79,49 @@ struct sshbuf *sshbuf_fromb(struct sshbuf *buf);
  * buffer.
  * Returns pointer to buffer on success, or NULL on allocation failure.
  */
-int	sshbuf_froms(struct sshbuf *buf, struct sshbuf **bufp);
+LIBOPENSSH_API int	sshbuf_froms(struct sshbuf *buf, struct sshbuf **bufp);
 
 /*
  * Clear and free buf
  */
-void	sshbuf_free(struct sshbuf *buf);
+LIBOPENSSH_API void	sshbuf_free(struct sshbuf *buf);
 
 /*
  * Reset buf, clearing its contents. NB. max_size is preserved.
  */
-void	sshbuf_reset(struct sshbuf *buf);
+LIBOPENSSH_API void	sshbuf_reset(struct sshbuf *buf);
 
 /*
  * Return the maximum size of buf
  */
-size_t	sshbuf_max_size(const struct sshbuf *buf);
+LIBOPENSSH_API size_t	sshbuf_max_size(const struct sshbuf *buf);
 
 /*
  * Set the maximum size of buf
  * Returns 0 on success, or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_set_max_size(struct sshbuf *buf, size_t max_size);
+LIBOPENSSH_API int	sshbuf_set_max_size(struct sshbuf *buf, size_t max_size);
 
 /*
  * Returns the length of data in buf
  */
-size_t	sshbuf_len(const struct sshbuf *buf);
+LIBOPENSSH_API size_t	sshbuf_len(const struct sshbuf *buf);
 
 /*
  * Returns number of bytes left in buffer before hitting max_size.
  */
-size_t	sshbuf_avail(const struct sshbuf *buf);
+LIBOPENSSH_API size_t	sshbuf_avail(const struct sshbuf *buf);
 
 /*
  * Returns a read-only pointer to the start of the data in buf
  */
-const u_char *sshbuf_ptr(const struct sshbuf *buf);
+LIBOPENSSH_API const u_char *sshbuf_ptr(const struct sshbuf *buf);
 
 /*
  * Returns a mutable pointer to the start of the data in buf, or
  * NULL if the buffer is read-only.
  */
-u_char *sshbuf_mutable_ptr(const struct sshbuf *buf);
+LIBOPENSSH_API u_char *sshbuf_mutable_ptr(const struct sshbuf *buf);
 
 /*
  * Check whether a reservation of size len will succeed in buf
@@ -127,7 +129,7 @@ u_char *sshbuf_mutable_ptr(const struct sshbuf *buf);
  * with unsigned overflows correctly.
  * Returns 0 on success, or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_check_reserve(const struct sshbuf *buf, size_t len);
+LIBOPENSSH_API int	sshbuf_check_reserve(const struct sshbuf *buf, size_t len);
 
 /*
  * Preallocates len additional bytes in buf.
@@ -135,129 +137,129 @@ int	sshbuf_check_reserve(const struct sshbuf *buf, size_t len);
  * required to avoid realloc in the buffer code.
  * Returns 0 on success, or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_allocate(struct sshbuf *buf, size_t len);
+LIBOPENSSH_API int	sshbuf_allocate(struct sshbuf *buf, size_t len);
 
 /*
  * Reserve len bytes in buf.
  * Returns 0 on success and a pointer to the first reserved byte via the
  * optional dpp parameter or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_reserve(struct sshbuf *buf, size_t len, u_char **dpp);
+LIBOPENSSH_API int	sshbuf_reserve(struct sshbuf *buf, size_t len, u_char **dpp);
 
 /*
  * Consume len bytes from the start of buf
  * Returns 0 on success, or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_consume(struct sshbuf *buf, size_t len);
+LIBOPENSSH_API int	sshbuf_consume(struct sshbuf *buf, size_t len);
 
 /*
  * Consume len bytes from the end of buf
  * Returns 0 on success, or a negative SSH_ERR_* error code on failure.
  */
-int	sshbuf_consume_end(struct sshbuf *buf, size_t len);
+LIBOPENSSH_API int	sshbuf_consume_end(struct sshbuf *buf, size_t len);
 
 /* Extract or deposit some bytes */
-int	sshbuf_get(struct sshbuf *buf, void *v, size_t len);
-int	sshbuf_put(struct sshbuf *buf, const void *v, size_t len);
-int	sshbuf_putb(struct sshbuf *buf, const struct sshbuf *v);
+LIBOPENSSH_API int	sshbuf_get(struct sshbuf *buf, void *v, size_t len);
+LIBOPENSSH_API int	sshbuf_put(struct sshbuf *buf, const void *v, size_t len);
+LIBOPENSSH_API int	sshbuf_putb(struct sshbuf *buf, const struct sshbuf *v);
 
 /* Append using a printf(3) format */
-int	sshbuf_putf(struct sshbuf *buf, const char *fmt, ...)
+LIBOPENSSH_API int	sshbuf_putf(struct sshbuf *buf, const char *fmt, ...)
 	    __attribute__((format(printf, 2, 3)));
-int	sshbuf_putfv(struct sshbuf *buf, const char *fmt, va_list ap);
+LIBOPENSSH_API int	sshbuf_putfv(struct sshbuf *buf, const char *fmt, va_list ap);
 
 /* Functions to extract or store big-endian words of various sizes */
-int	sshbuf_get_u64(struct sshbuf *buf, u_int64_t *valp);
-int	sshbuf_get_u32(struct sshbuf *buf, u_int32_t *valp);
-int	sshbuf_get_u16(struct sshbuf *buf, u_int16_t *valp);
-int	sshbuf_get_u8(struct sshbuf *buf, u_char *valp);
-int	sshbuf_put_u64(struct sshbuf *buf, u_int64_t val);
-int	sshbuf_put_u32(struct sshbuf *buf, u_int32_t val);
-int	sshbuf_put_u16(struct sshbuf *buf, u_int16_t val);
-int	sshbuf_put_u8(struct sshbuf *buf, u_char val);
+LIBOPENSSH_API int	sshbuf_get_u64(struct sshbuf *buf, u_int64_t *valp);
+LIBOPENSSH_API int	sshbuf_get_u32(struct sshbuf *buf, u_int32_t *valp);
+LIBOPENSSH_API int	sshbuf_get_u16(struct sshbuf *buf, u_int16_t *valp);
+LIBOPENSSH_API int	sshbuf_get_u8(struct sshbuf *buf, u_char *valp);
+LIBOPENSSH_API int	sshbuf_put_u64(struct sshbuf *buf, u_int64_t val);
+LIBOPENSSH_API int	sshbuf_put_u32(struct sshbuf *buf, u_int32_t val);
+LIBOPENSSH_API int	sshbuf_put_u16(struct sshbuf *buf, u_int16_t val);
+LIBOPENSSH_API int	sshbuf_put_u8(struct sshbuf *buf, u_char val);
 
 /* Functions to peek at the contents of a buffer without modifying it. */
-int	sshbuf_peek_u64(const struct sshbuf *buf, size_t offset,
+LIBOPENSSH_API int	sshbuf_peek_u64(const struct sshbuf *buf, size_t offset,
     u_int64_t *valp);
-int	sshbuf_peek_u32(const struct sshbuf *buf, size_t offset,
+LIBOPENSSH_API int	sshbuf_peek_u32(const struct sshbuf *buf, size_t offset,
     u_int32_t *valp);
-int	sshbuf_peek_u16(const struct sshbuf *buf, size_t offset,
+LIBOPENSSH_API int	sshbuf_peek_u16(const struct sshbuf *buf, size_t offset,
     u_int16_t *valp);
-int	sshbuf_peek_u8(const struct sshbuf *buf, size_t offset,
+LIBOPENSSH_API int	sshbuf_peek_u8(const struct sshbuf *buf, size_t offset,
     u_char *valp);
 
 /*
  * Functions to poke values into an existing buffer (e.g. a length header
  * to a packet). The destination bytes must already exist in the buffer.
  */
-int sshbuf_poke_u64(struct sshbuf *buf, size_t offset, u_int64_t val);
-int sshbuf_poke_u32(struct sshbuf *buf, size_t offset, u_int32_t val);
-int sshbuf_poke_u16(struct sshbuf *buf, size_t offset, u_int16_t val);
-int sshbuf_poke_u8(struct sshbuf *buf, size_t offset, u_char val);
-int sshbuf_poke(struct sshbuf *buf, size_t offset, void *v, size_t len);
+LIBOPENSSH_API int sshbuf_poke_u64(struct sshbuf *buf, size_t offset, u_int64_t val);
+LIBOPENSSH_API int sshbuf_poke_u32(struct sshbuf *buf, size_t offset, u_int32_t val);
+LIBOPENSSH_API int sshbuf_poke_u16(struct sshbuf *buf, size_t offset, u_int16_t val);
+LIBOPENSSH_API int sshbuf_poke_u8(struct sshbuf *buf, size_t offset, u_char val);
+LIBOPENSSH_API int sshbuf_poke(struct sshbuf *buf, size_t offset, void *v, size_t len);
 
 /*
  * Functions to extract or store SSH wire encoded strings (u32 len || data)
  * The "cstring" variants admit no \0 characters in the string contents.
  * Caller must free *valp.
  */
-int	sshbuf_get_string(struct sshbuf *buf, u_char **valp, size_t *lenp);
-int	sshbuf_get_cstring(struct sshbuf *buf, char **valp, size_t *lenp);
-int	sshbuf_get_stringb(struct sshbuf *buf, struct sshbuf *v);
-int	sshbuf_put_string(struct sshbuf *buf, const void *v, size_t len);
-int	sshbuf_put_cstring(struct sshbuf *buf, const char *v);
-int	sshbuf_put_stringb(struct sshbuf *buf, const struct sshbuf *v);
+LIBOPENSSH_API int	sshbuf_get_string(struct sshbuf *buf, u_char **valp, size_t *lenp);
+LIBOPENSSH_API int	sshbuf_get_cstring(struct sshbuf *buf, char **valp, size_t *lenp);
+LIBOPENSSH_API int	sshbuf_get_stringb(struct sshbuf *buf, struct sshbuf *v);
+LIBOPENSSH_API int	sshbuf_put_string(struct sshbuf *buf, const void *v, size_t len);
+LIBOPENSSH_API int	sshbuf_put_cstring(struct sshbuf *buf, const char *v);
+LIBOPENSSH_API int	sshbuf_put_stringb(struct sshbuf *buf, const struct sshbuf *v);
 
 /*
  * "Direct" variant of sshbuf_get_string, returns pointer into the sshbuf to
  * avoid an malloc+memcpy. The pointer is guaranteed to be valid until the
  * next sshbuf-modifying function call. Caller does not free.
  */
-int	sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp,
+LIBOPENSSH_API int	sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp,
 	    size_t *lenp);
 
 /* Skip past a string */
 #define sshbuf_skip_string(buf) sshbuf_get_string_direct(buf, NULL, NULL)
 
 /* Another variant: "peeks" into the buffer without modifying it */
-int	sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+LIBOPENSSH_API int	sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
 	    size_t *lenp);
 
 /*
  * Functions to extract or store SSH wire encoded bignums and elliptic
  * curve points.
  */
-int	sshbuf_put_bignum2_bytes(struct sshbuf *buf, const void *v, size_t len);
-int	sshbuf_get_bignum2_bytes_direct(struct sshbuf *buf,
+LIBOPENSSH_API int	sshbuf_put_bignum2_bytes(struct sshbuf *buf, const void *v, size_t len);
+LIBOPENSSH_API int	sshbuf_get_bignum2_bytes_direct(struct sshbuf *buf,
 	    const u_char **valp, size_t *lenp);
 #ifdef WITH_OPENSSL
-int	sshbuf_get_bignum2(struct sshbuf *buf, BIGNUM **valp);
-int	sshbuf_put_bignum2(struct sshbuf *buf, const BIGNUM *v);
+LIBOPENSSH_API int	sshbuf_get_bignum2(struct sshbuf *buf, BIGNUM **valp);
+LIBOPENSSH_API int	sshbuf_put_bignum2(struct sshbuf *buf, const BIGNUM *v);
 # ifdef OPENSSL_HAS_ECC
-int	sshbuf_get_ec(struct sshbuf *buf, EC_POINT *v, const EC_GROUP *g);
-int	sshbuf_get_eckey(struct sshbuf *buf, EC_KEY *v);
-int	sshbuf_put_ec(struct sshbuf *buf, const EC_POINT *v, const EC_GROUP *g);
-int	sshbuf_put_eckey(struct sshbuf *buf, const EC_KEY *v);
+LIBOPENSSH_API int	sshbuf_get_ec(struct sshbuf *buf, EC_POINT *v, const EC_GROUP *g);
+LIBOPENSSH_API int	sshbuf_get_eckey(struct sshbuf *buf, EC_KEY *v);
+LIBOPENSSH_API int	sshbuf_put_ec(struct sshbuf *buf, const EC_POINT *v, const EC_GROUP *g);
+LIBOPENSSH_API int	sshbuf_put_eckey(struct sshbuf *buf, const EC_KEY *v);
 # endif /* OPENSSL_HAS_ECC */
 #endif /* WITH_OPENSSL */
 
 /* Dump the contents of the buffer in a human-readable format */
-void	sshbuf_dump(const struct sshbuf *buf, FILE *f);
+LIBOPENSSH_API void	sshbuf_dump(const struct sshbuf *buf, FILE *f);
 
 /* Dump specified memory in a human-readable format */
-void	sshbuf_dump_data(const void *s, size_t len, FILE *f);
+LIBOPENSSH_API void	sshbuf_dump_data(const void *s, size_t len, FILE *f);
 
 /* Return the hexadecimal representation of the contents of the buffer */
-char	*sshbuf_dtob16(struct sshbuf *buf);
+LIBOPENSSH_API char	*sshbuf_dtob16(struct sshbuf *buf);
 
 /* Encode the contents of the buffer as base64 */
-char	*sshbuf_dtob64_string(const struct sshbuf *buf, int wrap);
-int	sshbuf_dtob64(const struct sshbuf *d, struct sshbuf *b64, int wrap);
+LIBOPENSSH_API char	*sshbuf_dtob64_string(const struct sshbuf *buf, int wrap);
+LIBOPENSSH_API int	sshbuf_dtob64(const struct sshbuf *d, struct sshbuf *b64, int wrap);
 /* RFC4648 "base64url" encoding variant */
-int	sshbuf_dtourlb64(const struct sshbuf *d, struct sshbuf *b64, int wrap);
+LIBOPENSSH_API int	sshbuf_dtourlb64(const struct sshbuf *d, struct sshbuf *b64, int wrap);
 
 /* Decode base64 data and append it to the buffer */
-int	sshbuf_b64tod(struct sshbuf *buf, const char *b64);
+LIBOPENSSH_API int	sshbuf_b64tod(struct sshbuf *buf, const char *b64);
 
 /*
  * Tests whether the buffer contains the specified byte sequence at the
@@ -271,7 +273,7 @@ int	sshbuf_b64tod(struct sshbuf *buf, const char *b64);
  * insufficient data is present then the comparison is not attempted at
  * all.
  */
-int	sshbuf_cmp(const struct sshbuf *b, size_t offset,
+LIBOPENSSH_API int	sshbuf_cmp(const struct sshbuf *b, size_t offset,
     const void *s, size_t len);
 
 /*
@@ -282,7 +284,7 @@ int	sshbuf_cmp(const struct sshbuf *b, size_t offset,
  * present in the buffer for a match to be possible but none was found.
  * Searches for zero-length data are not allowed.
  */
-int
+LIBOPENSSH_API int
 sshbuf_find(const struct sshbuf *b, size_t start_offset,
     const void *s, size_t len, size_t *offsetp);
 
@@ -291,15 +293,15 @@ sshbuf_find(const struct sshbuf *b, size_t start_offset,
  * Returns NULL on buffer error, or if the buffer contains a premature
  * nul character.
  */
-char *sshbuf_dup_string(struct sshbuf *buf);
+LIBOPENSSH_API char *sshbuf_dup_string(struct sshbuf *buf);
 
 /*
  * Fill a buffer from a file descriptor or filename. Both allocate the
  * buffer for the caller.
  */
-int sshbuf_load_fd(int, struct sshbuf **)
+LIBOPENSSH_API int sshbuf_load_fd(int, struct sshbuf **)
     __attribute__((__nonnull__ (2)));
-int sshbuf_load_file(const char *, struct sshbuf **)
+LIBOPENSSH_API int sshbuf_load_file(const char *, struct sshbuf **)
     __attribute__((__nonnull__ (2)));
 
 /*
@@ -308,10 +310,10 @@ int sshbuf_load_file(const char *, struct sshbuf **)
  */
  #ifdef WINDOWS
  /* umask doesn't work the same on windows. so pass the mode instead. */
-int sshbuf_write_file(const char *path, struct sshbuf *buf, mode_t mode)
+LIBOPENSSH_API int sshbuf_write_file(const char *path, struct sshbuf *buf, mode_t mode)
 __attribute__((__nonnull__(2)));
  #else
-int sshbuf_write_file(const char *path, struct sshbuf *buf)
+LIBOPENSSH_API int sshbuf_write_file(const char *path, struct sshbuf *buf)
     __attribute__((__nonnull__ (2)));
 #endif
 
@@ -367,22 +369,22 @@ int sshbuf_write_file(const char *path, struct sshbuf *buf)
 /*
  * Return the allocation size of buf
  */
-size_t	sshbuf_alloc(const struct sshbuf *buf);
+LIBOPENSSH_API size_t	sshbuf_alloc(const struct sshbuf *buf);
 
 /*
  * Increment the reference count of buf.
  */
-int	sshbuf_set_parent(struct sshbuf *child, struct sshbuf *parent);
+LIBOPENSSH_API int	sshbuf_set_parent(struct sshbuf *child, struct sshbuf *parent);
 
 /*
  * Return the parent buffer of buf, or NULL if it has no parent.
  */
-const struct sshbuf *sshbuf_parent(const struct sshbuf *buf);
+LIBOPENSSH_API const struct sshbuf *sshbuf_parent(const struct sshbuf *buf);
 
 /*
  * Return the reference count of buf
  */
-u_int	sshbuf_refcount(const struct sshbuf *buf);
+LIBOPENSSH_API u_int	sshbuf_refcount(const struct sshbuf *buf);
 
 # define SSHBUF_SIZE_INIT	256		/* Initial allocation */
 # define SSHBUF_SIZE_INC	256		/* Preferred increment length */

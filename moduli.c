@@ -37,6 +37,8 @@
  * Second step: test primes' safety (processor intensive)
  */
 
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
 #ifdef WITH_OPENSSL
@@ -142,8 +144,8 @@ static u_int32_t *LargeSieve, largewords, largetries, largenumbers;
 static u_int32_t largebits, largememory;	/* megabytes */
 static BIGNUM *largebase;
 
-int gen_candidates(FILE *, u_int32_t, u_int32_t, BIGNUM *);
-int prime_test(FILE *, FILE *, u_int32_t, u_int32_t, char *, unsigned long,
+LIBOPENSSH_API int gen_candidates(FILE *, u_int32_t, u_int32_t, BIGNUM *);
+LIBOPENSSH_API int prime_test(FILE *, FILE *, u_int32_t, u_int32_t, char *, unsigned long,
     unsigned long);
 
 /*
@@ -241,7 +243,7 @@ sieve_large(u_int32_t s)
  * to standard output.
  * The list is checked against small known primes (less than 2**30).
  */
-int
+LIBOPENSSH_API int
 gen_candidates(FILE *out, u_int32_t memory, u_int32_t power, BIGNUM *start)
 {
 	BIGNUM *q;

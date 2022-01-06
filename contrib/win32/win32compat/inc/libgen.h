@@ -1,3 +1,3 @@
 
 
-char *basename(char *path);
+LIBOPENSSH_API char *basename(char *path);

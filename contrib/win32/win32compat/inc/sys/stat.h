@@ -1,4 +1,7 @@
 #pragma once
+
+#include "libopenssh_defs.h"
+
 #include "..\crtheaders.h"
 #include "types.h"
 #include SYS_STAT_H
@@ -23,22 +26,22 @@
 #define WRITE_PERMISSIONS (FILE_WRITE_DATA | FILE_APPEND_DATA | FILE_WRITE_ATTRIBUTES | FILE_WRITE_EA)
 #define EXECUTE_PERMISSIONS (READ_PERMISSIONS | FILE_EXECUTE)
 
-int w32_fstat(int fd, struct w32_stat *buf);
+LIBOPENSSH_API int w32_fstat(int fd, struct w32_stat *buf);
 #define fstat(a,b)	w32_fstat((a), (b))
 
-int w32_stat(const char *path, struct w32_stat *buf);
+LIBOPENSSH_API int w32_stat(const char *path, struct w32_stat *buf);
 #define stat w32_stat
 
-int w32_lstat(const char *path, struct w32_stat *buf);
+LIBOPENSSH_API int w32_lstat(const char *path, struct w32_stat *buf);
 #define lstat w32_lstat
 
-int w32_mkdir(const char *pathname, unsigned short mode);
+LIBOPENSSH_API int w32_mkdir(const char *pathname, unsigned short mode);
 #define mkdir w32_mkdir
 
-int w32_chmod(const char *, mode_t);
+LIBOPENSSH_API int w32_chmod(const char *, mode_t);
 #define chmod w32_chmod
 
-int w32_fchmod(int fd, mode_t mode);
+LIBOPENSSH_API int w32_fchmod(int fd, mode_t mode);
 #define fchmod w32_fchmod
 
 
@@ -57,6 +60,6 @@ struct w32_stat {
 };
 
 
-void strmode(mode_t mode, char *p);
+LIBOPENSSH_API void strmode(mode_t mode, char *p);
 
-int get_others_file_permissions(wchar_t * file_name, int isReadOnlyFile);
+LIBOPENSSH_API int get_others_file_permissions(wchar_t * file_name, int isReadOnlyFile);

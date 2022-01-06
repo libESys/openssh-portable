@@ -7,6 +7,8 @@
 #ifndef __DIRENT_H__
 #define __DIRENT_H__
 
+#include "libopenssh_defs.h"
+
 #include <direct.h>
 #include <io.h>
 #include <fcntl.h>
@@ -19,8 +21,8 @@ struct dirent {
 
 typedef struct DIR_ DIR;
 
-DIR * opendir(const char*);
-int closedir(DIR*);
-struct dirent *readdir(void*);
+LIBOPENSSH_API DIR * opendir(const char*);
+LIBOPENSSH_API int closedir(DIR*);
+LIBOPENSSH_API struct dirent *readdir(void*);
 
 #endif

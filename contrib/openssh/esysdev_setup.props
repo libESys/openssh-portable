@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <esyscVersionString>010</esyscVersionString>
+    <esyscShortVersionString>01</esyscShortVersionString>
+    <esyscToolkitPrefix>msw</esyscToolkitPrefix>
+    <esyscCfg>
+    </esyscCfg>
+    <esyscVendor>custom</esyscVendor>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '10.0'">
+    <esysdevCompilerPrefix>vc100</esysdevCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '11.0'">
+    <esysdevCompilerPrefix>vc110</esysdevCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '12.0'">
+    <esysdevCompilerPrefix>vc120</esysdevCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '14.0'">
+    <esysdevCompilerPrefix>vc140</esysdevCompilerPrefix>
+    <esysdevAltCompilerPrefix>vc14</esysdevAltCompilerPrefix>
+    <esysdevXCompilerPrefix>vc14x</esysdevXCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '15.0'">
+    <esysdevCompilerPrefix>vc141</esysdevCompilerPrefix>
+    <esysdevAltCompilerPrefix>vc14</esysdevAltCompilerPrefix>
+    <esysdevXCompilerPrefix>vc14x</esysdevXCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(VisualStudioVersion)' == '16.0'">
+    <esysdevCompilerPrefix>vc142</esysdevCompilerPrefix>
+    <esysdevAltCompilerPrefix>vc14</esysdevAltCompilerPrefix>
+    <esysdevXCompilerPrefix>vc14x</esysdevXCompilerPrefix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='Win32'">
+    <esysdevArchSuffix>-x32</esysdevArchSuffix>
+    <esysdevArchDirSuffix>_x32</esysdevArchDirSuffix>
+    <esysdevAltArchSuffix>-x32</esysdevAltArchSuffix>
+    <esysdevAltArchDirSuffix>_x32</esysdevAltArchDirSuffix>
+    <boostArchSuffix></boostArchSuffix>
+    <wxArchSuffix></wxArchSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='x64'">
+    <esysdevArchSuffix>-x64</esysdevArchSuffix>
+    <esysdevArchDirSuffix>_x64</esysdevArchDirSuffix>
+    <esysdevAltArchSuffix>-x64</esysdevAltArchSuffix>
+    <esysdevAltArchDirSuffix>_x64</esysdevAltArchDirSuffix>
+    <boostArchSuffix>_x64</boostArchSuffix>
+    <wxArchSuffix>_x64</wxArchSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='ARM64'">
+    <esysdevArchSuffix>-arm64</esysdevArchSuffix>
+    <esysdevArchDirSuffix>_arm64</esysdevArchDirSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Platform)'=='Itanium'">
+    <esysdevArchSuffix>-ia64</esysdevArchSuffix>
+    <esysdevArchDirSuffix>_ia64</esysdevArchDirSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="('$(Configuration)'=='Debug' or '$(Configuration)'=='DebugDLL') and '$(CharacterSet)'=='Unicode'">
+    <esysdevSuffix>u</esysdevSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="('$(Configuration)'=='Debug' or '$(Configuration)'=='DebugDLL') and '$(CharacterSet)'!='Unicode'">
+    <esysdevSuffix></esysdevSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="('$(Configuration)'=='Release' or '$(Configuration)'=='ReleaseDLL') and '$(CharacterSet)'=='Unicode'">
+    <esysdevSuffix>u</esysdevSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="('$(Configuration)'=='Release' or '$(Configuration)'=='ReleaseDLL') and '$(CharacterSet)'!='Unicode'">
+    <esysdevSuffix>
+    </esysdevSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Debug' or '$(Configuration)'=='DebugDLL'">
+    <esysdevSuffixDebug>-gd</esysdevSuffixDebug>
+    <wxSuffixDebug></wxSuffixDebug>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'!='Debug' and '$(Configuration)'!='DebugDLL'">
+    <esysdevSuffixDebug>
+    </esysdevSuffixDebug>
+    <esysdevSuffixDebug></esysdevSuffixDebug>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='DebugDLL' or '$(Configuration)'=='ReleaseDLL' or '$(Configuration)'=='ReleaseDbgDLL'">
+    <esysdevLibTypeSuffix>dll</esysdevLibTypeSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'!='DebugDLL' and '$(Configuration)'!='ReleaseDLL' and '$(Configuration)'!='ReleaseDbgDLL'">
+    <esysdevLibTypeSuffix>lib</esysdevLibTypeSuffix>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros">
+    <esysdevOutDirName>$(esysdevCompilerPrefix)$(esysdevArchDirSuffix)_$(esysdevLibTypeSuffix)$(esycCfg)</esysdevOutDirName>
+    <esysdevOutDynDirName>$(esysdevCompilerPrefix)$(esysdevArchDirSuffix)_dll$(esycCfg)</esysdevOutDynDirName>
+    <esysdevOutStaticDirName>$(esysdevCompilerPrefix)$(esysdevArchDirSuffix)_lib$(esycCfg)</esysdevOutStaticDirName>
+    <esysdevLibName>$(esysdevCompilerPrefix)$(esysdevArchSuffix)-$(esysdevLibTypeSuffix)$(esycCfg)</esysdevLibName>
+    <esysdevAltOutDirName>$(esysdevAltCompilerPrefix)$(esysdevAltArchDirSuffix)_$(esysdevLibTypeSuffix)$(esycCfg)</esysdevAltOutDirName>
+    <boostOutDirName>$(esysdevCompilerPrefix)$(boostArchSuffix)_$(esysdevLibTypeSuffix)$(esycCfg)</boostOutDirName>
+    <wxOutDirName>$(esysdevXCompilerPrefix)$(wxArchSuffix)_$(esysdevLibTypeSuffix)$(esycCfg)</wxOutDirName>
+    <wxOutDynDirName>$(esysdevXCompilerPrefix)$(wxArchSuffix)_dll$(esycCfg)</wxOutDynDirName>
+    <wxOutStaticDirName>$(esysdevXCompilerPrefix)$(wxArchSuffix)_lib$(esycCfg)</wxOutStaticDirName>
+    <esysdevLibOutDir>..\..\lib\$(esysdevOutDirName)\</esysdevLibOutDir>
+    <esysdevLibDir>lib\$(esysdevOutDirName)</esysdevLibDir>
+    <esysdevDynLibDir>lib\$(esysdevOutDynDirName)</esysdevDynLibDir>
+    <esysdevStaticLibDir>lib\$(esysdevOutStaticDirName)</esysdevStaticLibDir>
+    <esysdevAltLibDir>lib\$(esysdevAltOutDirName)</esysdevAltLibDir>
+    <boostLibDir>lib\$(boostOutDirName)</boostLibDir>
+    <esysdevExeOutDir>bin\$(esysdevOutDirName)\</esysdevExeOutDir>
+    <wxLibDir>lib\$(wxOutDirName)</wxLibDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='DebugDLL'">
+    <esysdevIntRootDir>build\$(esysdevOutDirName)\$(ProjectName)\$(Configuration)\</esysdevIntRootDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='ReleaseDLL'">
+    <esysdevIntRootDir>build\$(esysdevOutDirName)\$(ProjectName)\$(Configuration)</esysdevIntRootDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='ReleaseDbgDLL'">
+    <esysdevIntRootDir>build\$(esysdevOutDirName)\$(ProjectName)\ReleaseDLL</esysdevIntRootDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Debug'">
+    <esysdevIntRootDir>build\$(esysdevOutDirName)\$(ProjectName)\$(Configuration)\</esysdevIntRootDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros" Condition="'$(Configuration)'=='Release'">
+    <esysdevIntRootDir>build\$(esysdevOutDirName)\$(ProjectName)\$(Configuration)\</esysdevIntRootDir>
+  </PropertyGroup>
+  <PropertyGroup Label="UserMacros">
+    <esyscIncSubDir>$(wxToolkitPrefix)$(esysdevSuffix)</esyscIncSubDir>
+    <esysdevDllNameSuffix>-$(esysdevCompilerPrefix)$(esysdevSuffixDebug)$(esysdevArchSuffix)</esysdevDllNameSuffix>
+    <esysdevLibNameSuffix>-$(esysdevCompilerPrefix)$(esysdevSuffixDebug)$(esysdevArchSuffix)</esysdevLibNameSuffix>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalOptions Condition="'$(PlatformToolset)' == 'v140_xp'">/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;shell32.lib;shlwapi.lib;ole32.lib;oleaut32.lib;uuid.lib;advapi32.lib;version.lib;comctl32.lib;rpcrt4.lib;wsock32.lib;wininet.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="esysdevArchSuffix">
+      <Value>$(esysdevArchSuffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevAltArchSuffix">
+      <Value>$(esysdevAltArchSuffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevCompilerPrefix">
+      <Value>$(esysdevCompilerPrefix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevAltCompilerPrefix">
+      <Value>$(esysdevAltCompilerPrefix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esycCfg">
+      <Value>$(esycCfg)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esyscVendor">
+      <Value>$(esyscVendor)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevLibName">
+      <Value>$(esysdevLibName)</Value>
+    </BuildMacro>    
+    <BuildMacro Include="esysdevLibOutDir">
+      <Value>$(esysdevLibOutDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevLibDir">
+      <Value>$(esysdevLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevDynLibDir">
+      <Value>$(esysdevDynLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevStaticLibDir">
+      <Value>$(esysdevStaticLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevAltLibDir">
+      <Value>$(esysdevAltLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="boostLibDir">
+      <Value>$(boostLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="wxLibDir">
+      <Value>$(wxLibDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevExeOutDir">
+      <Value>$(esysdevExeOutDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevOutDirName">
+      <Value>$(esysdevOutDirName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevOutDynDirName">
+      <Value>$(esysdevOutDynDirName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevOutStaticDirName">
+      <Value>$(esysdevOutStaticDirName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="boostOutDirName">
+      <Value>$(boostOutDirName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="wxOutDirName">
+      <Value>$(wxOutDirName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevIntRootDir">
+      <Value>$(esysdevIntRootDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevDllNameSuffix">
+      <Value>$(esysdevDllNameSuffix)</Value>
+    </BuildMacro>
+    <BuildMacro Include="esysdevLibNameSuffix">
+      <Value>$(esysdevLibNameSuffix)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

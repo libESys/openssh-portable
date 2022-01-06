@@ -18,6 +18,8 @@
 #ifndef _SSH_SK_H
 #define _SSH_SK_H 1
 
+#include "libopenssh_defs.h"
+
 struct sshbuf;
 struct sshkey;
 struct sk_option;
@@ -41,7 +43,7 @@ struct sk_option;
  * If successful and the attest_data buffer is not NULL then attestation
  * information is placed there.
  */
-int sshsk_enroll(int type, const char *provider_path, const char *device,
+LIBOPENSSH_API int sshsk_enroll(int type, const char *provider_path, const char *device,
     const char *application, const char *userid, uint8_t flags,
     const char *pin, struct sshbuf *challenge_buf,
     struct sshkey **keyp, struct sshbuf *attest);
@@ -52,7 +54,7 @@ int sshsk_enroll(int type, const char *provider_path, const char *device,
  *
  * Returns 0 on success or a ssherr.h error code on failure.
  */
-int sshsk_sign(const char *provider_path, struct sshkey *key,
+LIBOPENSSH_API int sshsk_sign(const char *provider_path, struct sshkey *key,
     u_char **sigp, size_t *lenp, const u_char *data, size_t datalen,
     u_int compat, const char *pin);
 
@@ -62,7 +64,7 @@ int sshsk_sign(const char *provider_path, struct sshkey *key,
  *
  * Returns 0 on success or a ssherr.h error code on failure.
  */
-int sshsk_load_resident(const char *provider_path, const char *device,
+LIBOPENSSH_API int sshsk_load_resident(const char *provider_path, const char *device,
     const char *pin, struct sshkey ***keysp, size_t *nkeysp);
 
 #endif /* _SSH_SK_H */

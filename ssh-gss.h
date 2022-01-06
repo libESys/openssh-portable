@@ -26,6 +26,8 @@
 #ifndef _SSH_GSS_H
 #define _SSH_GSS_H
 
+#include "libopenssh_defs.h"
+
 #ifdef GSSAPI
 
 #ifdef HAVE_GSSAPI_H
@@ -97,42 +99,42 @@ typedef struct {
 	gss_cred_id_t	client_creds; /* server */
 } Gssctxt;
 
-extern ssh_gssapi_mech *supported_mechs[];
+LIBOPENSSH_API extern ssh_gssapi_mech *supported_mechs[];
 
-int  ssh_gssapi_check_oid(Gssctxt *, void *, size_t);
-void ssh_gssapi_set_oid_data(Gssctxt *, void *, size_t);
-void ssh_gssapi_set_oid(Gssctxt *, gss_OID);
-void ssh_gssapi_supported_oids(gss_OID_set *);
-ssh_gssapi_mech *ssh_gssapi_get_ctype(Gssctxt *);
-void ssh_gssapi_prepare_supported_oids(void);
-OM_uint32 ssh_gssapi_test_oid_supported(OM_uint32 *, gss_OID, int *);
+LIBOPENSSH_API int  ssh_gssapi_check_oid(Gssctxt *, void *, size_t);
+LIBOPENSSH_API void ssh_gssapi_set_oid_data(Gssctxt *, void *, size_t);
+LIBOPENSSH_API void ssh_gssapi_set_oid(Gssctxt *, gss_OID);
+LIBOPENSSH_API void ssh_gssapi_supported_oids(gss_OID_set *);
+LIBOPENSSH_API ssh_gssapi_mech *ssh_gssapi_get_ctype(Gssctxt *);
+LIBOPENSSH_API void ssh_gssapi_prepare_supported_oids(void);
+LIBOPENSSH_API OM_uint32 ssh_gssapi_test_oid_supported(OM_uint32 *, gss_OID, int *);
 
 struct sshbuf;
-int ssh_gssapi_get_buffer_desc(struct sshbuf *, gss_buffer_desc *);
+LIBOPENSSH_API int ssh_gssapi_get_buffer_desc(struct sshbuf *, gss_buffer_desc *);
 
-OM_uint32 ssh_gssapi_import_name(Gssctxt *, const char *);
-OM_uint32 ssh_gssapi_init_ctx(Gssctxt *, int,
+LIBOPENSSH_API OM_uint32 ssh_gssapi_import_name(Gssctxt *, const char *);
+LIBOPENSSH_API OM_uint32 ssh_gssapi_init_ctx(Gssctxt *, int,
     gss_buffer_desc *, gss_buffer_desc *, OM_uint32 *);
-OM_uint32 ssh_gssapi_accept_ctx(Gssctxt *,
+LIBOPENSSH_API OM_uint32 ssh_gssapi_accept_ctx(Gssctxt *,
     gss_buffer_desc *, gss_buffer_desc *, OM_uint32 *);
-OM_uint32 ssh_gssapi_getclient(Gssctxt *, ssh_gssapi_client *);
-void ssh_gssapi_error(Gssctxt *);
-char *ssh_gssapi_last_error(Gssctxt *, OM_uint32 *, OM_uint32 *);
-void ssh_gssapi_build_ctx(Gssctxt **);
-void ssh_gssapi_delete_ctx(Gssctxt **);
-OM_uint32 ssh_gssapi_sign(Gssctxt *, gss_buffer_t, gss_buffer_t);
-void ssh_gssapi_buildmic(struct sshbuf *, const char *,
+LIBOPENSSH_API OM_uint32 ssh_gssapi_getclient(Gssctxt *, ssh_gssapi_client *);
+LIBOPENSSH_API void ssh_gssapi_error(Gssctxt *);
+LIBOPENSSH_API char *ssh_gssapi_last_error(Gssctxt *, OM_uint32 *, OM_uint32 *);
+LIBOPENSSH_API void ssh_gssapi_build_ctx(Gssctxt **);
+LIBOPENSSH_API void ssh_gssapi_delete_ctx(Gssctxt **);
+LIBOPENSSH_API OM_uint32 ssh_gssapi_sign(Gssctxt *, gss_buffer_t, gss_buffer_t);
+LIBOPENSSH_API void ssh_gssapi_buildmic(struct sshbuf *, const char *,
     const char *, const char *, const struct sshbuf *);
-int ssh_gssapi_check_mechanism(Gssctxt **, gss_OID, const char *);
+LIBOPENSSH_API int ssh_gssapi_check_mechanism(Gssctxt **, gss_OID, const char *);
 
 /* In the server */
-OM_uint32 ssh_gssapi_server_ctx(Gssctxt **, gss_OID);
-int ssh_gssapi_userok(char *name);
-OM_uint32 ssh_gssapi_checkmic(Gssctxt *, gss_buffer_t, gss_buffer_t);
-void ssh_gssapi_do_child(char ***, u_int *);
-void ssh_gssapi_cleanup_creds(void);
-void ssh_gssapi_storecreds(void);
-const char *ssh_gssapi_displayname(void);
+LIBOPENSSH_API OM_uint32 ssh_gssapi_server_ctx(Gssctxt **, gss_OID);
+LIBOPENSSH_API int ssh_gssapi_userok(char *name);
+LIBOPENSSH_API OM_uint32 ssh_gssapi_checkmic(Gssctxt *, gss_buffer_t, gss_buffer_t);
+LIBOPENSSH_API void ssh_gssapi_do_child(char ***, u_int *);
+LIBOPENSSH_API void ssh_gssapi_cleanup_creds(void);
+LIBOPENSSH_API void ssh_gssapi_storecreds(void);
+LIBOPENSSH_API const char *ssh_gssapi_displayname(void);
 
 #endif /* GSSAPI */
 

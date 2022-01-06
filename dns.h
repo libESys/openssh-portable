@@ -28,6 +28,8 @@
 #ifndef DNS_H
 #define DNS_H
 
+#include "libopenssh_defs.h"
+
 enum sshfp_types {
 	SSHFP_KEY_RESERVED = 0,
 	SSHFP_KEY_RSA = 1,
@@ -51,8 +53,8 @@ enum sshfp_hashes {
 #define DNS_VERIFY_MATCH	0x00000002
 #define DNS_VERIFY_SECURE	0x00000004
 
-int	verify_host_key_dns(const char *, struct sockaddr *,
+LIBOPENSSH_API int	verify_host_key_dns(const char *, struct sockaddr *,
     struct sshkey *, int *);
-int	export_dns_rr(const char *, struct sshkey *, FILE *, int);
+LIBOPENSSH_API int	export_dns_rr(const char *, struct sshkey *, FILE *, int);
 
 #endif /* DNS_H */

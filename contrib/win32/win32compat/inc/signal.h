@@ -6,6 +6,7 @@
 #ifndef COMPAT_SIGNAL_H
 #define COMPAT_SIGNAL_H 1
 
+#include "libopenssh_defs.h"
 
 /* signal related defs*/
 /* supported signal types */
@@ -52,18 +53,18 @@ typedef int sigset_t;
 #define W32_SIG_IGN		((sighandler_t)1)
 
 #define signal(a, b) mysignal(a, b)
-sighandler_t w32_signal(int signum, sighandler_t handler);
-sighandler_t mysignal(int signum, sighandler_t handler);
-char* strsignal(int);
+LIBOPENSSH_API sighandler_t w32_signal(int signum, sighandler_t handler);
+LIBOPENSSH_API sighandler_t mysignal(int signum, sighandler_t handler);
+LIBOPENSSH_API char* strsignal(int);
 
-int w32_raise(int sig);
+LIBOPENSSH_API int w32_raise(int sig);
 #define raise(a)	w32_raise(a)
 
-int w32_kill(int pid, int sig);
+LIBOPENSSH_API int w32_kill(int pid, int sig);
 #define kill(a,b)	w32_kill((a), (b))
 #define killpg(a,b)	w32_kill((a), (b))
 
-int w32_sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
+LIBOPENSSH_API int w32_sigprocmask(int how, const sigset_t *set, sigset_t *oldset);
 #define sigprocmask(a,b,c) w32_sigprocmask((a), (b), (c))
 
 #define SIGINT	W32_SIGINT		

@@ -27,6 +27,8 @@
 #ifndef COMPAT_H
 #define COMPAT_H
 
+#include "libopenssh_defs.h"
+
 #define SSH_BUG_UTF8TTYMODE	0x00000001
 #define SSH_BUG_SIGTYPE		0x00000002
 /* #define unused		0x00000004 */
@@ -60,8 +62,8 @@
 
 struct ssh;
 
-void    compat_banner(struct ssh *, const char *);
-char	*compat_cipher_proposal(struct ssh *, char *);
-char	*compat_pkalg_proposal(struct ssh *, char *);
-char	*compat_kex_proposal(struct ssh *, char *);
+LIBOPENSSH_API void    compat_banner(struct ssh *, const char *);
+LIBOPENSSH_API char	*compat_cipher_proposal(struct ssh *, char *);
+LIBOPENSSH_API char	*compat_pkalg_proposal(struct ssh *, char *);
+LIBOPENSSH_API char	*compat_kex_proposal(struct ssh *, char *);
 #endif

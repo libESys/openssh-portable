@@ -52,7 +52,9 @@ int	_ssh_host_key_sign(struct ssh *, struct sshkey *, struct sshkey *,
  * stubs for the server side implementation of kex.
  * disable privsep so our stubs will never be called.
  */
+#ifndef LIBOPENSSH_EXPORTS
 int	use_privsep = 0;
+#endif
 int	mm_sshkey_sign(struct sshkey *, u_char **, u_int *,
     const u_char *, u_int, const char *, const char *, const char *, u_int);
 
@@ -60,6 +62,7 @@ int	mm_sshkey_sign(struct sshkey *, u_char **, u_int *,
 DH	*mm_choose_dh(int, int, int);
 #endif
 
+#ifndef LIBOPENSSH_EXPORTS
 int
 mm_sshkey_sign(struct sshkey *key, u_char **sigp, u_int *lenp,
     const u_char *data, u_int datalen, const char *alg,
@@ -75,6 +78,9 @@ mm_choose_dh(int min, int nbits, int max)
 	return (NULL);
 }
 #endif
+
+#endif
+
 
 /* API */
 

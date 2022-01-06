@@ -34,6 +34,8 @@
   * specification and intended operation.
   */
 
+#include "libopenssh_defs.h"
+
 #include <windows.h>
 #include <stdint.h>
 
@@ -173,74 +175,74 @@ gss_channel_bindings_desc, *gss_channel_bindings_t;
  * Function Prototypes 
  */
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_accept_sec_context(_Out_ OM_uint32 * minor_status, _Inout_opt_ gss_ctx_id_t * context_handle,
 	_In_opt_ gss_cred_id_t acceptor_cred_handle, _In_ gss_buffer_t input_token_buffer, 
 	_In_opt_ gss_channel_bindings_t input_chan_bindings, _Out_opt_ gss_name_t * src_name, 
 	_Out_opt_ gss_OID * mech_type, _Outptr_ gss_buffer_t output_token, _Out_ OM_uint32 * ret_flags, 
 	_Out_opt_ OM_uint32 * time_rec, _Outptr_opt_ gss_cred_id_t * delegated_cred_handle);
 
-OM_uint32
+LIBOPENSSH_API OM_uint32
 gss_acquire_cred(_Out_ OM_uint32 *minor_status, _In_opt_ gss_name_t desired_name, 
 	_In_opt_ OM_uint32 time_req, _In_opt_ gss_OID_set desired_mechs, _In_ gss_cred_usage_t cred_usage,
 	_Outptr_opt_ gss_cred_id_t * output_cred_handle, _Outptr_opt_ gss_OID_set *actual_mechs, 
 	_Out_opt_ OM_uint32 *time_rec);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_add_oid_set_member(_Out_ OM_uint32 * minor_status, _In_ gss_OID member_oid, 
 	_In_ gss_OID_set * oid_set);
 
-OM_uint32
+LIBOPENSSH_API OM_uint32
 gss_create_empty_oid_set(_Out_ OM_uint32 * minor_status, _Outptr_ gss_OID_set * oid_set);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_delete_sec_context(_Out_ OM_uint32 * minor_status, _Inout_ gss_ctx_id_t * context_handle,
 	_Inout_opt_ gss_buffer_t output_token);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_display_name(_Out_ OM_uint32 * minor_status, _In_ gss_name_t input_name, 
 	_Out_ gss_buffer_t output_name_buffer, _Out_ gss_OID * output_name_type);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_display_status(_In_ OM_uint32 * minor_status, _In_ OM_uint32 status_value,
 	_In_ int status_type, _In_opt_ gss_OID mech_type, _Out_ OM_uint32 * message_context, 
 	_Inout_ gss_buffer_t status_string);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_export_name(_Out_ OM_uint32 * minor_status, _In_ const gss_name_t input_name, 
 	_Inout_ gss_buffer_t exported_name);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_get_mic(_Out_ OM_uint32 * minor_status, _In_ gss_ctx_id_t context_handle, 
 	_In_opt_ gss_qop_t qop_req, _In_ gss_buffer_t message_buffer, 
 	_Out_ gss_buffer_t message_token);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_import_name(_Out_ OM_uint32 * minor_status, _In_ gss_buffer_t input_name_buffer,
 	_In_ gss_OID input_name_type, _Out_ gss_name_t * output_name);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_indicate_mechs(_Out_ OM_uint32 * minor_status, _Outptr_ gss_OID_set * mech_set);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_release_buffer(_Out_ OM_uint32 * minor_status, _Inout_ gss_buffer_t buffer);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_release_cred(_Out_ OM_uint32 * minor_status, _Inout_opt_ gss_cred_id_t * cred_handle);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_release_name(_Out_ OM_uint32 * minor_status, _Inout_ gss_name_t * input_name);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_release_oid_set(_Out_ OM_uint32 * minor_status, _In_ gss_OID_set * set);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_test_oid_set_member(_Out_ OM_uint32 * minor_status, _In_ gss_OID member, 
 	_In_ gss_OID_set set, _Out_ int * present);
 
-OM_uint32 
+LIBOPENSSH_API OM_uint32
 gss_verify_mic(_Out_ OM_uint32 * minor_status, _In_ gss_ctx_id_t context_handle, 
 	_In_ gss_buffer_t message_buffer, _Out_opt_ gss_buffer_t message_token, 
 	_Inout_ gss_qop_t * qop_state);
 
-extern gss_OID GSS_C_NT_HOSTBASED_SERVICE;
+LIBOPENSSH_API extern gss_OID GSS_C_NT_HOSTBASED_SERVICE;

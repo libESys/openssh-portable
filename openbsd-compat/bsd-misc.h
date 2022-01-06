@@ -17,24 +17,26 @@
 #ifndef _BSD_MISC_H
 #define _BSD_MISC_H
 
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
-char *ssh_get_progname(char *);
+LIBOPENSSH_API char *ssh_get_progname(char *);
 
 #ifndef HAVE_SETSID
 #define setsid() setpgrp(0, getpid())
 #endif /* !HAVE_SETSID */
 
 #ifndef HAVE_SETENV
-int setenv(const char *, const char *, int);
+LIBOPENSSH_API int setenv(const char *, const char *, int);
 #endif /* !HAVE_SETENV */
 
 #ifndef HAVE_SETLOGIN
-int setlogin(const char *);
+LIBOPENSSH_API int setlogin(const char *);
 #endif /* !HAVE_SETLOGIN */
 
 #ifndef HAVE_INNETGR
-int innetgr(const char *, const char *, const char *, const char *);
+LIBOPENSSH_API int innetgr(const char *, const char *, const char *, const char *);
 #endif /* HAVE_INNETGR */
 
 #if !defined(HAVE_SETEUID) && defined(HAVE_SETREUID)
@@ -69,15 +71,15 @@ int utimes(char *, struct timeval *);
 #endif
 
 #ifndef HAVE_FCHMODAT
-int fchmodat(int, const char *, mode_t, int);
+LIBOPENSSH_API int fchmodat(int, const char *, mode_t, int);
 #endif
 
 #ifndef HAVE_FCHOWNAT
-int fchownat(int, const char *, uid_t, gid_t, int);
+LIBOPENSSH_API int fchownat(int, const char *, uid_t, gid_t, int);
 #endif
 
 #ifndef HAVE_TRUNCATE
-int truncate (const char *, off_t);
+LIBOPENSSH_API int truncate (const char *, off_t);
 #endif /* HAVE_TRUNCATE */
 
 #ifndef HAVE_STRUCT_TIMESPEC
@@ -89,7 +91,7 @@ struct timespec {
 
 #if !defined(HAVE_NANOSLEEP) && !defined(HAVE_NSLEEP)
 # include <time.h>
-int nanosleep(const struct timespec *, struct timespec *);
+LIBOPENSSH_API int nanosleep(const struct timespec *, struct timespec *);
 #endif
 
 #ifndef HAVE_UTIMENSAT
@@ -98,31 +100,31 @@ int nanosleep(const struct timespec *, struct timespec *);
 # ifndef AT_SYMLINK_NOFOLLOW
 #  define AT_SYMLINK_NOFOLLOW 0x80000000
 # endif
-int utimensat(int, const char *, const struct timespec[2], int);
+LIBOPENSSH_API int utimensat(int, const char *, const struct timespec[2], int);
 #endif /* !HAVE_UTIMENSAT */
 
 #ifndef HAVE_USLEEP
-int usleep(unsigned int useconds);
+LIBOPENSSH_API int usleep(unsigned int useconds);
 #endif
 
 #ifndef HAVE_TCGETPGRP
-pid_t tcgetpgrp(int);
+LIBOPENSSH_API pid_t tcgetpgrp(int);
 #endif
 
 #ifndef HAVE_TCSENDBREAK
-int tcsendbreak(int, int);
+LIBOPENSSH_API int tcsendbreak(int, int);
 #endif
 
 #ifndef HAVE_UNSETENV
-int unsetenv(const char *);
+LIBOPENSSH_API int unsetenv(const char *);
 #endif
 
 #ifndef HAVE_ISBLANK
-int	isblank(int);
+LIBOPENSSH_API int	isblank(int);
 #endif
 
 #ifndef HAVE_GETPGID
-pid_t getpgid(pid_t);
+LIBOPENSSH_API pid_t getpgid(pid_t);
 #endif
 
 #ifndef HAVE_ENDGRENT
@@ -138,34 +140,34 @@ pid_t getpgid(pid_t);
 #endif
 
 #ifndef HAVE_PLEDGE
-int pledge(const char *promises, const char *paths[]);
+LIBOPENSSH_API int pledge(const char *promises, const char *paths[]);
 #endif
 
 /* bsd-err.h */
 #ifndef HAVE_ERR
-void err(int, const char *, ...) __attribute__((format(printf, 2, 3)));
+LIBOPENSSH_API void err(int, const char *, ...) __attribute__((format(printf, 2, 3)));
 #endif
 #ifndef HAVE_ERRX
-void errx(int, const char *, ...) __attribute__((format(printf, 2, 3)));
+LIBOPENSSH_API void errx(int, const char *, ...) __attribute__((format(printf, 2, 3)));
 #endif
 #ifndef HAVE_WARN
-void warn(const char *, ...) __attribute__((format(printf, 1, 2)));
+LIBOPENSSH_API void warn(const char *, ...) __attribute__((format(printf, 1, 2)));
 #endif
 
 #ifndef HAVE_LLABS
-long long llabs(long long);
+LIBOPENSSH_API long long llabs(long long);
 #endif
 
 #if defined(HAVE_DECL_BZERO) && HAVE_DECL_BZERO == 0
-void bzero(void *, size_t);
+LIBOPENSSH_API void bzero(void *, size_t);
 #endif
 
 #ifndef HAVE_RAISE
-int raise(int);
+LIBOPENSSH_API int raise(int);
 #endif
 
 #ifndef HAVE_GETSID
-pid_t getsid(pid_t);
+LIBOPENSSH_API pid_t getsid(pid_t);
 #endif
 
 #ifndef HAVE_FLOCK
@@ -173,7 +175,7 @@ pid_t getsid(pid_t);
 # define LOCK_EX		0x02
 # define LOCK_NB		0x04
 # define LOCK_UN		0x08
-int flock(int, int);
+LIBOPENSSH_API int flock(int, int);
 #endif
 
 #ifdef FFLUSH_NULL_BUG
@@ -181,7 +183,7 @@ int flock(int, int);
 #endif
 
 #ifndef HAVE_LOCALTIME_R
-struct tm *localtime_r(const time_t *, struct tm *);
+LIBOPENSSH_API struct tm *localtime_r(const time_t *, struct tm *);
 #endif
 
 #ifndef HAVE_REALPATH

@@ -1,3 +1,5 @@
+#include "libopenssh_defs.h"
+
 #include "crtheaders.h"
 #include FCNTL_H
 
@@ -13,13 +15,13 @@
 #define F_OK 0
 
 
-int w32_fcntl(int fd, int cmd, ... /* arg */);
+LIBOPENSSH_API int w32_fcntl(int fd, int cmd, ... /* arg */);
 #define fcntl(a,b,...)		w32_fcntl((a), (b),  __VA_ARGS__)
 
-#define open(a,b,...) w32_open((a), (b),  __VA_ARGS__)
-int w32_open(const char *pathname, int flags, ... /* arg */);
+//#define open(a,b,...) w32_open((a), (b),  __VA_ARGS__)
+LIBOPENSSH_API int w32_open(const char *pathname, int flags, ... /* arg */);
 
-void* w32_fd_to_handle(int fd);
+LIBOPENSSH_API void* w32_fd_to_handle(int fd);
 
 #define O_RDONLY     _O_RDONLY
 #define O_WRONLY     _O_WRONLY

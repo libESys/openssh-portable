@@ -23,6 +23,10 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-void	start_progress_meter(const char *, off_t, off_t *);
-void	refresh_progress_meter(int);
-void	stop_progress_meter(void);
+#pragma once
+
+#include "libopenssh_defs.h"
+
+LIBOPENSSH_API void	start_progress_meter(const char *, off_t, off_t *);
+LIBOPENSSH_API void	refresh_progress_meter(int);
+LIBOPENSSH_API void	stop_progress_meter(void);

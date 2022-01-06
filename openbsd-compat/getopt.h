@@ -33,6 +33,8 @@
 #ifndef _GETOPT_H_
 #define _GETOPT_H_
 
+#include "libopenssh_defs.h"
+
 /*
  * GNU-like getopt_long() and 4.4BSD getsubopt()/optreset extensions
  */
@@ -54,21 +56,21 @@ struct option {
 	int val;
 };
 
-int	 getopt_long(int, char * const *, const char *,
+LIBOPENSSH_API int	 getopt_long(int, char * const *, const char *,
 	    const struct option *, int *);
-int	 getopt_long_only(int, char * const *, const char *,
+LIBOPENSSH_API int	 getopt_long_only(int, char * const *, const char *,
 	    const struct option *, int *);
 #ifndef _GETOPT_DEFINED_
 #define _GETOPT_DEFINED_
-int	 getopt(int, char * const *, const char *);
-int	 getsubopt(char **, char * const *, char **);
+LIBOPENSSH_API int	 getopt(int, char * const *, const char *);
+LIBOPENSSH_API int	 getsubopt(char **, char * const *, char **);
 
-extern   char *optarg;                  /* getopt(3) external variables */
-extern   int opterr;
-extern   int optind;
-extern   int optopt;
-extern   int optreset;
-extern   char *suboptarg;               /* getsubopt(3) external variable */
+LIBOPENSSH_API extern   char *optarg;                  /* getopt(3) external variables */
+LIBOPENSSH_API extern   int opterr;
+LIBOPENSSH_API extern   int optind;
+LIBOPENSSH_API extern   int optopt;
+LIBOPENSSH_API extern   int optreset;
+LIBOPENSSH_API extern   char *suboptarg;               /* getsubopt(3) external variable */
 #endif
  
 #endif /* !_GETOPT_H_ */

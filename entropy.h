@@ -25,10 +25,12 @@
 #ifndef _RANDOMS_H
 #define _RANDOMS_H
 
+#include "libopenssh_defs.h"
+
 struct sshbuf;
 
-void seed_rng(void);
-void rexec_send_rng_seed(struct sshbuf *);
-void rexec_recv_rng_seed(struct sshbuf *);
+LIBOPENSSH_API void seed_rng(void);
+LIBOPENSSH_API void rexec_send_rng_seed(struct sshbuf *);
+LIBOPENSSH_API void rexec_recv_rng_seed(struct sshbuf *);
 
 #endif /* _RANDOMS_H */

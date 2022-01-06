@@ -30,6 +30,7 @@
 
 #include "signal_internal.h"
 #include "inc\signal.h"
+#include "inc\unistd.h"
 #include "debug.h"
 
 struct _timer_info timer_info;

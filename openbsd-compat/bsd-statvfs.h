@@ -18,6 +18,8 @@
 
 #if !defined(HAVE_STATVFS) || !defined(HAVE_FSTATVFS)
 
+#include "libopenssh_defs.h"
+
 #include <sys/types.h>
 
 #ifdef HAVE_SYS_MOUNT_H
@@ -64,9 +66,9 @@ struct statvfs {
 #endif
 
 #ifndef HAVE_STATVFS
-int statvfs(const char *, struct statvfs *);
+LIBOPENSSH_API int statvfs(const char *, struct statvfs *);
 #endif
 
 #ifndef HAVE_FSTATVFS
-int fstatvfs(int, struct statvfs *);
+LIBOPENSSH_API int fstatvfs(int, struct statvfs *);
 #endif

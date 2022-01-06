@@ -40,6 +40,8 @@
 #ifndef _VIS_H_
 #define	_VIS_H_
 
+#include "libopenssh_defs.h"
+
 #include <sys/types.h>
 #include <limits.h>
 
@@ -88,16 +90,16 @@
 #define VIS_LOG_UTF16	0x800
 #endif
 
-char	*vis(char *, int, int, int);
-int	strvis(char *, const char *, int);
-int	stravis(char **, const char *, int);
-int	strnvis(char *, const char *, size_t, int)
+LIBOPENSSH_API char	*vis(char *, int, int, int);
+LIBOPENSSH_API int	strvis(char *, const char *, int);
+LIBOPENSSH_API int	stravis(char **, const char *, int);
+LIBOPENSSH_API int	strnvis(char *, const char *, size_t, int)
 		__attribute__ ((__bounded__(__string__,1,3)));
-int	strvisx(char *, const char *, size_t, int)
+LIBOPENSSH_API int	strvisx(char *, const char *, size_t, int)
 		__attribute__ ((__bounded__(__string__,1,3)));
-int	strunvis(char *, const char *);
-int	unvis(char *, char, int *, int);
-ssize_t strnunvis(char *, const char *, size_t)
+LIBOPENSSH_API int	strunvis(char *, const char *);
+LIBOPENSSH_API int	unvis(char *, char, int *, int);
+LIBOPENSSH_API ssize_t strnunvis(char *, const char *, size_t)
 		__attribute__ ((__bounded__(__string__,1,3)));
 
 #endif /* !_VIS_H_ */

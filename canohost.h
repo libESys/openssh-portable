@@ -15,12 +15,16 @@
 #ifndef _CANOHOST_H
 #define _CANOHOST_H
 
-char		*get_peer_ipaddr(int);
-int		 get_peer_port(int);
-char		*get_local_ipaddr(int);
-char		*get_local_name(int);
-int		get_local_port(int);
+#include "libopenssh_defs.h"
+
+LIBOPENSSH_API char		*get_peer_ipaddr(int);
+LIBOPENSSH_API int		 get_peer_port(int);
+LIBOPENSSH_API char		*get_local_ipaddr(int);
+LIBOPENSSH_API char		*get_local_name(int);
+LIBOPENSSH_API int		get_local_port(int);
 
 #endif /* _CANOHOST_H */
 
-void		 ipv64_normalise_mapped(struct sockaddr_storage *, socklen_t *);
+#include "libopenssh_defs.h"
+
+LIBOPENSSH_API void		 ipv64_normalise_mapped(struct sockaddr_storage *, socklen_t *);

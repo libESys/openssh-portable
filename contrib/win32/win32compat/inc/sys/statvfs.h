@@ -1,5 +1,7 @@
 #pragma once
 
+#include "libopenssh_defs.h"
+
 #define ST_RDONLY	1
 #define ST_NOSUID	2
 typedef unsigned long fsblkcnt_t;
@@ -22,5 +24,5 @@ struct statvfs {
 	unsigned long f_namemax;/*  Maximum filename length. */
 };
 
-int statvfs(const char *, struct statvfs *);
-int fstatvfs(int, struct statvfs *);
+LIBOPENSSH_API int statvfs(const char *, struct statvfs *);
+LIBOPENSSH_API int fstatvfs(int, struct statvfs *);

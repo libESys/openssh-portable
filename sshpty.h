@@ -14,15 +14,19 @@
  * called by a name other than "ssh" or "Secure Shell".
  */
 
+#pragma once
+
+#include "libopenssh_defs.h"
+
 #include <termios.h>
 
-struct termios *get_saved_tio(void);
-void	 leave_raw_mode(int);
-void	 enter_raw_mode(int);
+LIBOPENSSH_API struct termios *get_saved_tio(void);
+LIBOPENSSH_API void	 leave_raw_mode(int);
+LIBOPENSSH_API void	 enter_raw_mode(int);
 
-int	 pty_allocate(int *, int *, char *, size_t);
-void	 pty_release(const char *);
-void	 pty_make_controlling_tty(int *, const char *);
-void	 pty_change_window_size(int, u_int, u_int, u_int, u_int);
-void	 pty_setowner(struct passwd *, const char *);
-void	 disconnect_controlling_tty(void);
+LIBOPENSSH_API int	 pty_allocate(int *, int *, char *, size_t);
+LIBOPENSSH_API void	 pty_release(const char *);
+LIBOPENSSH_API void	 pty_make_controlling_tty(int *, const char *);
+LIBOPENSSH_API void	 pty_change_window_size(int, u_int, u_int, u_int, u_int);
+LIBOPENSSH_API void	 pty_setowner(struct passwd *, const char *);
+LIBOPENSSH_API void	 disconnect_controlling_tty(void);

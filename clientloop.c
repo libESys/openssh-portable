@@ -112,6 +112,9 @@
 #include "ssherr.h"
 #include "hostfile.h"
 
+static void
+ssh_cleanup_exit(int i);
+
 /* import options */
 extern Options options;
 
@@ -125,7 +128,7 @@ extern int no_shell_flag;
 extern int fork_after_authentication_flag;
 
 /* Control socket */
-extern int muxserver_sock; /* XXX use mux_client_cleanup() instead */
+LIBOPENSSH_API extern int muxserver_sock; /* XXX use mux_client_cleanup() instead */
 
 /*
  * Name of the host we are connecting to.  This is the name given on the
@@ -488,7 +491,7 @@ server_alive_check(struct ssh *ssh)
 
 	if (ssh_packet_inc_alive_timeouts(ssh) > options.server_alive_count_max) {
 		logit("Timeout, server %s not responding.", host);
-		cleanup_exit(255);
+		ssh_cleanup_exit(255);
 	}
 	if ((r = sshpkt_start(ssh, SSH2_MSG_GLOBAL_REQUEST)) != 0 ||
 	    (r = sshpkt_put_cstring(ssh, "keepalive@openssh.com")) != 0 ||
@@ -1431,7 +1434,7 @@ client_loop(struct ssh *ssh, int have_pty, int escape_char_arg,
 
 	if (received_signal) {
 		verbose("Killed by signal %d.", (int) received_signal);
-		cleanup_exit(255);
+		ssh_cleanup_exit(255);
 	}
 
 	/*
@@ -2603,8 +2606,8 @@ client_stop_mux(void)
 }
 
 /* client specific fatal cleanup */
-void
-cleanup_exit(int i)
+static void
+ssh_cleanup_exit(int i)
 {
 	leave_raw_mode(options.request_tty == REQUEST_TTY_FORCE);
 	if (options.control_path != NULL && muxserver_sock != -1)

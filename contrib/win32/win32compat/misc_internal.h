@@ -1,4 +1,7 @@
 #pragma once
+
+#include "libopenssh_defs.h"
+
 #include <VersionHelpers.h>
 
 #define SSH_REGISTRY_ROOT L"SOFTWARE\\OpenSSH"
@@ -35,51 +38,51 @@
 #define MAX_CMD_LEN 8191
 
 /* prog paths */
-extern char* __progname;
-extern char* __progdir;
-extern wchar_t* __wprogdir;
+LIBOPENSSH_API extern char* __progname;
+LIBOPENSSH_API extern char* __progdir;
+LIBOPENSSH_API extern wchar_t* __wprogdir;
 
 /* %programdata% value */
-extern char* __progdata;
-extern wchar_t* __wprogdata;
+LIBOPENSSH_API extern char* __progdata;
+LIBOPENSSH_API extern wchar_t* __wprogdata;
 
 static char *machine_domain_name;
 
-extern char* chroot_path;
-extern int chroot_path_len;
-extern wchar_t* chroot_pathw;
+LIBOPENSSH_API extern char* chroot_path;
+LIBOPENSSH_API extern int chroot_path_len;
+LIBOPENSSH_API extern wchar_t* chroot_pathw;
 
 /* removes first '/' for Windows paths that are unix styled. Ex: /c:/ab.cd */
-wchar_t * resolved_path_utf16(const char *);
-char* resolved_path_utf8(const char *);
-void w32posix_initialize();
-void w32posix_done();
-void init_prog_paths();
-void convertToBackslash(char *str);
-void convertToBackslashW(wchar_t *str);
-void convertToForwardslash(char *str);
-int errno_from_Win32Error(int);
-void unix_time_to_file_time(ULONG, LPFILETIME);
-void file_time_to_unix_time(const LPFILETIME, time_t *);
-int file_attr_to_st_mode(wchar_t * path, DWORD attributes);
-void invalid_parameter_handler(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
-void to_lower_case(char *s);
-void to_wlower_case(wchar_t *s);
-HANDLE get_user_token(const char* user, int impersonation);
-int load_user_profile(HANDLE user_token, char* user);
-int create_directory_withsddl(wchar_t *path, wchar_t *sddl);
-int is_absolute_path(const char *);
-int file_in_chroot_jail(HANDLE);
-PSID lookup_sid(const wchar_t* name_utf16, PSID psid, DWORD * psid_len);
-PSID get_sid(const char*);
-int am_system();
-int is_conpty_supported();
-int exec_command_with_pty(int * pid, char* cmd, int in, int out, int err, unsigned int col, unsigned int row, int ttyfd);
-char * build_exec_command(const char * command);
-char * build_commandline_string(const char* cmd, char *const argv[], BOOLEAN prepend_module_path);
-char* get_custom_lsa_package();
-wchar_t* get_final_path_by_handle(HANDLE h);
-int lookup_principal_name(const wchar_t * sam_account_name, wchar_t * user_principal_name);
-BOOL is_bash_test_env();
-int bash_to_win_path(const char *in, char *out, const size_t out_len);
-void debug_assert_internal();
+LIBOPENSSH_API wchar_t * resolved_path_utf16(const char *);
+LIBOPENSSH_API char* resolved_path_utf8(const char *);
+LIBOPENSSH_API void w32posix_initialize();
+LIBOPENSSH_API void w32posix_done();
+LIBOPENSSH_API void init_prog_paths();
+LIBOPENSSH_API void convertToBackslash(char *str);
+LIBOPENSSH_API void convertToBackslashW(wchar_t *str);
+LIBOPENSSH_API void convertToForwardslash(char *str);
+LIBOPENSSH_API int errno_from_Win32Error(int);
+LIBOPENSSH_API void unix_time_to_file_time(ULONG, LPFILETIME);
+LIBOPENSSH_API void file_time_to_unix_time(const LPFILETIME, time_t *);
+LIBOPENSSH_API int file_attr_to_st_mode(wchar_t * path, DWORD attributes);
+LIBOPENSSH_API void invalid_parameter_handler(const wchar_t *, const wchar_t *, const wchar_t *, unsigned int, uintptr_t);
+LIBOPENSSH_API void to_lower_case(char *s);
+LIBOPENSSH_API void to_wlower_case(wchar_t *s);
+LIBOPENSSH_API HANDLE get_user_token(const char* user, int impersonation);
+LIBOPENSSH_API int load_user_profile(HANDLE user_token, char* user);
+LIBOPENSSH_API int create_directory_withsddl(wchar_t *path, wchar_t *sddl);
+LIBOPENSSH_API int is_absolute_path(const char *);
+LIBOPENSSH_API int file_in_chroot_jail(HANDLE);
+LIBOPENSSH_API PSID lookup_sid(const wchar_t* name_utf16, PSID psid, DWORD * psid_len);
+LIBOPENSSH_API PSID get_sid(const char*);
+LIBOPENSSH_API int am_system();
+LIBOPENSSH_API int is_conpty_supported();
+LIBOPENSSH_API int exec_command_with_pty(int * pid, char* cmd, int in, int out, int err, unsigned int col, unsigned int row, int ttyfd);
+LIBOPENSSH_API char * build_exec_command(const char * command);
+LIBOPENSSH_API char * build_commandline_string(const char* cmd, char *const argv[], BOOLEAN prepend_module_path);
+LIBOPENSSH_API char* get_custom_lsa_package();
+LIBOPENSSH_API wchar_t* get_final_path_by_handle(HANDLE h);
+LIBOPENSSH_API int lookup_principal_name(const wchar_t * sam_account_name, wchar_t * user_principal_name);
+LIBOPENSSH_API BOOL is_bash_test_env();
+LIBOPENSSH_API int bash_to_win_path(const char *in, char *out, const size_t out_len);
+LIBOPENSSH_API void debug_assert_internal();

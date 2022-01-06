@@ -26,6 +26,8 @@
 #ifndef SSHMAC_H
 #define SSHMAC_H
 
+#include "libopenssh_defs.h"
+
 #include <sys/types.h>
 
 struct sshmac {
@@ -40,14 +42,14 @@ struct sshmac {
 	struct umac_ctx		*umac_ctx;
 };
 
-int	 mac_valid(const char *);
-char	*mac_alg_list(char);
-int	 mac_setup(struct sshmac *, char *);
-int	 mac_init(struct sshmac *);
-int	 mac_compute(struct sshmac *, u_int32_t, const u_char *, int,
+LIBOPENSSH_API int	 mac_valid(const char *);
+LIBOPENSSH_API char	*mac_alg_list(char);
+LIBOPENSSH_API int	 mac_setup(struct sshmac *, char *);
+LIBOPENSSH_API int	 mac_init(struct sshmac *);
+LIBOPENSSH_API int	 mac_compute(struct sshmac *, u_int32_t, const u_char *, int,
     u_char *, size_t);
-int	 mac_check(struct sshmac *, u_int32_t, const u_char *, size_t,
+LIBOPENSSH_API int	 mac_check(struct sshmac *, u_int32_t, const u_char *, size_t,
     const u_char *, size_t);
-void	 mac_clear(struct sshmac *);
+LIBOPENSSH_API void	 mac_clear(struct sshmac *);
 
 #endif /* SSHMAC_H */

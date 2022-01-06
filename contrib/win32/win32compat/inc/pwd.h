@@ -10,6 +10,8 @@
 #ifndef COMPAT_PWD_H
 #define COMPAT_PWD_H 1
 
+#include "libopenssh_defs.h"
+
 #include "sys\types.h"
 
 struct passwd {
@@ -23,24 +25,24 @@ struct passwd {
 };
 
 /*start - declarations not applicable in Windows */
-uid_t w32_getuid(void);
-gid_t getgid(void);
-uid_t geteuid(void);
-gid_t getegid(void);
-int setuid(uid_t uid);
-int setgid(gid_t gid);
-int seteuid(uid_t uid);
-int setegid(gid_t gid);
-char *user_from_uid(uid_t uid, int nouser);
-struct passwd *getpwent(void);
-void setpwent(void);
+LIBOPENSSH_API uid_t w32_getuid(void);
+LIBOPENSSH_API gid_t getgid(void);
+LIBOPENSSH_API uid_t geteuid(void);
+LIBOPENSSH_API gid_t getegid(void);
+LIBOPENSSH_API int setuid(uid_t uid);
+LIBOPENSSH_API int setgid(gid_t gid);
+LIBOPENSSH_API int seteuid(uid_t uid);
+LIBOPENSSH_API int setegid(gid_t gid);
+LIBOPENSSH_API char *user_from_uid(uid_t uid, int nouser);
+LIBOPENSSH_API struct passwd *getpwent(void);
+LIBOPENSSH_API void setpwent(void);
 
 /*end - declarations not applicable in Windows */
 
-struct passwd *w32_getpwuid(uid_t uid);
-struct passwd *w32_getpwnam(const char *username);
-struct passwd *getpwent(void);
-void endpwent(void);
+LIBOPENSSH_API struct passwd *w32_getpwuid(uid_t uid);
+LIBOPENSSH_API struct passwd *w32_getpwnam(const char *username);
+LIBOPENSSH_API struct passwd *getpwent(void);
+LIBOPENSSH_API void endpwent(void);
 
 #define getpwuid w32_getpwuid
 #define getpwnam w32_getpwnam

@@ -17,6 +17,8 @@
 
 /* ssh session multiplexing support */
 
+#include "libopenssh_defs.h"
+
 #include "includes.h"
 
 #include <sys/types.h>
@@ -103,13 +105,13 @@ struct mux_channel_confirm_ctx {
 };
 
 /* fd to control socket */
-int muxserver_sock = -1;
+LIBOPENSSH_API int muxserver_sock = -1;
 
 /* client request id */
-u_int muxclient_request_id = 0;
+LIBOPENSSH_API u_int muxclient_request_id = 0;
 
 /* Multiplexing control command */
-u_int muxclient_command = 0;
+LIBOPENSSH_API u_int muxclient_command = 0;
 
 /* Set when signalled. */
 static volatile sig_atomic_t muxclient_terminate = 0;

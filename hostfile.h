@@ -14,6 +14,8 @@
 #ifndef HOSTFILE_H
 #define HOSTFILE_H
 
+#include "libopenssh_defs.h"
+
 typedef enum {
 	HOST_OK, HOST_NEW, HOST_CHANGED, HOST_REVOKED, HOST_FOUND
 }       HostStatus;
@@ -35,24 +37,24 @@ struct hostkeys {
 	u_int num_entries;
 };
 
-struct hostkeys *init_hostkeys(void);
-void	 load_hostkeys(struct hostkeys *, const char *,
+LIBOPENSSH_API struct hostkeys *init_hostkeys(void);
+LIBOPENSSH_API void	 load_hostkeys(struct hostkeys *, const char *,
     const char *, u_int);
-void	 load_hostkeys_file(struct hostkeys *, const char *,
+LIBOPENSSH_API void	 load_hostkeys_file(struct hostkeys *, const char *,
     const char *, FILE *, u_int note);
-void	 free_hostkeys(struct hostkeys *);
+LIBOPENSSH_API void	 free_hostkeys(struct hostkeys *);
 
-HostStatus check_key_in_hostkeys(struct hostkeys *, struct sshkey *,
+LIBOPENSSH_API HostStatus check_key_in_hostkeys(struct hostkeys *, struct sshkey *,
     const struct hostkey_entry **);
-int	 lookup_key_in_hostkeys_by_type(struct hostkeys *, int, int,
+LIBOPENSSH_API int	 lookup_key_in_hostkeys_by_type(struct hostkeys *, int, int,
     const struct hostkey_entry **);
-int	 lookup_marker_in_hostkeys(struct hostkeys *, int);
+LIBOPENSSH_API int	 lookup_marker_in_hostkeys(struct hostkeys *, int);
 
-int	 hostfile_read_key(char **, u_int *, struct sshkey *);
-int	 add_host_to_hostfile(const char *, const char *,
+LIBOPENSSH_API int	 hostfile_read_key(char **, u_int *, struct sshkey *);
+LIBOPENSSH_API int	 add_host_to_hostfile(const char *, const char *,
     const struct sshkey *, int);
 
-int	 hostfile_replace_entries(const char *filename,
+LIBOPENSSH_API int	 hostfile_replace_entries(const char *filename,
     const char *host, const char *ip, struct sshkey **keys, size_t nkeys,
     int store_hash, int quiet, int hash_alg);
 
@@ -62,7 +64,7 @@ int	 hostfile_replace_entries(const char *filename,
 #define CA_MARKER	"@cert-authority"
 #define REVOKE_MARKER	"@revoked"
 
-char	*host_hash(const char *, const char *, u_int);
+LIBOPENSSH_API char	*host_hash(const char *, const char *, u_int);
 
 /*
  * Iterate through a hostkeys file, optionally parsing keys and matching
@@ -111,13 +113,13 @@ struct hostkey_foreach_line {
 typedef int hostkeys_foreach_fn(struct hostkey_foreach_line *l, void *ctx);
 
 /* Iterate over a hostkeys file */
-int hostkeys_foreach(const char *path,
+LIBOPENSSH_API int hostkeys_foreach(const char *path,
     hostkeys_foreach_fn *callback, void *ctx,
     const char *host, const char *ip, u_int options, u_int note);
-int hostkeys_foreach_file(const char *path, FILE *f,
+LIBOPENSSH_API int hostkeys_foreach_file(const char *path, FILE *f,
     hostkeys_foreach_fn *callback, void *ctx,
     const char *host, const char *ip, u_int options, u_int note);
 
-void hostfile_create_user_ssh_dir(const char *, int);
+LIBOPENSSH_API void hostfile_create_user_ssh_dir(const char *, int);
 
 #endif

@@ -15,6 +15,8 @@
 #ifndef SSH_LOG_H
 #define SSH_LOG_H
 
+#include "libopenssh_defs.h"
+
 #include <stdarg.h> /* va_list */
 #include "ssherr.h" /* ssh_err() */
 
@@ -51,37 +53,37 @@ typedef enum {
 
 typedef void (log_handler_fn)(LogLevel, int, const char *, void *);
 
-void     log_init(const char *, LogLevel, SyslogFacility, int);
-LogLevel log_level_get(void);
-int      log_change_level(LogLevel);
-int      log_is_on_stderr(void);
-void     log_redirect_stderr_to(const char *);
-void	 log_verbose_add(const char *);
-void	 log_verbose_reset(void);
+LIBOPENSSH_API void     log_init(const char *, LogLevel, SyslogFacility, int);
+LIBOPENSSH_API LogLevel log_level_get(void);
+LIBOPENSSH_API int      log_change_level(LogLevel);
+LIBOPENSSH_API int      log_is_on_stderr(void);
+LIBOPENSSH_API void     log_redirect_stderr_to(const char *);
+LIBOPENSSH_API void	 log_verbose_add(const char *);
+LIBOPENSSH_API void	 log_verbose_reset(void);
 
-SyslogFacility	log_facility_number(char *);
-const char *	log_facility_name(SyslogFacility);
-LogLevel	log_level_number(char *);
-const char *	log_level_name(LogLevel);
+LIBOPENSSH_API SyslogFacility	log_facility_number(char *);
+LIBOPENSSH_API const char *	log_facility_name(SyslogFacility);
+LIBOPENSSH_API LogLevel	log_level_number(char *);
+LIBOPENSSH_API const char *	log_level_name(LogLevel);
 
-void	 set_log_handler(log_handler_fn *, void *);
-void	 cleanup_exit(int) __attribute__((noreturn));
+LIBOPENSSH_API void	 set_log_handler(log_handler_fn *, void *);
+LIBOPENSSH_API void	 cleanup_exit(int) __attribute__((noreturn));
 
-void	 sshlog(const char *, const char *, int, int,
+LIBOPENSSH_API void	 sshlog(const char *, const char *, int, int,
     LogLevel, const char *, const char *, ...)
     __attribute__((format(printf, 7, 8)));
-void	 sshlogv(const char *, const char *, int, int,
+LIBOPENSSH_API void	 sshlogv(const char *, const char *, int, int,
     LogLevel, const char *, const char *, va_list);
-void	 sshsigdie(const char *, const char *, int, int,
+LIBOPENSSH_API void	 sshsigdie(const char *, const char *, int, int,
     LogLevel, const char *, const char *, ...) __attribute__((noreturn))
     __attribute__((format(printf, 7, 8)));
-void	 sshlogdie(const char *, const char *, int, int,
+LIBOPENSSH_API void	 sshlogdie(const char *, const char *, int, int,
     LogLevel, const char *, const char *, ...) __attribute__((noreturn))
     __attribute__((format(printf, 7, 8)));
-void	 sshfatal(const char *, const char *, int, int,
+LIBOPENSSH_API void	 sshfatal(const char *, const char *, int, int,
     LogLevel, const char *, const char *, ...) __attribute__((noreturn))
     __attribute__((format(printf, 7, 8)));
-void	 sshlogdirect(LogLevel, int, const char *, ...)
+LIBOPENSSH_API void	 sshlogdirect(LogLevel, int, const char *, ...)
     __attribute__((format(printf, 3, 4)));
 
 #define do_log2(level, ...)	sshlog(__FILE__, __func__, __LINE__, 0, level, NULL, __VA_ARGS__)

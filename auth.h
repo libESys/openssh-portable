@@ -28,6 +28,8 @@
 #ifndef AUTH_H
 #define AUTH_H
 
+#include "libopenssh_defs.h"
+
 #include <signal.h>
 
 #ifdef HAVE_LOGIN_CAP
@@ -125,110 +127,110 @@ struct KbdintDevice
 	void	(*free_ctx)(void *ctx);
 };
 
-int
+LIBOPENSSH_API int
 auth_rhosts2(struct passwd *, const char *, const char *, const char *);
 
-int      auth_password(struct ssh *, const char *);
+LIBOPENSSH_API int      auth_password(struct ssh *, const char *);
 
-int	 hostbased_key_allowed(struct ssh *, struct passwd *,
+LIBOPENSSH_API int	 hostbased_key_allowed(struct ssh *, struct passwd *,
 	    const char *, char *, struct sshkey *);
-int	 user_key_allowed(struct ssh *, struct passwd *, struct sshkey *, int,
+LIBOPENSSH_API int	 user_key_allowed(struct ssh *, struct passwd *, struct sshkey *, int,
     struct sshauthopt **);
-int	 auth2_key_already_used(Authctxt *, const struct sshkey *);
+LIBOPENSSH_API int	 auth2_key_already_used(Authctxt *, const struct sshkey *);
 
 /*
  * Handling auth method-specific information for logging and prevention
  * of key reuse during multiple authentication.
  */
-void	 auth2_authctxt_reset_info(Authctxt *);
-void	 auth2_record_key(Authctxt *, int, const struct sshkey *);
-void	 auth2_record_info(Authctxt *authctxt, const char *, ...)
+LIBOPENSSH_API void	 auth2_authctxt_reset_info(Authctxt *);
+LIBOPENSSH_API void	 auth2_record_key(Authctxt *, int, const struct sshkey *);
+LIBOPENSSH_API void	 auth2_record_info(Authctxt *authctxt, const char *, ...)
 	    __attribute__((__format__ (printf, 2, 3)))
 	    __attribute__((__nonnull__ (2)));
-void	 auth2_update_session_info(Authctxt *, const char *, const char *);
+LIBOPENSSH_API void	 auth2_update_session_info(Authctxt *, const char *, const char *);
 
 #ifdef KRB5
-int	auth_krb5(Authctxt *authctxt, krb5_data *auth, char **client, krb5_data *);
-int	auth_krb5_tgt(Authctxt *authctxt, krb5_data *tgt);
-int	auth_krb5_password(Authctxt *authctxt, const char *password);
-void	krb5_cleanup_proc(Authctxt *authctxt);
+LIBOPENSSH_API int	auth_krb5(Authctxt *authctxt, krb5_data *auth, char **client, krb5_data *);
+LIBOPENSSH_API int	auth_krb5_tgt(Authctxt *authctxt, krb5_data *tgt);
+LIBOPENSSH_API int	auth_krb5_password(Authctxt *authctxt, const char *password);
+LIBOPENSSH_API void	krb5_cleanup_proc(Authctxt *authctxt);
 #endif /* KRB5 */
 
 #if defined(USE_SHADOW) && defined(HAS_SHADOW_EXPIRE)
 #include <shadow.h>
-int auth_shadow_acctexpired(struct spwd *);
-int auth_shadow_pwexpired(Authctxt *);
+LIBOPENSSH_API int auth_shadow_acctexpired(struct spwd *);
+LIBOPENSSH_API int auth_shadow_pwexpired(Authctxt *);
 #endif
 
 #include "auth-pam.h"
 #include "audit.h"
-void remove_kbdint_device(const char *);
+LIBOPENSSH_API void remove_kbdint_device(const char *);
 
-void	do_authentication2(struct ssh *);
+LIBOPENSSH_API void	do_authentication2(struct ssh *);
 
-void	auth_log(struct ssh *, int, int, const char *, const char *);
-void	auth_maxtries_exceeded(struct ssh *) __attribute__((noreturn));
-void	userauth_finish(struct ssh *, int, const char *, const char *);
-int	auth_root_allowed(struct ssh *, const char *);
+LIBOPENSSH_API void	auth_log(struct ssh *, int, int, const char *, const char *);
+LIBOPENSSH_API void	auth_maxtries_exceeded(struct ssh *) __attribute__((noreturn));
+LIBOPENSSH_API void	userauth_finish(struct ssh *, int, const char *, const char *);
+LIBOPENSSH_API int	auth_root_allowed(struct ssh *, const char *);
 
-char	*auth2_read_banner(void);
-int	 auth2_methods_valid(const char *, int);
-int	 auth2_update_methods_lists(Authctxt *, const char *, const char *);
-int	 auth2_setup_methods_lists(Authctxt *);
-int	 auth2_method_allowed(Authctxt *, const char *, const char *);
+LIBOPENSSH_API char	*auth2_read_banner(void);
+LIBOPENSSH_API int	 auth2_methods_valid(const char *, int);
+LIBOPENSSH_API int	 auth2_update_methods_lists(Authctxt *, const char *, const char *);
+LIBOPENSSH_API int	 auth2_setup_methods_lists(Authctxt *);
+LIBOPENSSH_API int	 auth2_method_allowed(Authctxt *, const char *, const char *);
 
-void	privsep_challenge_enable(void);
+LIBOPENSSH_API void	privsep_challenge_enable(void);
 
-int	auth2_challenge(struct ssh *, char *);
-void	auth2_challenge_stop(struct ssh *);
-int	bsdauth_query(void *, char **, char **, u_int *, char ***, u_int **);
-int	bsdauth_respond(void *, u_int, char **);
+LIBOPENSSH_API int	auth2_challenge(struct ssh *, char *);
+LIBOPENSSH_API void	auth2_challenge_stop(struct ssh *);
+LIBOPENSSH_API int	bsdauth_query(void *, char **, char **, u_int *, char ***, u_int **);
+LIBOPENSSH_API int	bsdauth_respond(void *, u_int, char **);
 
-int	allowed_user(struct ssh *, struct passwd *);
-struct passwd * getpwnamallow(struct ssh *, const char *user);
+LIBOPENSSH_API int	allowed_user(struct ssh *, struct passwd *);
+LIBOPENSSH_API struct passwd * getpwnamallow(struct ssh *, const char *user);
 
-char	*expand_authorized_keys(const char *, struct passwd *pw);
-char	*authorized_principals_file(struct passwd *);
+LIBOPENSSH_API char	*expand_authorized_keys(const char *, struct passwd *pw);
+LIBOPENSSH_API char	*authorized_principals_file(struct passwd *);
 
-FILE	*auth_openkeyfile(const char *, struct passwd *, int);
-FILE	*auth_openprincipals(const char *, struct passwd *, int);
-int	 auth_key_is_revoked(struct sshkey *);
+LIBOPENSSH_API FILE	*auth_openkeyfile(const char *, struct passwd *, int);
+LIBOPENSSH_API FILE	*auth_openprincipals(const char *, struct passwd *, int);
+LIBOPENSSH_API int	 auth_key_is_revoked(struct sshkey *);
 
-const char	*auth_get_canonical_hostname(struct ssh *, int);
+LIBOPENSSH_API const char	*auth_get_canonical_hostname(struct ssh *, int);
 
-HostStatus
+LIBOPENSSH_API HostStatus
 check_key_in_hostfiles(struct passwd *, struct sshkey *, const char *,
     const char *, const char *);
 
 /* hostkey handling */
-struct sshkey	*get_hostkey_by_index(int);
-struct sshkey	*get_hostkey_public_by_index(int, struct ssh *);
-struct sshkey	*get_hostkey_public_by_type(int, int, struct ssh *);
-struct sshkey	*get_hostkey_private_by_type(int, int, struct ssh *);
-int	 get_hostkey_index(struct sshkey *, int, struct ssh *);
-int	 sshd_hostkey_sign(struct ssh *, struct sshkey *, struct sshkey *,
+LIBOPENSSH_API struct sshkey	*get_hostkey_by_index(int);
+LIBOPENSSH_API struct sshkey	*get_hostkey_public_by_index(int, struct ssh *);
+LIBOPENSSH_API struct sshkey	*get_hostkey_public_by_type(int, int, struct ssh *);
+LIBOPENSSH_API struct sshkey	*get_hostkey_private_by_type(int, int, struct ssh *);
+LIBOPENSSH_API int	 get_hostkey_index(struct sshkey *, int, struct ssh *);
+LIBOPENSSH_API int	 sshd_hostkey_sign(struct ssh *, struct sshkey *, struct sshkey *,
     u_char **, size_t *, const u_char *, size_t, const char *);
 
 /* Key / cert options linkage to auth layer */
-const struct sshauthopt *auth_options(struct ssh *);
-int	 auth_activate_options(struct ssh *, struct sshauthopt *);
-void	 auth_restrict_session(struct ssh *);
-int	 auth_authorise_keyopts(struct ssh *, struct passwd *pw,
+LIBOPENSSH_API const struct sshauthopt *auth_options(struct ssh *);
+LIBOPENSSH_API int	 auth_activate_options(struct ssh *, struct sshauthopt *);
+LIBOPENSSH_API void	 auth_restrict_session(struct ssh *);
+LIBOPENSSH_API int	 auth_authorise_keyopts(struct ssh *, struct passwd *pw,
     struct sshauthopt *, int, const char *);
-void	 auth_log_authopts(const char *, const struct sshauthopt *, int);
+LIBOPENSSH_API void	 auth_log_authopts(const char *, const struct sshauthopt *, int);
 
 /* debug messages during authentication */
-void	 auth_debug_add(const char *fmt,...)
+LIBOPENSSH_API void	 auth_debug_add(const char *fmt,...)
     __attribute__((format(printf, 1, 2)));
-void	 auth_debug_send(struct ssh *);
-void	 auth_debug_reset(void);
+LIBOPENSSH_API void	 auth_debug_send(struct ssh *);
+LIBOPENSSH_API void	 auth_debug_reset(void);
 
-struct passwd *fakepw(void);
+LIBOPENSSH_API struct passwd *fakepw(void);
 
-int	 sys_auth_passwd(struct ssh *, const char *);
+LIBOPENSSH_API int	 sys_auth_passwd(struct ssh *, const char *);
 
 #if defined(KRB5) && !defined(HEIMDAL)
-krb5_error_code ssh_krb5_cc_gen(krb5_context, krb5_ccache *);
+LIBOPENSSH_API krb5_error_code ssh_krb5_cc_gen(krb5_context, krb5_ccache *);
 #endif
 
 #endif /* AUTH_H */

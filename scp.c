@@ -96,6 +96,8 @@
 #include <fcntl.h>
 #ifdef HAVE_FNMATCH_H
 #include <fnmatch.h>
+#else
+#include "openbsd-compat/fnmatch.h"
 #endif
 #include <limits.h>
 #include <locale.h>
@@ -124,7 +126,7 @@
 #include "progressmeter.h"
 #include "utf8.h"
 
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 #define COPY_BUFLEN	16384
 

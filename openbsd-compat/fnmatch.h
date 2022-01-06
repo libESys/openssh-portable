@@ -35,11 +35,14 @@
 /* OPENBSD ORIGINAL: include/fnmatch.h */
 
 #ifndef HAVE_FNMATCH_H
+
 /* Ensure we define FNM_CASEFOLD */
 #define __BSD_VISIBLE 1
 
 #ifndef	_FNMATCH_H_
 #define	_FNMATCH_H_
+
+#include "libopenssh_defs.h"
 
 #ifdef HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
@@ -59,7 +62,7 @@
 #endif
 
 /* __BEGIN_DECLS */
-int	 fnmatch(const char *, const char *, int);
+LIBOPENSSH_API int	 fnmatch(const char *, const char *, int);
 /* __END_DECLS */
 
 #endif /* !_FNMATCH_H_ */

@@ -57,7 +57,7 @@ ssh_gssapi_mech gssapi_null_mech =
     { NULL, NULL, {0, NULL}, NULL, NULL, NULL, NULL};
 
 #if defined(KRB5) || defined (GSSAPI_SSPI)
-extern ssh_gssapi_mech gssapi_kerberos_mech;
+LIBOPENSSH_API extern ssh_gssapi_mech gssapi_kerberos_mech;
 #endif
 
 ssh_gssapi_mech* supported_mechs[]= {

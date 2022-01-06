@@ -5,6 +5,8 @@
 */
 #pragma once
 
+#include "libopenssh_defs.h"
+
 /* total fds that can be allotted */
 #define MAX_FDS 256  /* a 2^n number */
 
@@ -26,7 +28,7 @@ typedef struct w32_fd_set_ {
 #undef FD_SETSIZE
 #define FD_SETSIZE MAX_FDS
 
-int w32_select(int fds, w32_fd_set * , w32_fd_set * , w32_fd_set * ,
+LIBOPENSSH_API int w32_select(int fds, w32_fd_set * , w32_fd_set * , w32_fd_set * ,
 	const struct timeval *);
 #define select(a,b,c,d,e)	w32_select((a), (b), (c), (d), (e))
 

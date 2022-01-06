@@ -32,6 +32,8 @@
 
 #pragma once
 
+#include "libopenssh_defs.h"
+
 #include <Windows.h>
 #include <stdio.h>
 #include "inc\sys\types.h"
@@ -125,46 +127,46 @@ struct w32_io {
 #define FILETYPE(pio) (GetFileType(WINHANDLE(pio)))
 extern HANDLE main_thread;
 
-BOOL w32_io_is_blocking(struct w32_io*);
-BOOL w32_io_is_io_available(struct w32_io* pio, BOOL rd);
-int wait_for_any_event(HANDLE* events, int num_events, DWORD milli_seconds);
+LIBOPENSSH_API  BOOL w32_io_is_blocking(struct w32_io*);
+LIBOPENSSH_API BOOL w32_io_is_io_available(struct w32_io* pio, BOOL rd);
+LIBOPENSSH_API int wait_for_any_event(HANDLE* events, int num_events, DWORD milli_seconds);
 
 /*POSIX mimic'ing socket API and socket helper API*/
-int socketio_initialize();
-int socketio_done();
-BOOL socketio_is_io_available(struct w32_io* pio, BOOL rd);
-void socketio_on_select(struct w32_io* pio, BOOL rd);
-struct w32_io* socketio_socket(int domain, int type, int protocol);
-struct w32_io* socketio_accept(struct w32_io* pio, struct sockaddr* addr, int* addrlen);
-int socketio_setsockopt(struct w32_io* pio, int level, int optname, const char* optval, int optlen);
-int socketio_getsockopt(struct w32_io* pio, int level, int optname, char* optval, int* optlen);
-int socketio_getsockname(struct w32_io* pio, struct sockaddr* name, int* namelen);
-int socketio_getpeername(struct w32_io* pio, struct sockaddr* name, int* namelen);
-int socketio_listen(struct w32_io* pio, int backlog);
-int socketio_bind(struct w32_io* pio, const struct sockaddr *name, int namelen);
-int socketio_connect(struct w32_io* pio, const struct sockaddr* name, int namelen);
-int socketio_finish_connect(struct w32_io* pio);
-int socketio_recv(struct w32_io* pio, void *buf, size_t len, int flags);
-int socketio_send(struct w32_io* pio, const void *buf, size_t len, int flags);
-int socketio_shutdown(struct w32_io* pio, int how);
-int socketio_close(struct w32_io* pio);
+LIBOPENSSH_API int socketio_initialize();
+LIBOPENSSH_API int socketio_done();
+LIBOPENSSH_API BOOL socketio_is_io_available(struct w32_io* pio, BOOL rd);
+LIBOPENSSH_API void socketio_on_select(struct w32_io* pio, BOOL rd);
+LIBOPENSSH_API struct w32_io* socketio_socket(int domain, int type, int protocol);
+LIBOPENSSH_API struct w32_io* socketio_accept(struct w32_io* pio, struct sockaddr* addr, int* addrlen);
+LIBOPENSSH_API int socketio_setsockopt(struct w32_io* pio, int level, int optname, const char* optval, int optlen);
+LIBOPENSSH_API int socketio_getsockopt(struct w32_io* pio, int level, int optname, char* optval, int* optlen);
+LIBOPENSSH_API int socketio_getsockname(struct w32_io* pio, struct sockaddr* name, int* namelen);
+LIBOPENSSH_API int socketio_getpeername(struct w32_io* pio, struct sockaddr* name, int* namelen);
+LIBOPENSSH_API int socketio_listen(struct w32_io* pio, int backlog);
+LIBOPENSSH_API int socketio_bind(struct w32_io* pio, const struct sockaddr *name, int namelen);
+LIBOPENSSH_API int socketio_connect(struct w32_io* pio, const struct sockaddr* name, int namelen);
+LIBOPENSSH_API int socketio_finish_connect(struct w32_io* pio);
+LIBOPENSSH_API int socketio_recv(struct w32_io* pio, void *buf, size_t len, int flags);
+LIBOPENSSH_API int socketio_send(struct w32_io* pio, const void *buf, size_t len, int flags);
+LIBOPENSSH_API int socketio_shutdown(struct w32_io* pio, int how);
+LIBOPENSSH_API int socketio_close(struct w32_io* pio);
 
 /*POSIX mimic'ing file API and file helper API*/
-BOOL fileio_is_io_available(struct w32_io* pio, BOOL rd);
-void fileio_on_select(struct w32_io* pio, BOOL rd);
-int fileio_close(struct w32_io* pio);
-int fileio_pipe(struct w32_io* pio[2], int);
-struct w32_io* fileio_afunix_socket();
-int fileio_connect(struct w32_io*, char*);
-struct w32_io* fileio_open(const char *pathname, int flags, mode_t mode);
-int fileio_read(struct w32_io* pio, void *dst, size_t max);
-int fileio_write_wrapper(struct w32_io* pio, const void* buf, size_t bytes_to_copy);
-int fileio_write(struct w32_io* pio, const void *buf, size_t max);
-int fileio_fstat(struct w32_io* pio, struct _stat64 *buf);
-int fileio_stat(const char *path, struct _stat64 *buf);
-int fileio_lstat(const char *path, struct _stat64 *buf);
-long fileio_lseek(struct w32_io* pio, unsigned __int64 offset, int origin);
-FILE* fileio_fdopen(struct w32_io* pio, const char *mode);
-ssize_t fileio_readlink(const char *path, char *buf, size_t bufsiz);
-int fileio_symlink(const char *target, const char *linkpath);
-int fileio_link(const char *oldpath, const char *newpath);
+LIBOPENSSH_API BOOL fileio_is_io_available(struct w32_io* pio, BOOL rd);
+LIBOPENSSH_API void fileio_on_select(struct w32_io* pio, BOOL rd);
+LIBOPENSSH_API int fileio_close(struct w32_io* pio);
+LIBOPENSSH_API int fileio_pipe(struct w32_io* pio[2], int);
+LIBOPENSSH_API struct w32_io* fileio_afunix_socket();
+LIBOPENSSH_API int fileio_connect(struct w32_io*, char*);
+LIBOPENSSH_API struct w32_io* fileio_open(const char *pathname, int flags, mode_t mode);
+LIBOPENSSH_API int fileio_read(struct w32_io* pio, void *dst, size_t max);
+LIBOPENSSH_API int fileio_write_wrapper(struct w32_io* pio, const void* buf, size_t bytes_to_copy);
+LIBOPENSSH_API int fileio_write(struct w32_io* pio, const void *buf, size_t max);
+LIBOPENSSH_API int fileio_fstat(struct w32_io* pio, struct _stat64 *buf);
+LIBOPENSSH_API int fileio_stat(const char *path, struct _stat64 *buf);
+LIBOPENSSH_API int fileio_lstat(const char *path, struct _stat64 *buf);
+LIBOPENSSH_API long fileio_lseek(struct w32_io* pio, unsigned __int64 offset, int origin);
+LIBOPENSSH_API FILE* fileio_fdopen(struct w32_io* pio, const char *mode);
+LIBOPENSSH_API ssize_t fileio_readlink(const char *path, char *buf, size_t bufsiz);
+LIBOPENSSH_API int fileio_symlink(const char *target, const char *linkpath);
+LIBOPENSSH_API int fileio_link(const char *oldpath, const char *newpath);

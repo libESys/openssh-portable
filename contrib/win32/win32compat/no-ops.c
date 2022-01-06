@@ -28,28 +28,30 @@
 * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "libopenssh_defs.h"
+
 #include "inc\sys\types.h"
 
 /* uuidswap.c defs */
-void
+LIBOPENSSH_API void
 temporarily_use_uid(struct passwd *pw)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 permanently_drop_suid(uid_t uid)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 restore_uid(void)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 permanently_set_uid(struct passwd *pw)
 {
 	return;
@@ -57,34 +59,34 @@ permanently_set_uid(struct passwd *pw)
 
 
 /* mux.c defs */
-int muxserver_sock = -1;
+LIBOPENSSH_API int muxserver_sock = -1;
 typedef struct Channel Channel;
-unsigned int muxclient_command = 0;
-void
+LIBOPENSSH_API unsigned int muxclient_command = 0;
+LIBOPENSSH_API void
 muxserver_listen(void)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 mux_exit_message(Channel *c, int exitval)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 mux_tty_alloc_failed(Channel *c)
 {
 	return;
 }
 
-void
+LIBOPENSSH_API void
 muxclient(const char *path)
 {
 	return;
 }
 
-int
+LIBOPENSSH_API int
 innetgr(const char *netgroup, const char *host, const char *user, const char *domain)
 {
 	return -1;
@@ -92,25 +94,25 @@ innetgr(const char *netgroup, const char *host, const char *user, const char *do
 
 
 /* sshd.c */
-int
+LIBOPENSSH_API int
 initgroups(const char *user, gid_t group)
 {
 	return 0;
 }
 
-int
+LIBOPENSSH_API int
 setgroups(gid_t group, char* name)
 {
 	return 0;
 }
 
-int
+LIBOPENSSH_API int
 setsid(void)
 {
 	return 0;
 }
 
-int
+LIBOPENSSH_API int
 startup_handler(void)
 {
 	return 0;

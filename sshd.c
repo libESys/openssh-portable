@@ -147,7 +147,10 @@
 #define PRIVSEP_AUTH_MIN_FREE_FD	(PRIVSEP_MONITOR_FD + 1)
 #endif
 
-extern char *__progname;
+static void
+sshd_cleanup_exit(int i);
+
+LIBOPENSSH_API extern char *__progname;
 
 /* Server configuration options. */
 ServerOptions options;
@@ -286,6 +289,7 @@ static void do_ssh2_kex(struct ssh *);
 
 static char *listener_proctitle;
 
+#ifndef LIBOPENSSH_EXPORTS
 /*
  * Close all listening sockets
  */
@@ -396,6 +400,7 @@ grace_alarm_handler(int sig)
 	    ssh_remote_ipaddr(the_active_state),
 	    ssh_remote_port(the_active_state));
 }
+#endif 
 
 /* Destroy the host and server keys.  They will no longer be needed. */
 void
@@ -436,6 +441,7 @@ demote_sensitive_data(void)
 	}
 }
 
+#ifndef LIBOPENSSH_EXPORTS
 static void
 reseed_prngs(void)
 {
@@ -493,7 +499,9 @@ privsep_preauth_child(void)
 		permanently_set_uid(privsep_pw);
 	}
 }
+#endif
 
+#ifndef LIBOPENSSH_EXPORTS
 static void
 send_rexec_state(int, struct sshbuf *);
 static void send_config_state(int fd, struct sshbuf *conf)
@@ -507,7 +515,6 @@ static void recv_config_state(int fd, struct sshbuf *conf)
 {
 	recv_rexec_state(fd, conf);
 }
-
 
 static void
 send_idexch_state(struct ssh *ssh, int fd)
@@ -1072,7 +1079,9 @@ list_hostkey_types(void)
 	debug_f("%s", ret);
 	return ret;
 }
+#endif
 
+#if !defined(LIBOPENSSH_USE)
 static struct sshkey *
 get_hostkey_by_type(int type, int nid, int need_private, struct ssh *ssh)
 {
@@ -1167,7 +1176,9 @@ get_hostkey_index(struct sshkey *key, int compare, struct ssh *ssh)
 	}
 	return (-1);
 }
+#endif
 
+#ifndef LIBOPENSSH_EXPORTS
 /* Inform the client of all hostkeys */
 static void
 notify_hostkeys(struct ssh *ssh)
@@ -2628,7 +2639,7 @@ done_loading_hostkeys:
 		send_sshd_connection_telemetry(
 			"connection failed: ssh_remote_port failed");
 #endif
-		cleanup_exit(255);
+		sshd_cleanup_exit(255);
 	}
 
 	if (options.routing_domain != NULL)
@@ -2797,6 +2808,9 @@ idexch_done:
 	exit(0);
 }
 
+#endif
+
+#if !defined(LIBOPENSSH_USE)
 int
 sshd_hostkey_sign(struct ssh *ssh, struct sshkey *privkey,
     struct sshkey *pubkey, u_char **signature, size_t *slenp,
@@ -2831,7 +2845,9 @@ sshd_hostkey_sign(struct ssh *ssh, struct sshkey *privkey,
 	}
 	return 0;
 }
+#endif
 
+#ifndef LIBOPENSSH_EXPORTS
 /* SSH2 key exchange */
 static void
 do_ssh2_kex(struct ssh *ssh)
@@ -2898,8 +2914,8 @@ do_ssh2_kex(struct ssh *ssh)
 }
 
 /* server specific fatal cleanup */
-void
-cleanup_exit(int i)
+static void
+sshd_cleanup_exit(int i)
 {
 	if (the_active_state != NULL && the_authctxt != NULL) {
 		do_cleanup(the_active_state, the_authctxt);
@@ -2920,3 +2936,5 @@ cleanup_exit(int i)
 #endif
 	_exit(i);
 }
+
+#endif
