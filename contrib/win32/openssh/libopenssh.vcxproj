@@ -146,7 +146,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -408,9 +408,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level1</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>LIBOPENSSH_EXPORTS;ZLIB_DLL;_WIN32_WINNT=0x600;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBOPENSSH_EXPORTS;ZLIB_DLL;_WIN32_WINNT=0x600;WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(OpenSSH-Src-Path)contrib\win32\openssh;$(OpenSSH-Src-Path)contrib\win32\;$(LibreSSL-Path)include;$(ESYS_ZLIB)\include;$(fido2-Path)include;$(OpenSSH-Src-Path)includes;$(OpenSSH-Src-Path);$(OpenSSH-Src-Path)contrib\win32\win32compat;$(OpenSSH-Src-Path)openbsd-compat;$(OpenSSH-Src-Path)libkrb;$(OpenSSH-Src-Path)libkrb\libKrb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OpenSSH-Src-Path)contrib;$(OpenSSH-Src-Path)contrib\win32\openssh;$(OpenSSH-Src-Path)contrib\win32\;$(LibreSSL-Path)include;$(ESYS_ZLIB)\include;$(fido2-Path)include;$(OpenSSH-Src-Path)includes;$(OpenSSH-Src-Path);$(OpenSSH-Src-Path)contrib\win32\win32compat;$(OpenSSH-Src-Path)openbsd-compat;$(OpenSSH-Src-Path)libkrb;$(OpenSSH-Src-Path)libkrb\libKrb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <CompileAs>CompileAsC</CompileAs>
@@ -426,6 +426,7 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y $(OutDir)$(TargetFileName) $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\
+xcopy /Y $(OutDir)$(TargetFileName) $(OpenSSH-Src-Path)\$(esysdevExeOutDir)\
 xcopy /Y $(OutDir)$(TargetName).lib $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\
 if defined ESYSSSH_DEV xcopy /Y $(OutDir)$(TargetFileName) $(ESYSSSH_DEV)\$(esysdevExeOutDir)\</Command>
     </PostBuildEvent>
@@ -616,9 +617,9 @@ if defined ESYSSSH_DEV xcopy /Y $(OutDir)$(TargetFileName) $(ESYSSSH_DEV)\$(esys
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>LIBOPENSSH_EXPORTS;ZLIB_DLL;__WIN32_WINNT=0x600;WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBOPENSSH_EXPORTS;ZLIB_DLL;_WIN32_WINNT=0x600;WIN32;_LIB;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)..\;$(LibreSSL-Path)include;$(ESYS_ZLIB)\include;$(fido2-Path)include;$(OpenSSH-Src-Path)includes;$(OpenSSH-Src-Path);$(OpenSSH-Src-Path)contrib\win32\win32compat;$(OpenSSH-Src-Path)openbsd-compat;$(OpenSSH-Src-Path)libkrb;$(OpenSSH-Src-Path)libkrb\libKrb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OpenSSH-Src-Path)contrib;$(OpenSSH-Src-Path)contrib\win32\openssh;$(OpenSSH-Src-Path)contrib\win32\;$(LibreSSL-Path)include;$(ESYS_ZLIB)\include;$(fido2-Path)include;$(OpenSSH-Src-Path)includes;$(OpenSSH-Src-Path);$(OpenSSH-Src-Path)contrib\win32\win32compat;$(OpenSSH-Src-Path)openbsd-compat;$(OpenSSH-Src-Path)libkrb;$(OpenSSH-Src-Path)libkrb\libKrb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <ControlFlowGuard>false</ControlFlowGuard>
@@ -634,7 +635,9 @@ if defined ESYSSSH_DEV xcopy /Y $(OutDir)$(TargetFileName) $(ESYSSSH_DEV)\$(esys
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y $(OutDir)$(TargetFileName) $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\
-xcopy /Y $(OutDir)$(TargetName).lib $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\</Command>
+xcopy /Y $(OutDir)$(TargetFileName) $(OpenSSH-Src-Path)\$(esysdevExeOutDir)\
+xcopy /Y $(OutDir)$(TargetName).lib $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\
+if defined ESYSSSH_DEV xcopy /Y $(OutDir)$(TargetFileName) $(ESYSSSH_DEV)\$(esysdevExeOutDir)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -956,6 +959,7 @@ xcopy /Y $(OutDir)$(TargetName).lib $(OpenSSH-Src-Path)\$(esysdevDynLibDir)\</Co
     <ClCompile Include="..\..\..\sshconnect2.c" />
     <ClCompile Include="..\..\..\sshd.c" />
     <ClCompile Include="..\..\..\sshlogin.c" />
+    <ClCompile Include="..\..\openssh\putenv.c" />
     <ClCompile Include="..\win32compat\ansiprsr.c" />
     <ClCompile Include="..\win32compat\console.c" />
     <ClCompile Include="..\win32compat\fileio.c" />

@@ -110,7 +110,7 @@
 		}				\
 	} while (0)
 
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 static int verbose_mode = 0;
 static int quiet_mode = 0;
@@ -135,8 +135,8 @@ main(int argc, char **argv)
 
 #ifdef WINDOWS
 	/* copy moduli file to __PROGRAMDATA__\SSH folder */
-	extern wchar_t* __wprogdir;
-	extern wchar_t* __wprogdata;
+    LIBOPENSSH_API extern wchar_t* __wprogdir;
+    LIBOPENSSH_API extern wchar_t* __wprogdata;
 	int isModuliFileCopied = 0;
 	wchar_t programdata_moduli_path[PATH_MAX] = { 0, };
 	if (__wprogdir && __wprogdata) {

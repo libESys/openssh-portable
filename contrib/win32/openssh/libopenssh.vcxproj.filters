@@ -625,6 +625,9 @@
     <ClCompile Include="..\win32compat\win32_sshtty.c">
       <Filter>Source Files\win32compat</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\openssh\putenv.c">
+      <Filter>Source Files\openssh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(OpenSSH-Src-Path)addrmatch.c">
@@ -1134,6 +1137,9 @@
     </Filter>
     <Filter Include="Header Files\win32">
       <UniqueIdentifier>{7a321c74-b2dd-47d6-b266-52108f7813da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\openssh">
+      <UniqueIdentifier>{902c98f3-e977-48f6-b4c7-956aa1e10c37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -48,7 +48,7 @@
 #include "ssh-sk.h"
 
 #ifdef ENABLE_SK
-extern char *__progname;
+LIBOPENSSH_API extern char *__progname;
 
 static struct sshbuf *reply_error(int r, char *fmt, ...)
     __attribute__((__format__ (printf, 2, 3)));

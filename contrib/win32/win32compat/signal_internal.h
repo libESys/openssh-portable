@@ -1,3 +1,7 @@
+#pragma once
+
+#include "libopenssh_defs.h"
+
 #include <Windows.h>
 #include <process.h>
 #include "misc_internal.h"
@@ -21,11 +25,11 @@ struct _children {
 };
 
 
-int sw_initialize();
-int register_child(HANDLE child, DWORD pid);
-int sw_remove_child_at_index(DWORD index);
-int sw_child_to_zombie(DWORD index);
-void sw_cleanup_child_zombies();
+LIBOPENSSH_API int sw_initialize();
+LIBOPENSSH_API int register_child(HANDLE child, DWORD pid);
+LIBOPENSSH_API int sw_remove_child_at_index(DWORD index);
+LIBOPENSSH_API int sw_child_to_zombie(DWORD index);
+LIBOPENSSH_API void sw_cleanup_child_zombies();
 
 struct _timer_info {
 	HANDLE timer;
@@ -41,5 +45,5 @@ int sw_init_timer();
 #define WAIT_IO_COMPLETION_ENHANCED 0x30000000
 #define WAIT_FAILED_ENHANCED WAIT_FAILED
 
-DWORD wait_for_multiple_objects_enhanced(_In_ DWORD  nCount, _In_ const HANDLE *lpHandles,
+LIBOPENSSH_API DWORD wait_for_multiple_objects_enhanced(_In_ DWORD  nCount, _In_ const HANDLE *lpHandles,
 	_In_ DWORD dwMilliseconds, _In_ BOOL bAlertable);

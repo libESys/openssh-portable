@@ -85,7 +85,7 @@
  * SHA1 we limit the DSA key size 1k bits.
  */
 #define DEFAULT_BITS		3072
-#define DEFAULT_BITS_DSA	1024
+#define DEFAULT_BITS_DSA	 1024
 #define DEFAULT_BITS_ECDSA	256
 
 static int quiet = 0;

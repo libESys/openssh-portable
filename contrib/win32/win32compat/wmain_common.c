@@ -35,6 +35,10 @@
 #include "misc_internal.h"
 #include "Debug.h"
 
+#ifdef LIBOPENSSH_USE
+#include "openssh/putenv.h"
+#endif
+
 int
 main(int, char **);
 
@@ -51,12 +55,23 @@ wmain(int argc, wchar_t **wargv) {
 				fatal("out of memory");
         }
 
-	if (getenv("SSH_AUTH_SOCK") == NULL)
-		_putenv("SSH_AUTH_SOCK=\\\\.\\pipe\\openssh-ssh-agent");
+    if (getenv("SSH_AUTH_SOCK") == NULL)
+    {
+        const char *env_var = "SSH_AUTH_SOCK=\\\\.\\pipe\\openssh-ssh-agent";
+        _putenv(env_var);
+#ifdef LIBOPENSSH_USE
+        libopenssh_putenv(env_var);
+#endif
+    }
 
-	if (getenv("TERM") == NULL)
-		_putenv("TERM=xterm-256color");
-
+    if (getenv("TERM") == NULL)
+    {
+        const char *env_var = "TERM=xterm-256color";
+        _putenv(env_var);
+#ifdef LIBOPENSSH_USE
+        libopenssh_putenv(env_var);
+#endif
+    }
 	w32posix_initialize();
 	
 	r = main(argc, argv);

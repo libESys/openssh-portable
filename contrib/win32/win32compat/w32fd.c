@@ -188,14 +188,19 @@ fd_table_clear(int index)
 void 
 init_prog_paths()
 {
-	wchar_t* wpgmptr;
+    wchar_t* wpgmptr = _wpgmptr;
+    char* pgmptr = _pgmptr;
 	static int processed = 0;
 
 	if (processed)
 		return;
 
-	if (_get_wpgmptr(&wpgmptr) != 0)
-		fatal("unable to retrieve wpgmptr");
+	if (wpgmptr == NULL)
+    {
+        if (pgmptr == NULL)
+            fatal("unable to retrieve wpgmptr or pgmptr");
+        wpgmptr = utf8_to_utf16(pgmptr);
+    }
 
 	if ((__wprogdir = _wcsdup(wpgmptr)) == NULL ||
 	    (__progdir = utf16_to_utf8(__wprogdir)) == NULL)

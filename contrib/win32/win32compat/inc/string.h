@@ -1,3 +1,5 @@
+#pragma once
+
 #include "libopenssh_defs.h"
 
 #include "crtheaders.h"

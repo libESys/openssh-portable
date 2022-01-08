@@ -18,6 +18,8 @@
 #ifndef _SK_API_H
 #define _SK_API_H 1
 
+#include "libopenssh_defs.h"
+
 #include <stddef.h>
 #ifdef HAVE_STDINT_H
 #include <stdint.h>
@@ -78,21 +80,21 @@ struct sk_option {
 #define SSH_SK_VERSION_MAJOR_MASK	0xffff0000
 
 /* Return the version of the middleware API */
-uint32_t sk_api_version(void);
+LIBOPENSSH_API uint32_t sk_api_version(void);
 
 /* Enroll a U2F key (private key generation) */
-int sk_enroll(uint32_t alg, const uint8_t *challenge, size_t challenge_len,
+LIBOPENSSH_API int sk_enroll(uint32_t alg, const uint8_t *challenge, size_t challenge_len,
     const char *application, uint8_t flags, const char *pin,
     struct sk_option **options, struct sk_enroll_response **enroll_response);
 
 /* Sign a challenge */
-int sk_sign(uint32_t alg, const uint8_t *data, size_t data_len,
+LIBOPENSSH_API int sk_sign(uint32_t alg, const uint8_t *data, size_t data_len,
     const char *application, const uint8_t *key_handle, size_t key_handle_len,
     uint8_t flags, const char *pin, struct sk_option **options,
     struct sk_sign_response **sign_response);
 
 /* Enumerate all resident keys */
-int sk_load_resident_keys(const char *pin, struct sk_option **options,
+LIBOPENSSH_API int sk_load_resident_keys(const char *pin, struct sk_option **options,
     struct sk_resident_key ***rks, size_t *nrks);
 
 #endif /* _SK_API_H */

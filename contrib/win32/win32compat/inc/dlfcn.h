@@ -1,9 +1,12 @@
 #pragma once
+
+#include "libopenssh_defs.h"
+
 #include <Windows.h>
 #define RTLD_NOW 0
 
-HMODULE dlopen(const char *filename, int flags);
+LIBOPENSSH_API HMODULE dlopen(const char *filename, int flags);
 
-int dlclose(HMODULE handle);
-void * dlsym(HMODULE handle, const char *symbol);
-char * dlerror();
+LIBOPENSSH_API int dlclose(HMODULE handle);
+LIBOPENSSH_API void * dlsym(HMODULE handle, const char *symbol);
+LIBOPENSSH_API char * dlerror();

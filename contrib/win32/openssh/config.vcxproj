@@ -384,23 +384,23 @@ copy /Y "$(SolutionDir)openssh-events.man" "$(OutDir)"</Command>
       <AdditionalLibraryDirectories>$(OpenSSH-Lib-Path)$(Platform)\$(Configuration);$(LibreSSL-x64-Path);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
-      <Command>powershell.exe -Executionpolicy Bypass -File "$(SolutionDir)config.ps1" -Config_h_vs "$(SolutionDir)config.h.vs" -Config_h "$(OpenSSH-Src-Path)config.h" -VCIncludePath "$(VC_IncludePath)" -OutCRTHeader "$(OpenSSH-Src-Path)contrib\win32\win32compat\inc\crtheaders.h"
-powershell.exe -Executionpolicy Bypass -File "$(SolutionDir)GetFIDO2.ps1
-powershell.exe -Executionpolicy Bypass -File "$(SolutionDir)GetLibreSSL.ps1
-powershell.exe -Executionpolicy Bypass -File "$(SolutionDir)GetZlib.ps1"</Command>
+      <Command>powershell.exe -Executionpolicy Bypass -File "$(ProjectDir)config.ps1" -Config_h_vs "$(ProjectDir)config.h.vs" -Config_h "$(OpenSSH-Src-Path)config.h" -VCIncludePath "$(VC_IncludePath)" -OutCRTHeader "$(OpenSSH-Src-Path)contrib\win32\win32compat\inc\crtheaders.h"
+powershell.exe -Executionpolicy Bypass -File "$(ProjectDir)GetFIDO2.ps1
+powershell.exe -Executionpolicy Bypass -File "$(ProjectDir)GetLibreSSL.ps1
+powershell.exe -Executionpolicy Bypass -File "$(ProjectDir)GetZlib.ps1"</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Generate crtheaders.h and config.h; fetch libressl sdk</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)install-ssh*ps1" "$(OutDir)"
-copy /Y "$(SolutionDir)uninstall-ssh*ps1" "$(OutDir)"
-copy /Y "$(SolutionDir)OpenSSHUtils.ps*1" "$(OutDir)"
-copy /Y "$(SolutionDir)Fix*FilePermissions.ps1" "$(OutDir)"
-copy /Y "$(SolutionDir)sshd_config" "$(OutDir)sshd_config_default"
+      <Command>copy /Y "$(ProjectDir)install-ssh*ps1" "$(OutDir)"
+copy /Y "$(ProjectDir)uninstall-ssh*ps1" "$(OutDir)"
+copy /Y "$(ProjectDir)OpenSSHUtils.ps*1" "$(OutDir)"
+copy /Y "$(ProjectDir)Fix*FilePermissions.ps1" "$(OutDir)"
+copy /Y "$(ProjectDir)sshd_config" "$(OutDir)sshd_config_default"
 copy /Y "$(OpenSSH-Src-Path)moduli" "$(OutDir)moduli"
 copy /Y "$(OpenSSH-Src-Path)LICENCE" "$(OutDir)LICENSE.txt"
-copy /Y "$(SolutionDir)openssh-events.man" "$(OutDir)"</Command>
+copy /Y "$(ProjectDir)openssh-events.man" "$(OutDir)"</Command>
       <Message>Copy install-sshd.ps1, uninstall-sshd.ps1, OpenSSHUtils.psm1, OpenSSHUtils.psd1, FixHostFilePermissions.ps1, FixUserFilePermissions.ps1,  ssh-add-hostkey.ps1, sshd_config (as sshd_config_default), openssh-events.man, moduli to build directory</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
