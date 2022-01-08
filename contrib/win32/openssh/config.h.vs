@@ -1729,3 +1729,5 @@
 #define HAVE_DECL_MEMMEM 0
 #define WITH_ZLIB
 #define _PATH_TTY "conin$"
+
+#define HAVE_STRNLEN 1
