@@ -254,6 +254,7 @@ add_library(
 add_dependencies(openssh libopenssh_configure)
 
 target_link_libraries(openssh crypto dl util z crypt resolv)
+target_include_directories(openssh PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ../.. ../../openbsd-compat)
 
 # SSH
 set(SSH_C_SOURCES
